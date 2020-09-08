@@ -1,3 +1,35 @@
 body {
-  border: 1px red;
+  height: 640px;
+  position: relative;
+  width: 360px;
+}
+#email {
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  height: 58px;
+  left: 31px;
+  position: absolute;
+  top: 155px;
+  width: 293px;
+}
+
+#password {
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  height: 58px;
+  left: 30px;
+  position: absolute;
+  top: 243px;
+  width: 293px;
+}
+
+button {
+  position: absolute;
+  background: #6ce34f;
+  height: 76px;
+  left: 11px;
+  top: 389px;
+  width: 339px;
 }
