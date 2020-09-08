@@ -1,8 +1,10 @@
 import React from 'react';
-import './App.css';
-import Copo from './components/Copo';
+import Login from './pages/Login';
 
-const App = () => {
-  return <Copo />;
-};
+const App = () => (
+  <div id="meals">
+    <Login />
+  </div>
+);
+
 export default App;

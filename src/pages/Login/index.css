@@ -1,0 +1,36 @@
+body {
+  height: 640px;
+  position: relative;
+  width: 360px;
+}
+
+.email {
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 58px;
+  left: 31px;
+  position: absolute;
+  top: 155px;
+  width: 293px;
+}
+
+.password {
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 58px;
+  left: 30px;
+  position: absolute;
+  top: 243px;
+  width: 293px;
+}
+
+button {
+  background: #6ce34f;
+  height: 76px;
+  left: 11px;
+  position: absolute;
+  top: 389px;
+  width: 339px;
+}
