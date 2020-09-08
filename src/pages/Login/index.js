@@ -5,8 +5,8 @@ const Login = () => (
   <div>
     <h1>Login</h1>
     <form>
-      <input className='email' type='text' name='email' placeholder='Email' />
-      <input className='password' type='text' name='password' placeholder='Senha' />
+      <input className="email" type="type" name="email" placeholder="Email" />
+      <input className="password" type="password" name="password" placeholder="Senha" />
       <button
         className='login-btn'
         onClick={() => console.log('Supimpa baby')}

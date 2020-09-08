@@ -27,10 +27,10 @@ body {
 }
 
 button {
-  position: absolute;
   background: #6ce34f;
   height: 76px;
   left: 11px;
+  position: absolute;
   top: 389px;
   width: 339px;
 }
