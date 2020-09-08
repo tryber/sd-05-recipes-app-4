@@ -3,9 +3,10 @@ body {
   position: relative;
   width: 360px;
 }
-#email {
-  background: #ffffff;
-  border: 1px solid #000000;
+
+.email {
+  background: white;
+  border: 1px solid black;
   box-sizing: border-box;
   height: 58px;
   left: 31px;
@@ -14,9 +15,9 @@ body {
   width: 293px;
 }
 
-#password {
-  background: #ffffff;
-  border: 1px solid #000000;
+.password {
+  background: white;
+  border: 1px solid black;
   box-sizing: border-box;
   height: 58px;
   left: 30px;
