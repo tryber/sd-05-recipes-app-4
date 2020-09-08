@@ -4,7 +4,7 @@ import './index.css';
 // import AppContext from '../../context/AppContext';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [Email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [clickOk, setClickOk] = useState(false);
 
@@ -14,7 +14,7 @@ const Login = () => {
 
   const clickSubmit = () => {
     // setUser(email)
-    localStorage.setItem('user', { 'email': email });
+    localStorage.setItem('user', { email: Email });
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('cocktailsToken', 1);
     setClickOk(true);
@@ -45,7 +45,7 @@ const Login = () => {
           type="button"
           data-testid="login-submit-btn"
           className="login-btn"
-          disabled={!(email.match(emailregex) && senha.length >= 6)}
+          disabled={!(Email.match(emailregex) && senha.length >= 6)}
           onClick={() => clickSubmit()}
           value="Entrar"
         >
@@ -53,7 +53,7 @@ const Login = () => {
         </button>
       </form>
     </div>
-);
+  );
 };
 
 export default Login;
