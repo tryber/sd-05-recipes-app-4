@@ -6,12 +6,12 @@ body {
 
 .login {
   align-items: flex-end;
-  color: #000000;
+  color: black;
   display: flex;
-  font-family: Roboto;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 39px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   height: 46px;
   left: 128px;
   line-height: 46px;
