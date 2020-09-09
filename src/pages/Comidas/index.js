@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import AppContext from '../../context/AppContext';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import './index.css';
 
 const Comidas = () => {
   const { dataFood } = useContext(AppContext);
@@ -18,13 +19,18 @@ const Comidas = () => {
     <div>
       <Header>Comidas</Header>
       {foodArray.map((food, index) => (
-        <div data-testid={`${index}-recipe-card`}>
-          <img
-            data-testid={`${index}-card-img`}
-            src={food.strMealThumb}
-            alt="thumbnail da comida"
-          />
-          <p data-testid={`${index}-card-name`}>{food.strMeal}</p>
+        <div className="container" data-testid={`${index}-recipe-card`}>
+          <div className="img-container">
+            <Link to={`/comidas/${food.idMeal}`}>
+              <img
+                className="img-cards"
+                data-testid={`${index}-card-img`}
+                src={food.strMealThumb}
+                alt="thumbnail da comida"
+              />
+            </Link>
+            <p data-testid={`${index}-card-name`}>{food.strMeal}</p>
+          </div>
         </div>
       ))}
       <Footer />

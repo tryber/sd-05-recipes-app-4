@@ -1,3 +1,11 @@
-body {
-  border: 1px red;
+.container {
+  display: flex;
+}
+
+.img-cards {
+  border-radius: 6px 6px 0px 0px;
+  display: flex;
+  height: 109px;
+  margin: 5px;
+  width: 161px;
 }
