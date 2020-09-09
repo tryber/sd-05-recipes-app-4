@@ -8,25 +8,31 @@ import {
   Perfil,
   ReceitasFav,
   ReceitasFeitas,
+  ExplorarComidas,
+  ExplorarIngredientes,
+  ExplorarBebidas,
+  ExplorarOrigem,
+  DetalhesComida,
+  DetalhesBebida,
 } from './pages/';
 
 const Rotas = () => (
   <Switch>
     <Route exact path="/" component={Login} />
+    <Route path="/comidas/:id/progress" component={DetalhesComida} />
+    <Route path="/comidas/:id" component={DetalhesComida} />
     <Route path="/comidas" component={Comidas} />
-    <Route path="/comidas/{id-da-receita}" component={Comidas} />
-    <Route path="/comidas/{id-da-receita}/progress" component={Comidas} />
 
+    <Route path="/bebidas/:id/progress" component={DetalhesBebida} />
+    <Route path="/bebidas/:id" component={DetalhesBebida} />
     <Route path="/bebidas" component={Bebidas} />
-    <Route path="/bebidas/{id-da-receita}" component={Bebidas} />
-    <Route path="/bebidas/{id-da-receita}/progress" component={Bebidas} />
 
+    <Route path="/explorar/comidas/ingredientes" component={ExplorarIngredientes} />
+    <Route path="/explorar/bebidas/ingredientes" component={ExplorarIngredientes} />
+    <Route path="/explorar/comidas/area" component={ExplorarOrigem} />
+    <Route path="/explorar/comidas" component={ExplorarComidas} />
+    <Route path="/explorar/bebidas" component={ExplorarBebidas} />
     <Route path="/explorar" component={Explorar} />
-    <Route path="/explorar/comidas" component={Comidas} />
-    <Route path="/explorar/bebidas" component={Bebidas} />
-    <Route path="/explorar/comidas/ingredientes" component={Bebidas} />
-    <Route path="/explorar/bebidas/ingredientes" component={Bebidas} />
-    <Route path="/explorar/comidas/area" component={Bebidas} />
 
     <Route path="/perfil" component={Perfil} />
 

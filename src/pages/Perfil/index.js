@@ -1,8 +1,9 @@
 import React from 'react';
+import Header from '../../components/Header';
 
 const Perfil = () => (
   <div>
-    <h1>Perfil</h1>
+    <Header hideSearch>Perfil</Header>
   </div>
 );
 

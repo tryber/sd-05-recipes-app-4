@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 
 const Explorar = () => (
   <div>
-    <Header>Explorar</Header>
+    <Header hideSearch>Explorar</Header>
     <Footer />
   </div>
 );
