@@ -1,8 +1,12 @@
 import React from 'react';
 
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
 const Comidas = () => (
   <div>
-    <h1>Comidas</h1>
+  <Header>Comidas</Header>
+  <Footer />
   </div>
 );
 

@@ -42,7 +42,7 @@ body {
   width: 293px;
 }
 
-button {
+.login-btn {
   background: #6ce34f;
   height: 76px;
   left: 11px;

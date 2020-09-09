@@ -7,7 +7,25 @@ export const getMealsByName = (name) => {
   );
 };
 
-// getMealsByName('Lemon').then((data) => data)
+// getMealsByName('Lemon').then((data) => setDataFood(data))
+
+export const getMealsByIngredients = (ingredient) => {
+  const URL = `${MEAL_API}filter.php?i=${ingredient}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
+// getMealsByIngredients('Lemon').then((data) => setDataFood(data))
+
+export const getMealsByLetter = (letter) => {
+  const URL = `${MEAL_API}search.php?f=${letter}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
+// getMealsByLetter('l').then((data) => setDataFood(data))
 
 export const getMealsCategories = () => {
   const URL = `${MEAL_API}list.php?c=list`;

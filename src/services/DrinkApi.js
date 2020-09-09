@@ -7,7 +7,25 @@ export const getDrinksByName = (name) => {
   );
 };
 
-// getDrinksByName('Lemon').then((data) => data)
+// getDrinksByName('Lemon').then((data) => setDataDrink(data))
+
+export const getDrinksByIngredients = (ingredient) => {
+  const URL = `${DRINK_API}filter.php?i=${ingredient}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
+// getDrinksByIngredients('Lemon').then((data) => setDataDrink(data))
+
+export const getDrinksByLetter = (letter) => {
+  const URL = `${DRINK_API}search.php?f=${letter}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
+// getDrinksByLetter('l').then((data) => setDataDrink(data))
 
 export const getDrinksCategories = () => {
   const URL = `${DRINK_API}list.php?c=list`;
