@@ -70,14 +70,13 @@ const Comidas = () => {
       getMealsByCategory(foodCategory).then((data) => setDataFood(data.meals.slice(0, 12)));
     }
   }, [foodCategory, setDataFood]);
-  if (dataFood.length === 0) getMeals().then((data) => setDataFood(data.meals.slice(0, 12)));
   let foodArray = dataFood;
   if (!Array.isArray(dataFood)) {
     foodArray = [];
     alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   } else if (!foodCategory && dataFood.length === 1) {
     return <Redirect to={`/comidas/${dataFood[0].idMeal}`} />;
-  }
+  } else if (dataFood.length === 0) getMeals().then((data) => setDataFood(data.meals.slice(0, 12)));
   if (foodArray.length > 12) foodArray = foodArray.slice(0, 12);
   return (
     <div className="recipes-container">
