@@ -3,7 +3,7 @@ body {
 }
 
 .txt {
-  color: #000000;
+  color: b  lack;
   font-size: 30px;
   line-height: 35px;
   text-align: center;
@@ -29,6 +29,6 @@ body {
   line-height: 29px;
   margin-top: 2%;
   padding: 2%;
-  text-decoration: none;  
+  text-decoration: none;
   width: 330px;
 }
