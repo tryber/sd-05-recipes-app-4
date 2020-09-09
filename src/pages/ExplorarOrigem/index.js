@@ -3,11 +3,11 @@ import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-const ExplorarBebidas = () => (
+const ExplorarOrigem = () => (
   <div>
-    <Header hideSearch>Explorar Bebidas</Header>
+    <Header>Explorar Origem</Header>
     <Footer />
   </div>
 );
 
-export default ExplorarBebidas;
+export default ExplorarOrigem;

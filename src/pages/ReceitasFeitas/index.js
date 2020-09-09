@@ -1,8 +1,9 @@
 import React from 'react';
+import Header from '../../components/Header';
 
 const ReceitasFeitas = () => (
   <div>
-    <h1>ReceitasFeitas</h1>
+    <Header hideSearch>Receitas Feitas</Header>
   </div>
 );
 

@@ -1,20 +1,15 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import Provider from './context/AppProvider';
 
-import Login from './pages/Login';
-import Perfil from './pages/Perfil';
+import Rotas from './routes';
 
 const App = () => (
   <div id="meals">
     <Provider>
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/perfil" component={Perfil} />
-        </Switch>
+        <Rotas />
       </BrowserRouter>
     </Provider>
   </div>
