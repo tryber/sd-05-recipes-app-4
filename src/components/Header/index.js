@@ -30,7 +30,7 @@ const Header = ({ children, hideSearch }) => {
           />
         )}
       </div>
-      <div className="header-bottom">{display && <SearchBar />}</div>
+      <div className="header-bottom">{display && <SearchBar recipeType={children} />}</div>
     </Fragment>
   );
 };
