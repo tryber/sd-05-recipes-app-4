@@ -73,12 +73,14 @@ const Bebidas = () => {
     }
   }, [drinkCategory, setDataDrink]);
 
-  if (dataDrink.length === 0) getDrinks().then((data) => setDataDrink(data.drinks.slice(0, 12)));
   let drinkArray = dataDrink;
   if (!Array.isArray(dataDrink)) {
     drinkArray = [];
     alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   } else if (dataDrink.length === 1) return <Redirect to={`/bebidas/${dataDrink[0].idDrink}`} />;
+  else if (dataDrink.length === 0) {
+    getDrinks().then((data) => setDataDrink(data.drinks.slice(0, 12)));
+  }
   if (drinkArray.length > 12) drinkArray = drinkArray.slice(0, 12);
   return (
     <div className="recipes-container">
