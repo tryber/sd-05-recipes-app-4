@@ -17,23 +17,23 @@ const Perfil = () => {
   };
 
   return (
-  <div>
-    {clickOk && <Redirect to="/" />}
-    <Header hideSearch>Perfil</Header>
-    <p data-testid="profile-email" className="txt">{userEmail}</p>
-    <div className="btns">
-      <Link className="botao" to="/receitas-feitas" data-testid="profile-done-btn" >
-        Receitas Feitas
-      </Link>
-      <Link className="botao" to="/receitas-favoritas" data-testid="profile-favorite-btn" >
-        Receitas Favoritas
-      </Link>
-      <Link className="botao" to="/" data-testid="profile-logout-btn" onClick={() => clickFunc()}>
-        Sair
-      </Link>
+    <div>
+      {clickOk && <Redirect to="/" />}
+      <Header hideSearch>Perfil</Header>
+      <p data-testid="profile-email" className="txt">{userEmail}</p>
+      <div className="btns">
+        <Link className="botao" to="/receitas-feitas" data-testid="profile-done-btn" >
+          Receitas Feitas
+        </Link>
+        <Link className="botao" to="/receitas-favoritas" data-testid="profile-favorite-btn" >
+          Receitas Favoritas
+        </Link>
+        <Link className="botao" to="/" data-testid="profile-logout-btn" onClick={() => clickFunc()}>
+          Sair
+        </Link>
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
   );
 };
 
