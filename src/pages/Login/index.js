@@ -14,7 +14,7 @@ const Login = () => {
 
   const clickSubmit = () => {
     // setUser(email)
-    localStorage.setItem('user', { email: Email });
+    localStorage.setItem('user', JSON.stringify({ email: Email }));
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('cocktailsToken', 1);
     setClickOk(true);
