@@ -26,8 +26,8 @@ export default Header;
 
 Header.propTypes = {
   meal: PropTypes.shape({
-    idMeal: PropTypes.number.isRequired,
-    strMealThumb: PropTypes.string.isRequired,
-    strMeal: PropTypes.string.isRequired,
+    idMeal: PropTypes.string,
+    strMealThumb: PropTypes.string,
+    strMeal: PropTypes.string,
   }).isRequired,
 };
