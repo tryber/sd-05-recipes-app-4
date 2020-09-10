@@ -36,7 +36,7 @@ const iceRight = () => (
 
 const Copo = () => (
   <div id="meals">
-    <span>LOADING...</span>
+    <span>Not Found</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       id="rocksGlass"

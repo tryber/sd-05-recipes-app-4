@@ -11,3 +11,4 @@ export { default as ExplorarIngredientes } from './ExplorarIngredientes';
 export { default as ExplorarOrigem } from './ExplorarOrigem';
 export { default as DetalhesComida } from './DetalhesComida';
 export { default as DetalhesBebida } from './DetalhesBebida';
+export { default as NotFound } from './NotFound';

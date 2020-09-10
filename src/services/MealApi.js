@@ -34,6 +34,13 @@ export const getMealsByLetter = (letter) => {
 
 // getMealsByLetter('l').then((data) => setDataFood(data))
 
+export const getMealsByArea = (area) => {
+  const URL = `${MEAL_API}filter.php?a=${area}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
 export const getMealsCategories = () => {
   const URL = `${MEAL_API}list.php?c=list`;
   return fetch(URL).then((response) =>
@@ -51,6 +58,13 @@ export const getMealsIngredients = () => {
 };
 
 // getMealsIngredients().then((data) => data)
+
+export const getMealsAreas = () => {
+  const URL = `${MEAL_API}list.php?a=list`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
 
 export const getRandomMeals = () => {
   const URL = `${MEAL_API}random.php`;

@@ -5,8 +5,10 @@ import Provider from './context/AppProvider';
 
 import Rotas from './routes';
 
+import './App.css';
+
 const App = () => (
-  <div id="meals">
+  <div>
     <Provider>
       <BrowserRouter>
         <Rotas />
