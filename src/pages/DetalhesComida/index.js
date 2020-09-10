@@ -4,7 +4,7 @@ import { getMealById } from '../../services/MealApi';
 
 import './index.css';
 import Header from './Header';
-import { Instruction } from './Instruction';
+import Instruction from './Instruction';
 import Recommend from './Recommend';
 
 export default function Detalhes(props) {
