@@ -10,7 +10,7 @@ import './index.css';
 
 export default function Detalhes(props) {
   const { id } = props.match.params;
-  const [meal, setMeal] = useState('');
+  const [meal, setMeal] = useState({});
   useEffect(() => {
     getMealById(id).then((data) => setMeal(data.meals[0]));
   }, [setMeal, id]);
@@ -26,5 +26,5 @@ export default function Detalhes(props) {
 }
 
 Detalhes.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.string }).isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

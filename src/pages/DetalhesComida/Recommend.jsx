@@ -34,8 +34,8 @@ export default Recommend;
 
 Recommend.propTypes = {
   meal: PropTypes.shape({
-    strMealThumb: PropTypes.string.isRequired,
-    strMeal: PropTypes.string.isRequired,
-    idMeal: PropTypes.number.isRequired,
+    strMealThumb: PropTypes.string,
+    strMeal: PropTypes.string,
+    idMeal: PropTypes.string,
   }).isRequired,
 };
