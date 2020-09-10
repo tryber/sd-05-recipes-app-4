@@ -1,36 +1,18 @@
 body {
   background: #ffffff;
   height: 829px;
-  position: relative;
   width: 360px;
+  padding: 0;
 }
 
 .container {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.instruction {
-  color: #000000;
-  font-family: Roboto;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: normal;
-  height: 30px;
-  left: 10px;
-  letter-spacing: 0.03em;
-  line-height: 30px;
-  position: absolute;
-  top: 407px;
-  width: 147px;
-}
-.instructions-p {
-  overflow: hidden;
-  max-width: 75ch;
-}
 .img-header {
   height: 155px;
   left: 0px;
-  position: absolute;
   top: 1px;
   width: 360px;
 }
@@ -43,7 +25,6 @@ body {
   height: 35px;
   left: 8px;
   line-height: 35px;
-  position: absolute;
   top: 165px;
   width: 126px;
 }
@@ -57,14 +38,12 @@ body {
   height: 25px;
   left: 9px;
   line-height: 25px;
-  position: absolute;
   top: 200px;
   width: 87px;
 }
 
-.ingredientes {
-  position: absolute;
-  color: #000000;
+.title-ingre {
+  display: flex;
   font-family: Roboto;
   font-size: 26px;
   font-style: normal;
@@ -77,41 +56,90 @@ body {
   width: 138px;
 }
 
-.ingredientes-container {
+.ingrediente-row {
   background: #ececec;
   border-radius: 4px;
   height: 118px;
   left: 10px;
-  position: absolute;
   top: 279px;
   width: 341px;
 }
 
-.recomendada {
-  position: absolute;
+.instruc-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instruc {
+  align-items: flex-end;
+  color: #000000;
+  display: flex;
+  font-family: Roboto;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: normal;
+  height: 30px;
+  left: 10px;
+  letter-spacing: 0.03em;
+  line-height: 30px;
+  top: 407px;
+  width: 147px;
+}
+
+.intruc-div {
+  background: #ececec;
+  border-radius: 4px;
+  height: 62px;
+  left: 11px;
+  top: 441px;
+  width: 341px;
+}
+
+.recomen-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recom-title {
+  color: #000000;
   font-family: Roboto;
   font-size: 26px;
   font-style: normal;
   font-weight: normal;
   height: 30px;
   left: 13px;
+  letter-spacing: 0.03em;
   line-height: 30px;
   top: 511px;
   width: 189px;
 }
-.img-recomendada {
-  position: absolute;
-  width: 162px;
+
+.recom-img {
   height: 172px;
   left: 13px;
   top: 546px;
+  width: 162px;
+  border: 2px black;
 }
 
 .start-receip {
-  position: absolute;
   width: 339px;
+  background: #6ce34f;
   height: 76px;
   left: 13px;
   top: 736px;
-  background: #6ce34f;
+}
+
+.btn-text {
+  width: 183px;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: normal;
+  height: 34px;
+  left: 82px;
+  line-height: 34px;
+  text-align: center;
+  top: 757px;
 }

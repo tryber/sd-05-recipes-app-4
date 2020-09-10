@@ -17,7 +17,7 @@ export default function Detalhes(props) {
           src={meal[0].strMealThumb}
           alt="thumbnail da comida"
         />
-        <div className="">
+        <div className="title-container">
           <h1 className="title" data-testid={meal[0].strMeal}>
             {meal[0].strMeal}
           </h1>
@@ -25,30 +25,31 @@ export default function Detalhes(props) {
             {meal[0].strArea}
           </p>
         </div>
-        <div className="fav-container"></div>
       </div>
-      <div className="ingredientes-container">
-        <h2 className="ingredientes">Ingredients</h2>
 
-        <span>{meal[0].strIngredient1}</span>
-        <br />
-        <span>{meal[0].strIngredient2}</span>
-        <br />
-        <span>{meal[0].strIngredient3}</span>
-        <br />
-        <span>{meal[0].strIngredient4}</span>
-        <br />
-      </div>
-      <div>
-        <h2 className="intructions">Intructions</h2>
-        <div>
-          <p className="intructions-p">Intructions</p>
+      <div className="ingredientes-container">
+        <p className="title-ingre">Ingredients</p>
+        <div className="ingrediente-row">
+          <span>{meal[0].strIngredient1}</span>
           <br />
+          <span>{meal[0].strIngredient2}</span>
+          <br />
+          <span>{meal[0].strIngredient3}</span>
+          <br />
+          <span>{meal[0].strIngredient4}</span>
         </div>
       </div>
-      <div>
-        <h2 className="recomendada">Recomendadas</h2>
-        <div className="img-recomendada">
+
+      <div className="instruc-container">
+        <p className="instruc">Intructions</p>
+        <div className="intruc-div">
+          <p>Intructions</p>
+        </div>
+      </div>
+
+      <div className="recom-container">
+        <h2 className="recome-title">Recomendadas</h2>
+        <div className="recom-img">
           <Link to={`/comidas/${meal[0].idMeal}`}>
             <img
               className="img-cards"
@@ -59,8 +60,6 @@ export default function Detalhes(props) {
           </Link>
           <p data-testid="Aweays">{meal[0].strMeal}</p>
         </div>
-      </div>
-      <div>
         <button
           type="button"
           data-testid="login-submit-btn"
@@ -68,7 +67,7 @@ export default function Detalhes(props) {
           onClick={() => alert('Sumpimpa!')}
           value="Entrar"
         >
-          Entrar
+          <span className="btn-text">Entrar</span>
         </button>
       </div>
     </div>
