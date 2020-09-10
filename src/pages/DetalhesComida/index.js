@@ -1,42 +1,37 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AppContext from '../../context/AppContext';
+import PropTypes from 'prop-types';
+
+import { getMealById } from '../../services/MealApi';
+
+// import AppContext from '../../context/AppContext';
+
 import './index.css';
 
 export default function Detalhes(props) {
-  const { dataFood } = useContext(AppContext);
   const { id } = props.match.params;
-  const meal = dataFood.filter((food) => food.idMeal === id);
+  const [meal, setMeal] = useState([]);
+  useEffect(() => {
+    getMealById(id).then((data) => setMeal(data));
+  }, [setMeal, id]);
+
   console.log(meal);
   return (
     <div className="container">
       <div className="header-container">
-        <img
+        {/* <img
           className="img-header"
           data-testid=""
-          src={meal[0].strMealThumb}
+          src={meal.strMealThumb}
           alt="thumbnail da comida"
-        />
+        /> */}
         <div className="title-container">
-          <h1 className="title" data-testid={meal[0].strMeal}>
-            {meal[0].strMeal}
+          <h1 className="title" data-testid={meal.strMeal}>
+            {meal.strMeal}
           </h1>
-          <p className="title-type" data-testid={meal[0].strMeal}>
-            {meal[0].strArea}
+          <p className="title-type" data-testid={meal.strMeal}>
+            {meal.strArea}
           </p>
-        </div>
-      </div>
-
-      <div className="ingredientes-container">
-        <p className="title-ingre">Ingredients</p>
-        <div className="ingrediente-row">
-          <span>{meal[0].strIngredient1}</span>
-          <br />
-          <span>{meal[0].strIngredient2}</span>
-          <br />
-          <span>{meal[0].strIngredient3}</span>
-          <br />
-          <span>{meal[0].strIngredient4}</span>
         </div>
       </div>
 
@@ -50,15 +45,15 @@ export default function Detalhes(props) {
       <div className="recom-container">
         <h2 className="recome-title">Recomendadas</h2>
         <div className="recom-img">
-          <Link to={`/comidas/${meal[0].idMeal}`}>
+          <Link to={`/comidas/${meal.idMeal}`}>
             <img
               className="thumbnail"
               data-testid="EAways"
-              src={meal[0].strMealThumb}
+              src={meal.strMealThumb}
               alt="thumbnail da comida"
             />
           </Link>
-          <p data-testid="Aweays">{meal[0].strMeal}</p>
+          <p data-testid="Aweays">{meal.strMeal}</p>
         </div>
         <button
           type="button"
@@ -73,3 +68,7 @@ export default function Detalhes(props) {
     </div>
   );
 }
+
+Detalhes.propTypes = {
+  match: PropTypes.shape({ params: PropTypes.string }).isRequired,
+};

@@ -7,7 +7,6 @@ import { getMeals, getMealsCategories, getMealsByCategory } from '../../services
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import './index.css';
 
 import './index.css';
 
