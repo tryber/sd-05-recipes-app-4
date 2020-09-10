@@ -1,5 +1,12 @@
 const MEAL_API = 'https://www.themealdb.com/api/json/v1/1/';
 
+export const getMeals = () => {
+  const URL = `${MEAL_API}search.php?s=`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
 export const getMealsByName = (name) => {
   const URL = `${MEAL_API}search.php?s=${name}`;
   return fetch(URL).then((response) =>
@@ -53,3 +60,17 @@ export const getRandomMeals = () => {
 };
 
 // getRandomMeals().then((data) => data)
+
+export const getMealById = (id) => {
+  const URL = `${MEAL_API}lookup.php?i=${id}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
+
+export const getMealsByCategory = (category) => {
+  const URL = `${MEAL_API}filter.php?c=${category}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};

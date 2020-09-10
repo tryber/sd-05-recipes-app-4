@@ -45,7 +45,7 @@ const Login = () => {
           type="button"
           data-testid="login-submit-btn"
           className="login-btn"
-          disabled={!(Email.match(emailregex) && senha.length >= 6)}
+          disabled={!(Email.match(emailregex) && senha.length > 6)}
           onClick={() => clickSubmit()}
           value="Entrar"
         >

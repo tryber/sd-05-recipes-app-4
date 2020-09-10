@@ -18,7 +18,7 @@ const Header = ({ children, hideSearch }) => {
           <img data-testid="profile-top-btn" src={profileIcon} alt="profile icon" />
         </Link>
         <h2 data-testid="page-title">{children}</h2>
-        {hideSearch ? null : (
+        {hideSearch ? <div className="search-icon-hidden" /> : (
           <input
             data-testid="search-top-btn"
             src={searchIcon}
