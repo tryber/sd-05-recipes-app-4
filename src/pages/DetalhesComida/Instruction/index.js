@@ -1,15 +1,18 @@
 import React, { Fragment } from 'react';
 import './index.css';
 
-const Instruction = () => (
-  <Fragment>
-    <div className="instruc-container">
-      <p className="instruc">Intructions</p>
-      <div className="intruc-div">
-        <p>Intructions</p>
+function Instruction(props) {
+  const { meal } = props;
+  return (
+    <Fragment>
+      <div className="instruc-container">
+        <p className="instruc">Intructions</p>
+        <div className="intruc-div">
+          <p>{meal.strInstructions}</p>
+        </div>
       </div>
-    </div>
-  </Fragment>
-);
+    </Fragment>
+  );
+}
 
 export default Instruction;

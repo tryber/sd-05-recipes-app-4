@@ -19,8 +19,8 @@ export default function Detalhes(props) {
   return (
     <div className="container">
       <Header meal={meal} />
-      <Ingredients />
-      <Instruction />
+      <Ingredients meal={meal} />
+      <Instruction meal={meal}/>
       <Recommend meal={meal} />
     </div>
   );
