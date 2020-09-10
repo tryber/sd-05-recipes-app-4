@@ -1,24 +1,33 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-export const Header = (props) => {
-  return (
-    <Fragment>
-      <div className="header-container">
-        <img
-          className="img-header"
-          data-testid=""
-          src={props.meal.strMealThumb}
-          alt="thumbnail da comida"
-        />
-        <div className="title-container">
-          <h1 className="title" data-testid={props.meal.strMeal}>
-            {props.meal.strMeal}
-          </h1>
-          <p className="title-type" data-testid={props.meal.strMeal}>
-            {props.meal.strArea}
-          </p>
-        </div>
+const Header = ({ meal }) => (
+  <Fragment>
+    <div className="header-container">
+      <img
+        className="img-header"
+        data-testid=""
+        src={meal.strMealThumb}
+        alt="thumbnail da comida"
+      />
+      <div className="title-container">
+        <h1 className="title" data-testid={meal.strMeal}>
+          {meal.strMeal}
+        </h1>
+        <p className="title-type" data-testid={meal.strMeal}>
+          {meal.strArea}
+        </p>
       </div>
-    </Fragment>
-  );
+    </div>
+  </Fragment>
+);
+
+export default Header;
+
+Header.propTypes = {
+  meal: PropTypes.shape({
+    idMeal: PropTypes.number.isRequired,
+    strMealThumb: PropTypes.string.isRequired,
+    strMeal: PropTypes.string.isRequired,
+  }).isRequired,
 };
