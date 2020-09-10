@@ -53,3 +53,10 @@ export const getRandomMeals = () => {
 };
 
 // getRandomMeals().then((data) => data)
+
+export const getMealById = (id) => {
+  const URL = `${MEAL_API}lookup.php?i=${id}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};

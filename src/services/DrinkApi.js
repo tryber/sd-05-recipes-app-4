@@ -53,3 +53,10 @@ export const getRandomDrinks = () => {
 };
 
 // getRandomDrinks().then((data) => data)
+
+export const getDrinkById = (id) => {
+  const URL = `${DRINK_API}lookup.php?i=${id}`;
+  return fetch(URL).then((response) =>
+    response.json().then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json))),
+  );
+};
