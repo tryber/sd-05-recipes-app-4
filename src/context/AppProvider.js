@@ -5,8 +5,11 @@ import AppContext from './AppContext';
 
 function Provider({ children }) {
   const [dataFood, setDataFood] = useState([]);
+  const [foodCategory, setFoodCategory] = useState(false);
+  const [drinkCategory, setDrinkCategory] = useState(false);
+  const [dataFoodCategories, setDataFoodCategories] = useState([]);
+  const [dataDrinkCategories, setDataDrinkCategories] = useState([]);
   const [dataDrink, setDataDrink] = useState([]);
-  const [dataCategory, setDataCategory] = useState([]);
   const [recipeType, setRecipeType] = useState('Food');
 
   const contextValue = {
@@ -14,12 +17,17 @@ function Provider({ children }) {
     setDataFood,
     dataDrink,
     setDataDrink,
-    dataCategory,
-    setDataCategory,
+    foodCategory,
+    setFoodCategory,
+    drinkCategory,
+    setDrinkCategory,
+    dataDrinkCategories,
+    setDataDrinkCategories,
+    dataFoodCategories,
+    setDataFoodCategories,
     recipeType,
     setRecipeType,
   };
-
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 }
 
