@@ -1,8 +1,8 @@
 body {
-  background: #ffffff;
+  background: white;
   height: 829px;
-  width: 360px;
   padding: 0;
+  width: 360px;
 }
 
 .container {
@@ -12,16 +12,15 @@ body {
 
 .img-header {
   height: 155px;
-  left: 0px;
+  left: 0;
   top: 1px;
   width: 360px;
 }
 
 .title {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 30px;
   font-style: normal;
-  font-weight: normal;
   height: 35px;
   left: 8px;
   line-height: 35px;
@@ -30,11 +29,10 @@ body {
 }
 
 .title-type {
-  color: #a9a9a9;
-  font-family: Roboto;
+  color: darkgray;
+  font-family: Roboto, sans-serif;
   font-size: 21px;
   font-style: normal;
-  font-weight: normal;
   height: 25px;
   left: 9px;
   line-height: 25px;
@@ -44,10 +42,9 @@ body {
 
 .title-ingre {
   display: flex;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 26px;
   font-style: normal;
-  font-weight: normal;
   height: 30px;
   left: 10px;
   letter-spacing: 0.03em;
@@ -72,12 +69,11 @@ body {
 
 .instruc {
   align-items: flex-end;
-  color: #000000;
+  color: black;
   display: flex;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 26px;
   font-style: normal;
-  font-weight: normal;
   height: 30px;
   left: 10px;
   letter-spacing: 0.03em;
@@ -101,11 +97,10 @@ body {
 }
 
 .recom-title {
-  color: #000000;
-  font-family: Roboto;
+  color: black;
+  font-family: Roboto, sans-serif;
   font-size: 26px;
   font-style: normal;
-  font-weight: normal;
   height: 30px;
   left: 13px;
   letter-spacing: 0.03em;
@@ -119,7 +114,7 @@ body {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   height: 172px;
   margin: 5px 0;
-  text-align: center;
+   text-align: center;
   width: 161px;
 }
 
@@ -130,23 +125,22 @@ body {
 }
 
 .start-receip {
-  width: 339px;
   background: #6ce34f;
   height: 76px;
   left: 13px;
   top: 736px;
+  width: 339px;
 }
 
 .btn-text {
-  width: 183px;
-  color: #000000;
-  font-family: Roboto;
+  color: black;
+  font-family: Roboto, sans-serif;
   font-size: 29px;
   font-style: normal;
-  font-weight: normal;
   height: 34px;
   left: 82px;
   line-height: 34px;
   text-align: center;
   top: 757px;
+  width: 183px;
 }
