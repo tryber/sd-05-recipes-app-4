@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getMealById } from '../../services/MealApi';
 
-import './index.css';
 import Header from './Header';
 import Instruction from './Instruction';
 import Recommend from './Recommend';
+
+import './index.css';
 
 export default function Detalhes(props) {
   const { id } = props.match.params;
