@@ -6,6 +6,10 @@
   width: 360px;
 }
 
+.search-icon-hidden {
+  width: 20px;
+}
+
 .header-bottom {
   align-items: center;
   background: white;
