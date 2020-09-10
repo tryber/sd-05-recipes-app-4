@@ -52,7 +52,7 @@ export default function Detalhes(props) {
         <div className="recom-img">
           <Link to={`/comidas/${meal[0].idMeal}`}>
             <img
-              className="img-cards"
+              className="thumbnail"
               data-testid="EAways"
               src={meal[0].strMealThumb}
               alt="thumbnail da comida"
