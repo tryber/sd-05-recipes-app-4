@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { getMealById } from '../../services/MealApi';
 
 import './index.css';
-import { Header } from './Header';
-import { Instruction } from './Instruction';
-import { Recommend } from './Recommend';
+import Header from './Header';
+import Instruction from './Instruction';
+import Recommend from './Recommend';
 
 export default function Detalhes(props) {
   const { id } = props.match.params;

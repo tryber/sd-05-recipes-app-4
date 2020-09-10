@@ -24,6 +24,8 @@ function Header (props) {
   );
 };
 
+export default Header;
+
 Header.propTypes = {
   meal: PropTypes.shape({
     strMeal: PropTypes.string,
