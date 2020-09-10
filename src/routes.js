@@ -14,6 +14,7 @@ import {
   ExplorarOrigem,
   DetalhesComida,
   DetalhesBebida,
+  NotFound,
 } from './pages/';
 
 const Rotas = () => (
@@ -31,6 +32,7 @@ const Rotas = () => (
     <Route path="/explorar/bebidas/ingredientes" component={ExplorarIngredientes} />
     <Route path="/explorar/comidas/area" component={ExplorarOrigem} />
     <Route path="/explorar/comidas" component={ExplorarComidas} />
+    <Route path="/explorar/bebidas/area" component={NotFound} />
     <Route path="/explorar/bebidas" component={ExplorarBebidas} />
     <Route path="/explorar" component={Explorar} />
 
@@ -38,6 +40,8 @@ const Rotas = () => (
 
     <Route path="/receitas-feitas" component={ReceitasFeitas} />
     <Route path="/receitas-favoritas" component={ReceitasFav} />
+
+    <Route component={NotFound} />
   </Switch>
 );
 
