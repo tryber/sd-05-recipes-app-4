@@ -1,21 +1,23 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const Recommend = (props) => {
+function Recommend (props) {
+  const { meal } = props;
   return (
     <Fragment>
       <div className="recom-container">
         <h2 className="recome-title">Recomendadas</h2>
         <div className="recom-img">
-          <Link to={`/comidas/${props.meal.idMeal}`}>
+          <Link to={`/comidas/${meal.idMeal}`}>
             <img
               className="thumbnail"
               data-testid="EAways"
-              src={props.meal.strMealThumb}
+              src={meal.strMealThumb}
               alt="thumbnail da comida"
             />
           </Link>
-          <p data-testid="Aweays">{props.meal.strMeal}</p>
+          <p data-testid="Aweays">{meal.strMeal}</p>
         </div>
         <button
           type="button"
@@ -29,4 +31,14 @@ export const Recommend = (props) => {
       </div>
     </Fragment>
   );
+};
+
+export default Recommend;
+
+Recommend.propTypes = {
+  meal: PropTypes.shape({
+    strMeal: PropTypes.string,
+    strMealThumb: PropTypes.string,
+    idMeal: PropTypes.string,
+}).isRequired,
 };

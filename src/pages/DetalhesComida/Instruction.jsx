@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-export const Instruction = () => {
+function Instruction () {
   return (
     <Fragment>
       <div className="header-container">
@@ -14,3 +14,5 @@ export const Instruction = () => {
     </Fragment>
   );
 };
+
+export default Instruction;
