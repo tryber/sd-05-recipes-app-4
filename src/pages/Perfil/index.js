@@ -11,7 +11,7 @@ const Perfil = () => {
 
   const [clickOk, setClickOk] = useState(false);
 
-  const clickFunc = () => {
+  const clickF = () => {
     localStorage.clear();
     setClickOk(true);
   };
@@ -20,7 +20,7 @@ const Perfil = () => {
     <div>
       <Header hideSearch>Perfil</Header>
       {clickOk && <Redirect to="/" />}
-      {userEmail && 
+      {userEmail &&
       <div>
         <p data-testid="profile-email" className="txt">{userEmail}</p>
         <div className="btns">
@@ -30,7 +30,7 @@ const Perfil = () => {
           <Link className="botao" to="/receitas-favoritas" data-testid="profile-favorite-btn" >
             Receitas Favoritas
           </Link>
-          <Link className="botao" to="/" data-testid="profile-logout-btn" onClick={() => clickFunc()}>
+          <Link className="botao" to="/" data-testid="profile-logout-btn" onClick={() => clickF()}>
             Sair
           </Link>
         </div>
