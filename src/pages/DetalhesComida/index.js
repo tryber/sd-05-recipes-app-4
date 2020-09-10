@@ -14,7 +14,6 @@ export default function Detalhes(props) {
     getMealById(id).then((data) => setMeal(data.meals[0]));
   }, [setMeal, id]);
 
-  console.log("meall", meal);
   return (
     <div className="container">
       <Header meal={meal} />

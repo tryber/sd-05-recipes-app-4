@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function Recommend (props) {
+function Recommend(props) {
   const { meal } = props;
   return (
     <Fragment>
@@ -31,14 +31,14 @@ function Recommend (props) {
       </div>
     </Fragment>
   );
-};
+}
 
 export default Recommend;
 
 Recommend.propTypes = {
   meal: PropTypes.shape({
-    strMeal: PropTypes.string,
-    strMealThumb: PropTypes.string,
-    idMeal: PropTypes.string,
+  strMeal: PropTypes.string,
+  strMealThumb: PropTypes.string,
+  idMeal: PropTypes.string,
 }).isRequired,
 };

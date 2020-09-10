@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-function Header (props) {
+function Header(props) {
   return (
     <Fragment>
       <div className="header-container">
@@ -22,14 +22,14 @@ function Header (props) {
       </div>
     </Fragment>
   );
-};
+}
 
 export default Header;
 
 Header.propTypes = {
   meal: PropTypes.shape({
-    strMeal: PropTypes.string,
-    strMealThumb: PropTypes.string,
-    strArea: PropTypes.string,
+  strMeal: PropTypes.string,
+  strMealThumb: PropTypes.string,
+  strArea: PropTypes.string,
 }).isRequired,
 };

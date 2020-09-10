@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-function Instruction () {
+function Instruction() {
   return (
     <Fragment>
       <div className="header-container">
