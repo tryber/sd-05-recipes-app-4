@@ -5,7 +5,7 @@ import { getMealById } from '../../services/MealApi';
 import Header from './Header';
 import Instruction from './Instruction';
 import Recommend from './Recommend';
-
+import Ingredients from './Ingredients';
 import './index.css';
 
 export default function Detalhes(props) {
@@ -15,11 +15,11 @@ export default function Detalhes(props) {
     getMealById(id).then((data) => setMeal(data.meals[0]));
   }, [setMeal, id]);
 
-  console.log('meal', meal);
   return (
     <div className="container">
       <Header meal={meal} />
-      <Instruction />
+      <Ingredients meal={meal} />
+      <Instruction meal={meal} />
       <Recommend meal={meal} />
     </div>
   );
