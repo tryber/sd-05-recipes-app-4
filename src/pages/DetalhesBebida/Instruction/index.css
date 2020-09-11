@@ -1,27 +1,30 @@
-.container-ingredients {
-  align-items: center;
+.instruc-container {
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
-  padding: 0;
 }
 
-.ingredients-title {
+.instruc {
+  align-items: flex-end;
   color: black;
   display: flex;
   font-family: Roboto, sans-serif;
   font-size: 26px;
+  font-style: normal;
   height: 30px;
+  left: 10px;
   letter-spacing: 0.03em;
   line-height: 30px;
-  padding: 0;
+  top: 407px;
   width: 147px;
 }
 
-.ingredients-box {
+.intruc-div {
   background: darkgray;
   border-radius: 4px;
-  height: auto;
-  padding: 0;
+  height: 62px;
+  left: 11px;
+  overflow: hidden;
+  top: 441px;
   width: 341px;
 }

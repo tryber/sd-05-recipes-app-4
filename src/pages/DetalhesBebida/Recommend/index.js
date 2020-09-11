@@ -4,22 +4,22 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 const Recommend = (props) => {
-  const { drink } = props;
-  if (drink.length > 0)
+  const { meal } = props;
+  if (meal.length > 0)
     return (
       <Fragment>
         <div className="recom-container">
           <h2 className="recome-title">Recomendadas</h2>
-          {drink.map((drunk) => (
+          {meal.map((food) => (
             <div className="recom-img">
-              <Link to={`/bebidas/${drunk.idDrink}`}>
+              <Link to={`/bebidas/${food.idMeal}`}>
                 <img
                   className="thumbnail"
                   data-testid="0-recomendation-card"
-                  src={drunk.strDrinkThumb}
+                  src={food.strMealThumb}
                   alt="thumbnail da comida"
                 />
-                <p data-testid="0-recomendation-card">{drunk.strDrink}</p>
+                <p data-testid="0-recomendation-card">{food.strMeal}</p>
               </Link>
             </div>
           ))}
@@ -41,9 +41,9 @@ const Recommend = (props) => {
 export default Recommend;
 
 Recommend.propTypes = {
-  meal: PropTypes.shape({
-    strMealThumb: PropTypes.string,
-    strMeal: PropTypes.string,
-    idMeal: PropTypes.string,
+  Drink: PropTypes.shape({
+    strDrinkThumb: PropTypes.string,
+    strDrink: PropTypes.string,
+    idDrink: PropTypes.string,
   }).isRequired,
 };

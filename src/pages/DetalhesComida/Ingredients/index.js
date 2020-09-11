@@ -6,24 +6,60 @@ function Ingredients(props) {
   const { meal } = props;
   return (
     <Fragment>
-      <div className="container-ingredients">
-        <p className="ingredients-title">Ingredients</p>
-        <div className="ingredients-box">
-          <p data-testid="0-ingredient-name-and-measure">
-            - {meal.strIngredient1} - {meal.strMeasure1}
-          </p>
-          <p data-testid="1-ingredient-name-and-measure">
-            - {meal.strIngredient2} - {meal.strMeasure2}
-          </p>
-          <p data-testid="2-ingredient-name-and-measure">
-            - {meal.strIngredient3} - {meal.strMeasure3}
-          </p>
-          <p data-testid="3-ingredient-name-and-measure">
-            - {meal.strIngredient4} - {meal.strMeasure4}
-          </p>
-        </div>
+    <div className="container-ingredients">
+      <p className="ingredients-title">Ingredients</p>
+      <div className="ingredients-box">
+        {meal.strIngredient1 &&
+          meal.strMeasure1 && (
+            <p data-testid="0-ingredient-name-and-measure">
+              - {meal.strIngredient1} - {meal.strMeasure1}
+            </p>
+          )}
+        {meal.strIngredient2 &&
+          meal.strMeasure2 && (
+            <p data-testid="1-ingredient-name-and-measure">
+              - {meal.strIngredient2} - {meal.strMeasure2}
+            </p>
+          )}
+        {meal.strIngredient3 &&
+          meal.strMeasure3 && (
+            <p data-testid="2-ingredient-name-and-measure">
+              - {meal.strIngredient3} - {meal.strMeasure3}
+            </p>
+          )}
+        {meal.strIngredient4 &&
+          meal.strMeasure4 && (
+            <p data-testid="3-ingredient-name-and-measure">
+              - {meal.strIngredient4} - {meal.strMeasure4}
+            </p>
+          )}
+        {meal.strIngredient5 &&
+          meal.strMeasure5 && (
+            <p data-testid="4-ingredient-name-and-measure">
+              - {meal.strIngredient5} - {meal.strMeasure5}
+            </p>
+          )}
+        {meal.strIngredient6 &&
+          meal.strMeasure6 && (
+            <p data-testid="5-ingredient-name-and-measure">
+              - {meal.strIngredient6} - {meal.strMeasure6}
+            </p>
+          )}
+        {meal.strIngredient7 &&
+          meal.strMeasure7 && (
+            <p data-testid="6-ingredient-name-and-measure">
+              - {meal.strIngredient7} - {meal.strMeasure7}
+            </p>
+          )}
+        {meal.strIngredient8 &&
+          meal.strMeasure8 && (
+            <p data-testid="7-ingredient-name-and-measure">
+              - {meal.strIngredient8} - {meal.strMeasure8}
+            </p>
+          )}
       </div>
-    </Fragment>
+    </div>
+  </Fragment>
   );
 }
 

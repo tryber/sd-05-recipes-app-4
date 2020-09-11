@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 function Instruction(props) {
-  const { meal } = props;
+  const { Drink } = props;
   return (
     <Fragment>
       <div className="instruc-container">
         <p className="instruc">Intructions</p>
         <div className="intruc-div">
-          <p data-testid="instructions">{meal.strInstructions}</p>
+          <p data-testid="instructions">{Drink.strInstructions}</p>
         </div>
         <div data-testid="video">
           <p className="instruc">Video</p>
@@ -19,7 +19,7 @@ function Instruction(props) {
             type="text/html"
             width="340"
             height="150"
-            src={meal.strYoutube}
+            src={Drink.strYoutube}
             frameborder="0"
           />
         </div>
@@ -31,9 +31,9 @@ function Instruction(props) {
 export default Instruction;
 
 Instruction.propTypes = {
-  meal: PropTypes.shape({
-    strMealThumb: PropTypes.string.isRequired,
-    strMeal: PropTypes.string.isRequired,
-    idMeal: PropTypes.number.isRequired,
+  Drink: PropTypes.shape({
+    strDrinkThumb: PropTypes.string.isRequired,
+    strDrink: PropTypes.string.isRequired,
+    idDrink: PropTypes.number.isRequired,
   }).isRequired,
 };

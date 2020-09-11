@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { getMeals } from '../../services/MealApi';
+import { getDrinkById } from '../../services/DrinkApi';
 
-const DetalhesBebida = () => (
-  <div>
-    oi
-  </div>
-);
+import Header from './Header';
+import Instruction from './Instruction';
+import Recommend from './Recommend';
+import Ingredients from './Ingredients';
+import './index.css';
 
-export default DetalhesBebida;
+export default function Detalhes(props) {
+  const { id } = props.match.params;
+  const [drink, setDrink] = useState({});
+  useEffect(() => {
+    getDrinkById(id).then((data) => setDrink(data.drinks[0]));
+  }, [setDrink, id]);
+
+  const [meal, setmeal] = useState({});
+  useEffect(() => {
+    getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
+  }, [setmeal]);
+
+  return (
+    <div className="container">
+      <Header Drink={drink} />
+      <Ingredients Drink={drink} />
+      <Instruction Drink={drink} />
+      <Recommend meal={meal} />
+    </div>
+  );
+}
+
+Detalhes.propTypes = {
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
+};
