@@ -9,7 +9,8 @@ import {
   ReceitasFav,
   ReceitasFeitas,
   ExplorarComidas,
-  ExplorarIngredientes,
+  ExplorarIngredientesDrinks,
+  ExplorarIngredientesMeals,
   ExplorarBebidas,
   ExplorarOrigem,
   DetalhesComida,
@@ -28,8 +29,8 @@ const Rotas = () => (
     <Route path="/bebidas/:id" component={DetalhesBebida} />
     <Route path="/bebidas" component={Bebidas} />
 
-    <Route path="/explorar/comidas/ingredientes" component={ExplorarIngredientes} />
-    <Route path="/explorar/bebidas/ingredientes" component={ExplorarIngredientes} />
+    <Route path="/explorar/comidas/ingredientes" component={ExplorarIngredientesMeals} />
+    <Route path="/explorar/bebidas/ingredientes" component={ExplorarIngredientesDrinks} />
     <Route path="/explorar/comidas/area" component={ExplorarOrigem} />
     <Route path="/explorar/comidas" component={ExplorarComidas} />
     <Route path="/explorar/bebidas/area" component={NotFound} />
