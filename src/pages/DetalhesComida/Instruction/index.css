@@ -1,6 +1,7 @@
 .instruc-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .instruc {
@@ -23,7 +24,7 @@
   border-radius: 4px;
   height: 62px;
   left: 11px;
+  overflow: hidden;
   top: 441px;
   width: 341px;
-  overflow: hidden;
 }

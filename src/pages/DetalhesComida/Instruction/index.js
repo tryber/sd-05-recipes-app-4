@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 function Instruction(props) {
@@ -16,3 +17,11 @@ function Instruction(props) {
 }
 
 export default Instruction;
+
+Instruction.propTypes = {
+  meal: PropTypes.shape({
+    strMealThumb: PropTypes.string.isRequired,
+    strMeal: PropTypes.string.isRequired,
+    idMeal: PropTypes.number.isRequired,
+  }).isRequired,
+};
