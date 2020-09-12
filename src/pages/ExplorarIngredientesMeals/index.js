@@ -12,13 +12,13 @@ import './index.css';
 const ExplorarIngredientesMeals = () => {
   const [ingArray, setIngArray] = useState([]);
   const [redirect, setRedirect] = useState(false);
-  const {setDataFood} = useContext(AppContext);
-  
+  const { setDataFood } = useContext(AppContext);
+
   const clickOn = (ingrediente) => {
-    getMealsByIngredients(ingrediente).then((data) => {setDataFood(data.meals); setRedirect(true)})
+    getMealsByIngredients(ingrediente).then((data) => { setDataFood(data.meals); setRedirect(true); });
   };
 
-  const listIngredients = (ingArray) =>
+  const listIngredients = () =>
     ingArray.map((ingrediente, index) => (
       <div
         className="recipe-card"
@@ -27,25 +27,25 @@ const ExplorarIngredientesMeals = () => {
         onClick={() => clickOn(ingrediente.strIngredient)}
       >
         <img
-            className="thumbnail"
-            data-testid={`${index}-card-img`}
-            src={`https://www.themealdb.com/images/ingredients/${ingrediente.strIngredient}-Small.png`}
-            alt="thumbnail do ingrediente"
+          className="thumbnail"
+          data-testid={`${index}-card-img`}
+          src={`https://www.themealdb.com/images/ingredients/${ingrediente.strIngredient}-Small.png`}
+          alt="thumbnail do ingrediente"
         />
         <p data-testid={`${index}-card-name`}>{ingrediente.strIngredient}</p>
       </div>
     ));
-  useEffect(() => {getMealsIngredients().then((data) => setIngArray(data.meals))}, []);
+  useEffect(() => { getMealsIngredients().then((data) => setIngArray(data.meals)); }, []);
 
   if (ingArray.length > 12) setIngArray(ingArray.slice(0, 12));
   if (redirect) return <Redirect to="/comidas" />;
 
   return (
-  <div className="recipes-container">
-    <Header hideSearch>Explorar Ingredientes</Header>
-    {listIngredients(ingArray)}
-    <Footer />
-  </div>
+    <div className="recipes-container">
+      <Header hideSearch>Explorar Ingredientes</Header>
+      {listIngredients(ingArray)}
+      <Footer />
+    </div>
   );
 };
 
