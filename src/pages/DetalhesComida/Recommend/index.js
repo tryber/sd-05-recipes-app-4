@@ -3,26 +3,29 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.css';
 
+const listDrink = (drinkFood) =>
+  drinkFood.map((drink, index) => (
+    <div className="recipe-card" key={drink.strDrink} data-testid={`${index}-recomendation-card-ct`}>
+      <Link to={`/bebidas/${drink.idDrink}`}>
+        <img
+          className="thumbnail"
+          data-testid={`${index}-recomendation-card`}
+          src={drink.strDrinkThumb}
+          alt="thumbnail da comida"
+        />
+        <p data-testid={`${index}-recomendation-card`}>{drink.strDrink}</p>
+      </Link>
+    </div>
+  ));
+
 const Recommend = (props) => {
   const { drink } = props;
   if (drink.length > 0)
     return (
       <Fragment>
-        <div className="recom-container">
-          <h2 className="recome-title">Recomendadas</h2>
-          {drink.map((drunk) => (
-            <div className="recom-img">
-              <Link to={`/bebidas/${drunk.idDrink}`}>
-                <img
-                  className="thumbnail"
-                  data-testid="0-recomendation-card"
-                  src={drunk.strDrinkThumb}
-                  alt="thumbnail da comida"
-                />
-                <p data-testid="0-recomendation-card">{drunk.strDrink}</p>
-              </Link>
-            </div>
-          ))}
+        <h2 className="recome-title">Recomendadas</h2>
+        <div className="recipes-container">
+          {listDrink(drink)}
           <button
             type="button"
             data-testid="start-recipe-btn"
