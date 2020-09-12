@@ -1,12 +1,8 @@
 import React from 'react';
-import cleanup, { fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import renderWithRouter from '../__render__/renderWithRouter';
 
 import Login from '../pages/Login';
-
-afterEach(() => {
-  cleanup;
-});
 
 describe('Login tests', () => {
   it('Contém os inputs para email e senha', () => {
