@@ -12,8 +12,8 @@ const ExplorarIngredientesDrinks = () => {
 
   const { setDataDrink } = useContext(AppContext);
 
-  const clickOn = (ingrediente) => {
-    getDrinksByIngredients(ingrediente).then((data) => { setDataDrink(data.drinks); setRed(true); });
+  const clickOn = (ing) => {
+    getDrinksByIngredients(ing).then((data) => { setDataDrink(data.drinks); setRed(true); });
   };
 
   const listIngredients = () =>
