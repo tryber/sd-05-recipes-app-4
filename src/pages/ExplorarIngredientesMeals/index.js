@@ -8,19 +8,21 @@ import { getMealsIngredients, getMealsByIngredients } from '../../services/MealA
 
 import './index.css';
 
-
 const ExplorarIngredientesMeals = () => {
   const [ingArray, setIngArray] = useState([]);
   const [redirect, setRed] = useState(false);
   const { setDataFood } = useContext(AppContext);
 
   const clickOn = (ingrediente) => {
-    getMealsByIngredients(ingrediente).then((data) => { setDataFood(data.meals); setRed(true); });
+    getMealsByIngredients(ingrediente).then((data) => {
+      setDataFood(data.meals);
+      setRed(true);
+    });
   };
 
   const listIngredients = () =>
     ingArray.map((ingrediente, index) => (
-      <div
+      <button
         className="recipe-card"
         key={ingrediente.strIngredient}
         data-testid={`${index}-ingredient-card`}
@@ -33,9 +35,11 @@ const ExplorarIngredientesMeals = () => {
           alt="thumbnail do ingrediente"
         />
         <p data-testid={`${index}-card-name`}>{ingrediente.strIngredient}</p>
-      </div>
+      </button>
     ));
-  useEffect(() => { getMealsIngredients().then((data) => setIngArray(data.meals)); }, []);
+  useEffect(() => {
+    getMealsIngredients().then((data) => setIngArray(data.meals));
+  }, []);
 
   if (ingArray.length > 12) setIngArray(ingArray.slice(0, 12));
   if (redirect) return <Redirect to="/comidas" />;

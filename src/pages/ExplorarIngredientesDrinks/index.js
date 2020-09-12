@@ -8,36 +8,37 @@ import { getDrinksIngredients, getDrinksByIngredients } from '../../services/Dri
 const ExplorarIngredientesDrinks = () => {
   const [ingArray, setIngArray] = useState([]);
   const [redirect, setRed] = useState(false);
-  useEffect(() => { getDrinksIngredients().then((data) => setIngArray(data.drinks)); }, []);
+  useEffect(() => {
+    getDrinksIngredients().then((data) => setIngArray(data.drinks));
+  }, []);
 
   const { setDataDrink } = useContext(AppContext);
 
   const clickOn = (ing) => {
-    getDrinksByIngredients(ing).then((data) => { setDataDrink(data.drinks); setRed(true); });
+    getDrinksByIngredients(ing).then((data) => {
+      setDataDrink(data.drinks);
+      setRed(true);
+    });
   };
 
   const listIngredients = () =>
-  ingArray.map((ingrediente, index) => (
-    <div
-      className="recipe-card"
-      key={ingrediente.strDrink}
-      data-testid={`${index}-ingredient-card`}
-    >
-      <img
-        className="thumbnail"
-        data-testid={`${index}-card-img`}
-        src={`https://www.thecocktaildb.com/images/ingredients/${ingrediente.strIngredient1}-Small.png`}
-        alt="thumbnail do ingrediente"
-        onClick={() => clickOn(ingrediente.strIngredient1)}
-      />
-      <p
-        data-testid={`${index}-card-name`}
+    ingArray.map((ingrediente, index) => (
+      <button
+        className="recipe-card"
+        key={ingrediente.strDrink}
+        data-testid={`${index}-ingredient-card`}
         onClick={() => clickOn(ingrediente.strIngredient1)}
       >
-        {ingrediente.strIngredient1}
-      </p>
-    </div>
-  ));
+        <input
+          type="image"
+          className="thumbnail"
+          data-testid={`${index}-card-img`}
+          src={`https://www.thecocktaildb.com/images/ingredients/${ingrediente.strIngredient1}-Small.png`}
+          alt="thumbnail do ingrediente"
+        />
+        <p data-testid={`${index}-card-name`}>{ingrediente.strIngredient1}</p>
+      </button>
+    ));
 
   if (ingArray.length > 12) setIngArray(ingArray.slice(0, 12));
   if (redirect) return <Redirect to="/bebidas" />;
