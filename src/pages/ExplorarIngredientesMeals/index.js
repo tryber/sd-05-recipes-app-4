@@ -11,11 +11,11 @@ import './index.css';
 
 const ExplorarIngredientesMeals = () => {
   const [ingArray, setIngArray] = useState([]);
-  const [redirect, setRedirect] = useState(false);
+  const [redirect, setRed] = useState(false);
   const { setDataFood } = useContext(AppContext);
 
   const clickOn = (ingrediente) => {
-    getMealsByIngredients(ingrediente).then((data) => { setDataFood(data.meals); setRedirect(true); });
+    getMealsByIngredients(ingrediente).then((data) => { setDataFood(data.meals); setRed(true); });
   };
 
   const listIngredients = () =>

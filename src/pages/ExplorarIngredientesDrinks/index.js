@@ -8,12 +8,12 @@ import { getDrinksIngredients, getDrinksByIngredients } from '../../services/Dri
 const ExplorarIngredientesDrinks = () => {
   const [ingArray, setIngArray] = useState([]);
   const [redirect, setRed] = useState(false);
-  useEffect(() => { getDrinksIngredients().then((data) => setIngArray(data.drinks)) }, []);
+  useEffect(() => { getDrinksIngredients().then((data) => setIngArray(data.drinks)); }, []);
 
   const { setDataDrink } = useContext(AppContext);
 
   const clickOn = (ingrediente) => {
-    getDrinksByIngredients(ingrediente).then((data) => { setDataDrink(data.drinks); setRed(true) });
+    getDrinksByIngredients(ingrediente).then((data) => { setDataDrink(data.drinks); setRed(true); });
   };
 
   const listIngredients = () =>
@@ -28,9 +28,9 @@ const ExplorarIngredientesDrinks = () => {
         data-testid={`${index}-card-img`}
         src={`https://www.thecocktaildb.com/images/ingredients/${ingrediente.strIngredient1}-Small.png`}
         alt="thumbnail do ingrediente"
-        onClick={()=> clickOn(ingrediente.strIngredient1)}
+        onClick={() => clickOn(ingrediente.strIngredient1)}
       />
-      <p 
+      <p
         data-testid={`${index}-card-name`}
         onClick={() => clickOn(ingrediente.strIngredient1)}
       >
