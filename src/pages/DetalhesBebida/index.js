@@ -27,17 +27,15 @@ export default function Detalhes(props) {
       <Ingredients Drink={drink} />
       <Instruction Drink={drink} />
       <Recommend meal={meal} />
-      <div className="button-container">
-          <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-receip"
-            onClick={() => alert('Sumpimpa!')}
-            value="Entrar"
-          >
-            <span className="btn-text">Iniciar Receita</span>
-          </button>
-        </div>
+      <button
+        type="button"
+        data-testid="start-recipe-btn"
+        className="start-receip"
+        onClick={() => alert('Sumpimpa!')}
+        value="Entrar"
+      >
+        <span className="btn-text">Iniciar Receita</span>
+      </button>
     </div>
   );
 }
