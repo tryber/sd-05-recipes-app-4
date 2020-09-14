@@ -15,13 +15,14 @@ function Instruction(props) {
         <div data-testid="video">
           <p className="instruc">Video</p>
           <iframe
+            title="video"
             width="340"
             src={
               Drink.strYoutube && Drink.strYoutube.replace('watch?v=', 'embed/')
             }
             frameBorder="0"
             allowFullScreen
-          ></iframe>
+          />
         </div>
       </div>
     </Fragment>

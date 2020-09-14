@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Clipboard from 'clipboard-copy';
+
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
+
 import './index.css';
-import Clipboard from 'clipboard-copy';
 
 const clipBoard = () => {
   document.getElementById('btn-share-id').innerHTML = 'Link copiado!';

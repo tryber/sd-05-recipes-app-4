@@ -17,9 +17,9 @@ function Instruction(props) {
           <iframe
             width="340"
             src={meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')}
-            frameborder="0"
+            frameBorder="0"
             allowFullScreen
-          ></iframe>
+          />
         </div>
       </div>
     </Fragment>

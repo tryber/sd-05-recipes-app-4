@@ -7,9 +7,9 @@ body {
 
 .start-recipe {
   background: #6ce34f;
-  position: fixed;
   bottom: 0;
   height: 76px;
+  position: fixed;
   width: 360px;
 }
 

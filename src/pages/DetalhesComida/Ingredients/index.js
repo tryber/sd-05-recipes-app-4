@@ -4,52 +4,30 @@ import './index.css';
 
 function Ingredients(props) {
   const { meal } = props;
+  let counter = 1;
+  const ingredients = Object.keys(meal).reduce((array, key) => {
+    if (key.includes('strIngredient') && meal[key] !== null && meal[key].length > 0) {
+      const object = {};
+      object[key] = meal[key];
+      object[`strMeasure${counter}`] = meal[`strMeasure${counter}`];
+      counter += 1;
+      return [...array, object];
+    }
+    return array;
+  }, []);
   return (
     <Fragment>
       <div className="container-ingredients">
         <p className="ingredients-title">Ingredients</p>
-        <div className="ingredients-box">
-          {meal.strIngredient1 && meal.strMeasure1 && (
-            <p data-testid="0-ingredient-name-and-measure">
-              - {meal.strIngredient1} - {meal.strMeasure1}
+        {ingredients &&
+          ingredients.map((ingredient, index) => (
+            <p data-testid={`${index}-ingredient-name-and-measure`}>
+              - {ingredient[`strIngredient${index + 1}`]}{' '}
+              {ingredient[`strMeasure${index + 1}`]
+                ? `- ${ingredient[`strMeasure${index + 1}`]}`
+                : ''}
             </p>
-          )}
-          {meal.strIngredient2 && meal.strMeasure2 && (
-            <p data-testid="1-ingredient-name-and-measure">
-              - {meal.strIngredient2} - {meal.strMeasure2}
-            </p>
-          )}
-          {meal.strIngredient3 && meal.strMeasure3 && (
-            <p data-testid="2-ingredient-name-and-measure">
-              - {meal.strIngredient3} - {meal.strMeasure3}
-            </p>
-          )}
-          {meal.strIngredient4 && meal.strMeasure4 && (
-            <p data-testid="3-ingredient-name-and-measure">
-              - {meal.strIngredient4} - {meal.strMeasure4}
-            </p>
-          )}
-          {meal.strIngredient5 && meal.strMeasure5 && (
-            <p data-testid="4-ingredient-name-and-measure">
-              - {meal.strIngredient5} - {meal.strMeasure5}
-            </p>
-          )}
-          {meal.strIngredient6 && meal.strMeasure6 && (
-            <p data-testid="5-ingredient-name-and-measure">
-              - {meal.strIngredient6} - {meal.strMeasure6}
-            </p>
-          )}
-          {meal.strIngredient7 && meal.strMeasure7 && (
-            <p data-testid="6-ingredient-name-and-measure">
-              - {meal.strIngredient7} - {meal.strMeasure7}
-            </p>
-          )}
-          {meal.strIngredient8 && meal.strMeasure8 && (
-            <p data-testid="7-ingredient-name-and-measure">
-              - {meal.strIngredient8} - {meal.strMeasure8}
-            </p>
-          )}
-        </div>
+          ))}
       </div>
     </Fragment>
   );

@@ -15,20 +15,21 @@ const listDrink = (drinkFood) =>
 
 const Recommend = (props) => {
   const { drink } = props;
-  if (drink.length > 0)
+  if (drink.length > 0) {
     return (
       <Fragment>
         <h2 className="recome-title">Recomendadas</h2>
         <div className="recommended-recipes-container">{listDrink(drink)}</div>
       </Fragment>
     );
+  }
   return <h1>Loading...</h1>;
 };
 
 export default Recommend;
 
 Recommend.propTypes = {
-  meal: PropTypes.shape({
+  drink: PropTypes.shape({
     strMealThumb: PropTypes.string,
     strMeal: PropTypes.string,
     idMeal: PropTypes.string,

@@ -4,59 +4,31 @@ import './index.css';
 
 function Ingredients(props) {
   const { Drink } = props;
+  let counter = 1;
+  const ingredients = Object.keys(Drink).reduce((array, key) => {
+    if (key.includes('strIngredient') && Drink[key] !== null && Drink[key].length > 0) {
+      const object = {};
+      object[key] = Drink[key];
+      object[`strMeasure${counter}`] = Drink[`strMeasure${counter}`];
+      counter += 1;
+      return [...array, object];
+    }
+    return array;
+  }, []);
   return (
     <Fragment>
       <div className="container-ingredients">
         <p className="ingredients-title">Ingredients</p>
         <div className="ingredients-box">
-          {Drink.strIngredient1 &&
-            Drink.strMeasure1 && (
-              <p data-testid="0-ingredient-name-and-measure">
-                - {Drink.strIngredient1} - {Drink.strMeasure1}
+          {ingredients &&
+            ingredients.map((ingredient, index) => (
+              <p data-testid={`${index}-ingredient-name-and-measure`}>
+                - {ingredient[`strIngredient${index + 1}`]}{' '}
+                {ingredient[`strMeasure${index + 1}`]
+                  ? `- ${ingredient[`strMeasure${index + 1}`]}`
+                  : ''}
               </p>
-            )}
-          {Drink.strIngredient2 &&
-            Drink.strMeasure2 && (
-              <p data-testid="1-ingredient-name-and-measure">
-                - {Drink.strIngredient2} - {Drink.strMeasure2}
-              </p>
-            )}
-          {Drink.strIngredient3 &&
-            Drink.strMeasure3 && (
-              <p data-testid="2-ingredient-name-and-measure">
-                - {Drink.strIngredient3} - {Drink.strMeasure3}
-              </p>
-            )}
-          {Drink.strIngredient4 &&
-            Drink.strMeasure4 && (
-              <p data-testid="3-ingredient-name-and-measure">
-                - {Drink.strIngredient4} - {Drink.strMeasure4}
-              </p>
-            )}
-          {Drink.strIngredient5 &&
-            Drink.strMeasure5 && (
-              <p data-testid="4-ingredient-name-and-measure">
-                - {Drink.strIngredient5} - {Drink.strMeasure5}
-              </p>
-            )}
-          {Drink.strIngredient6 &&
-            Drink.strMeasure6 && (
-              <p data-testid="5-ingredient-name-and-measure">
-                - {Drink.strIngredient6} - {Drink.strMeasure6}
-              </p>
-            )}
-          {Drink.strIngredient7 &&
-            Drink.strMeasure7 && (
-              <p data-testid="6-ingredient-name-and-measure">
-                - {Drink.strIngredient7} - {Drink.strMeasure7}
-              </p>
-            )}
-          {Drink.strIngredient8 &&
-            Drink.strMeasure8 && (
-              <p data-testid="7-ingredient-name-and-measure">
-                - {Drink.strIngredient8} - {Drink.strMeasure8}
-              </p>
-            )}
+            ))}
         </div>
       </div>
     </Fragment>
