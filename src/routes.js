@@ -15,17 +15,19 @@ import {
   ExplorarOrigem,
   DetalhesComida,
   DetalhesBebida,
+  ProgressoComida,
+  ProgressoBebida,
   NotFound,
 } from './pages/';
 
 const Rotas = () => (
   <Switch>
     <Route exact path="/" component={Login} />
-    <Route path="/comidas/:id/progress" component={DetalhesComida} />
+    <Route path="/comidas/:id/progress" component={ProgressoComida} />
     <Route path="/comidas/:id" component={DetalhesComida} />
     <Route path="/comidas" component={Comidas} />
 
-    <Route path="/bebidas/:id/progress" component={DetalhesBebida} />
+    <Route path="/bebidas/:id/progress" component={ProgressoBebida} />
     <Route path="/bebidas/:id" component={DetalhesBebida} />
     <Route path="/bebidas" component={Bebidas} />
 

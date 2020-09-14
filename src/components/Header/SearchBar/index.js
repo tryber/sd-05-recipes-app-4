@@ -1,16 +1,16 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import AppContext from '../../context/AppContext';
+import AppContext from '../../../context/AppContext';
 
-import { getMealsByName, getMealsByIngredients, getMealsByLetter } from '../../services/MealApi';
+import { getMealsByName, getMealsByIngredients, getMealsByLetter } from '../../../services/MealApi';
 import {
   getDrinksByName,
   getDrinksByIngredients,
   getDrinksByLetter,
-} from '../../services/DrinkApi';
+} from '../../../services/DrinkApi';
 
-import './index.css';
+import '../index.css';
 
 const fetchDrinkApi = (target, input, save) => {
   switch (target) {
