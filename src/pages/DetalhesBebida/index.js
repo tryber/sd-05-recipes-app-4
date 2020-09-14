@@ -9,7 +9,7 @@ import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
-export default function Detalhes(props) {
+export default function DetalhesBebidas(props) {
   const { id } = props.match.params;
   const [drink, setDrink] = useState({});
   useEffect(() => {
@@ -40,6 +40,6 @@ export default function Detalhes(props) {
   );
 }
 
-Detalhes.propTypes = {
+DetalhesBebidas.propTypes = {
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

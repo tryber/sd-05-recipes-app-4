@@ -1,16 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import fclipboard from '../../DetalhesComida/Header/clipBoard';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 import './index.css';
-import Clipboard from 'clipboard-copy';
 
-const clipBoard = () => {
-  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
-  return Clipboard(window.location.href);
-};
-
-const Header = ({ Drink }) => (
+const HeaderDrink = ({ Drink }) => (
   <Fragment>
     <div className="header-container">
       <img
@@ -36,7 +31,7 @@ const Header = ({ Drink }) => (
             id="btn-share-id"
             src={shareIcon}
             alt="share icon"
-            onClick={() => clipBoard()}
+            onClick={() => fclipboard()}
           />
 
           <input
@@ -52,9 +47,9 @@ const Header = ({ Drink }) => (
   </Fragment>
 );
 
-export default Header;
+export default HeaderDrink;
 
-Header.propTypes = {
+HeaderDrink.propTypes = {
   Drink: PropTypes.shape({
     idDrink: PropTypes.number.isRequired,
     strDrinkThumb: PropTypes.string.isRequired,
