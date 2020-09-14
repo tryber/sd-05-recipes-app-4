@@ -12,6 +12,7 @@
 .recommended-recipes-container {
   display: flex;
   height: 210px;
+  margin-bottom: 63px;
   overflow: auto;
   position: relative;
   transition: all 2s linear;
@@ -25,8 +26,4 @@
   margin: 9px;
   text-align: center;
   width: 161px;
-}
-
-.recipes-container:last-child {
-  margin-bottom: 63px;
 }

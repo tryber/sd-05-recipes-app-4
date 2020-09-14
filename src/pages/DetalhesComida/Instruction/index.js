@@ -16,9 +16,7 @@ function Instruction(props) {
           <p className="instruc">Video</p>
           <iframe
             width="340"
-            src={
-              meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')
-            }
+            src={meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')}
             frameborder="0"
             allowFullScreen
           ></iframe>
