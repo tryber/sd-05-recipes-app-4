@@ -369,7 +369,7 @@ describe('Um botão de compartilhar e um de favoritar a receita devem estar disp
   });
 });
 
-describe('Ao clicar no botão de compartilhar, o link da receita dentro do app deve ser copiado para o clipboard e uma mensagem avisando que o link foi copiado deve aparecer', () => {
+describe.only('Ao clicar no botão de compartilhar, o link da receita dentro do app deve ser copiado para o clipboard e uma mensagem avisando que o link foi copiado deve aparecer', () => {
   it('Verifica a mensagem "Link copiado!" e se o link da receita da comida foi copiado para o clipboard', () => {
     cy.visit('http://localhost:3000/comidas/52771', {
       onBeforeLoad(win) {

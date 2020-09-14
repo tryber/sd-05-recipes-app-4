@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 import './index.css';
-import Clipboard  from 'clipboard-copy';
+import Clipboard from 'clipboard-copy';
 
 const clipBoard = () => {
-  return Clipboard(window.location.href)
+  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
+  return Clipboard(window.location.href);
 };
 
 const Header = ({ meal }) => (
@@ -29,16 +30,18 @@ const Header = ({ meal }) => (
           </div>
         </div>
         <div className="share-btn">
-          <img
+          <input
+            type="image"
             data-testid="share-btn"
             className="shareicon"
+            id="btn-share-id"
             src={shareIcon}
             alt="share icon"
-            value="Xablay"
             onClick={() => clipBoard()}
           />
 
-          <img
+          <input
+            type="image"
             data-testid="favorite-btn"
             className="favicon"
             src={favIcon}

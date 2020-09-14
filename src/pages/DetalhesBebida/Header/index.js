@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 import './index.css';
-import Clipboard  from 'clipboard-copy';
+import Clipboard from 'clipboard-copy';
 
 const clipBoard = () => {
-  return Clipboard(window.location.href)
+  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
+  return Clipboard(window.location.href);
 };
 
 const Header = ({ Drink }) => (
@@ -22,31 +23,30 @@ const Header = ({ Drink }) => (
       <div className="container-btn">
         <div className="title-container">
           <div className="title">
-            <p data-testid="recipe-title">
-              {Drink.strDrink}
-            </p>
+            <p data-testid="recipe-title">{Drink.strDrink}</p>
           </div>
           <div className="title-type">
-            <p data-testid="recipe-category">
-              {Drink.strAlcoholic}
-            </p>
+            <p data-testid="recipe-category">{Drink.strAlcoholic}</p>
           </div>
         </div>
         <div className="share-btn">
-            <img
-              data-testid="share-btn"
-              className="shareicon"
-              src={shareIcon}
-              alt="share icon"
-              onClick={() => clipBoard()}
-            />
+          <input
+            type="image"
+            data-testid="share-btn"
+            className="shareicon"
+            id="btn-share-id"
+            src={shareIcon}
+            alt="share icon"
+            onClick={() => clipBoard()}
+          />
 
-            <img
-              data-testid="favorite-btn"
-              className="favicon"
-              src={favIcon}
-              alt="favicon icon"
-            />
+          <input
+            type="image"
+            data-testid="favorite-btn"
+            className="favicon"
+            src={favIcon}
+            alt="favicon icon"
+          />
         </div>
       </div>
     </div>
