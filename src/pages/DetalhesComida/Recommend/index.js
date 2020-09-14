@@ -13,7 +13,7 @@ const listDrink = (drinkFood) =>
     </div>
   ));
 
-const RecommendMeal = (props) => {
+const RecommendDrink = (props) => {
   const { drink } = props;
   if (drink.length > 0) {
     return (
@@ -26,10 +26,11 @@ const RecommendMeal = (props) => {
   return <h1>Loading...</h1>;
 };
 
-export default RecommendMeal;
+export default RecommendDrink;
 
-RecommendMeal.propTypes = {
-  drink: PropTypes.shape({
+
+RecommendDrink.propTypes = {
+    drink: PropTypes.shape({
     strMealThumb: PropTypes.string,
     strMeal: PropTypes.string,
     idMeal: PropTypes.string,

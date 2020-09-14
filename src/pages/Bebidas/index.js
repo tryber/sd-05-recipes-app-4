@@ -34,6 +34,7 @@ const listCategories = (setDataDrink, dataDrinkCategories, setDrinkCategory, dri
     </button>
     {dataDrinkCategories.map(({ strCategory }) => (
       <button
+        key={strCategory}
         onClick={() => {
           if (drinkCategory !== strCategory) setDrinkCategory(strCategory);
           else {
