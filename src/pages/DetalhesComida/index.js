@@ -9,7 +9,7 @@ import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
-export default function Detalhes(props) {
+export default function DetalhesComida(props) {
   const { id } = props.match.params;
   const [meal, setMeal] = useState({});
   useEffect(() => {
@@ -41,6 +41,6 @@ export default function Detalhes(props) {
   );
 }
 
-Detalhes.propTypes = {
+DetalhesComida.propTypes = {
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
 
-function Ingredients(props) {
+function IngredientsMeal(props) {
   const { meal } = props;
   let counter = 1;
   const ingredients = Object.keys(meal).reduce((array, key) => {
@@ -33,9 +33,9 @@ function Ingredients(props) {
   );
 }
 
-export default Ingredients;
+export default IngredientsMeal;
 
-Ingredients.propTypes = {
+IngredientsMeal.propTypes = {
   meal: PropTypes.shape({
     strIngredient1: PropTypes.string.isRequired,
     strIngredient2: PropTypes.string.isRequired,

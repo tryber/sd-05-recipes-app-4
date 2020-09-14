@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
 
-function Instruction(props) {
+function InstructionDrink(props) {
   const { Drink } = props;
   console.log(Drink.strYoutube);
   return (
@@ -29,9 +29,9 @@ function Instruction(props) {
   );
 }
 
-export default Instruction;
+export default InstructionDrink;
 
-Instruction.propTypes = {
+InstructionDrink.propTypes = {
   Drink: PropTypes.shape({
     strDrinkThumb: PropTypes.string.isRequired,
     strDrink: PropTypes.string.isRequired,
