@@ -33,7 +33,7 @@ const Recommend = (props) => {
             onClick={() => alert('Sumpimpa!')}
             value="Entrar"
           >
-            <span className="btn-text">Entrar</span>
+            <span className="btn-text">Iniciar Receita</span>
           </button>
         </div>
       </Fragment>
