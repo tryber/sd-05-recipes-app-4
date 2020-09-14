@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 import './index.css';
+import Clipboard  from 'clipboard-copy';
+
+const clipBoard = () => {
+  return Clipboard(window.location.href)
+};
 
 const Header = ({ Drink }) => (
   <Fragment>
@@ -28,22 +33,20 @@ const Header = ({ Drink }) => (
           </div>
         </div>
         <div className="share-btn">
-          <Link to="/perfil">
             <img
               data-testid="share-btn"
               className="shareicon"
               src={shareIcon}
               alt="share icon"
+              onClick={() => clipBoard()}
             />
-          </Link>
-          <Link to="/perfil">
+
             <img
               data-testid="favorite-btn"
               className="favicon"
               src={favIcon}
               alt="favicon icon"
             />
-          </Link>
         </div>
       </div>
     </div>

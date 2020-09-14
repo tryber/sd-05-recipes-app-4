@@ -11,6 +11,8 @@ function Provider({ children }) {
   const [dataDrinkCategories, setDataDrinkCategories] = useState([]);
   const [dataDrink, setDataDrink] = useState([]);
   const [recipeType, setRecipeType] = useState('Food');
+  const [shareBebidas, setShareBebidas] = useState('');
+  const [shareComidas, setShareComidas] = useState('');
 
   const contextValue = {
     dataFood,
@@ -27,6 +29,10 @@ function Provider({ children }) {
     setDataFoodCategories,
     recipeType,
     setRecipeType,
+    shareBebidas,
+    setShareBebidas,
+    shareComidas,
+    setShareComidas,
   };
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 }

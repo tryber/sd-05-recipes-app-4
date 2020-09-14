@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 import './index.css';
+import Clipboard  from 'clipboard-copy';
+
+const clipBoard = () => {
+  return Clipboard(window.location.href)
+};
 
 const Header = ({ meal }) => (
   <Fragment>
@@ -17,33 +22,28 @@ const Header = ({ meal }) => (
       <div className="container-btn">
         <div className="title-container">
           <div className="title">
-            <p data-testid="recipe-title">
-              {meal.strMeal}
-            </p>
+            <p data-testid="recipe-title">{meal.strMeal}</p>
           </div>
           <div className="title-type">
-            <p data-testid="recipe-category">
-              {meal.strCategory}
-            </p>
+            <p data-testid="recipe-category">{meal.strCategory}</p>
           </div>
         </div>
         <div className="share-btn">
-          <Link to="/perfil">
-            <img
-              data-testid="share-btn"
-              className="shareicon"
-              src={shareIcon}
-              alt="share icon"
-            />
-          </Link>
-          <Link to="/perfil">
-            <img
-              data-testid="favorite-btn"
-              className="favicon"
-              src={favIcon}
-              alt="favicon icon"
-            />
-          </Link>
+          <img
+            data-testid="share-btn"
+            className="shareicon"
+            src={shareIcon}
+            alt="share icon"
+            value="Xablay"
+            onClick={() => clipBoard()}
+          />
+
+          <img
+            data-testid="favorite-btn"
+            className="favicon"
+            src={favIcon}
+            alt="favicon icon"
+          />
         </div>
       </div>
     </div>
