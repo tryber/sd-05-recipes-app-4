@@ -28,22 +28,19 @@ export default function Detalhes(props) {
         <Ingredients meal={meal} />
         <Instruction meal={meal} />
         <Recommend drink={drink} />
-        <div className="button-container">
-          <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-receip"
-            onClick={() => alert('Sumpimpa!')}
-          >
-            <span className="btn-text">Iniciar Receita</span>
-          </button>
-        </div>
+        <button
+          type="button"
+          data-testid="start-recipe-btn"
+          className="start-recipe"
+          onClick={() => alert('Sumpimpa!')}
+        >
+          <span className="btn-text">Iniciar Receita</span>
+        </button>
       </div>
     </Fragment>
   );
 }
 
 Detalhes.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
-    .isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

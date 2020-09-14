@@ -5,17 +5,12 @@ body {
   width: 360px;
 }
 
-.button-container {
-  display: flex;
-  flex-wrap: wrap;
-  position: fixed;
-}
-
-.start-receip {
+.start-recipe {
   background: #6ce34f;
+  position: fixed;
   bottom: 0;
   height: 76px;
-  left: 13px;
+  width: 360px;
 }
 
 .btn-text {
