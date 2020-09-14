@@ -3,38 +3,34 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.css';
 
-const Recommend = (props) => (
-  <Fragment>
-    <div className="recom-container">
-      <h2 className="recome-title">Recomendadas</h2>
-      <div className="recom-img">
-        <Link to={`/comidas/${props.meal.idMeal}`}>
-          <img
-            className="thumbnail"
-            data-testid="EAways"
-            src={props.meal.strMealThumb}
-            alt="thumbnail da comida"
-          />
-        </Link>
-        <p data-testid="Aweays">{props.meal.strMeal}</p>
-      </div>
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        className="start-receip"
-        onClick={() => alert('Sumpimpa!')}
-        value="Entrar"
-      >
-        <span className="btn-text">Entrar</span>
-      </button>
+const listDrink = (drinkFood) =>
+  drinkFood.map((drink, index) => (
+    <div className="recipe-card" key={drink.strDrink} data-testid={`${index}-recomendation-card`}>
+      <Link to={`/bebidas/${drink.idDrink}`}>
+        <img className="thumbnail" src={drink.strDrinkThumb} alt="thumbnail da comida" />
+        <p data-testid={`${index}-recomendation-title`}>{drink.strDrink}</p>
+      </Link>
     </div>
-  </Fragment>
-);
+  ));
 
-export default Recommend;
+const RecommendDrink = (props) => {
+  const { drink } = props;
+  if (drink.length > 0) {
+    return (
+      <Fragment>
+        <h2 className="recome-title">Recomendadas</h2>
+        <div className="recommended-recipes-container">{listDrink(drink)}</div>
+      </Fragment>
+    );
+  }
+  return <h1>Loading...</h1>;
+};
 
-Recommend.propTypes = {
-  meal: PropTypes.shape({
+export default RecommendDrink;
+
+
+RecommendDrink.propTypes = {
+    drink: PropTypes.shape({
     strMealThumb: PropTypes.string,
     strMeal: PropTypes.string,
     idMeal: PropTypes.string,

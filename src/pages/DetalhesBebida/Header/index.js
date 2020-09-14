@@ -1,28 +1,27 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
-import fclipboard from './clipBoard';
+import fclipboard from '../../DetalhesComida/Header/clipBoard';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 
 import './index.css';
 
-const HeaderMeal = ({ meal }) => (
+const HeaderDrink = ({ Drink }) => (
   <Fragment>
     <div className="header-container">
       <img
         className="img-header"
         data-testid="recipe-photo"
-        src={meal.strMealThumb}
+        src={Drink.strDrinkThumb}
         alt="thumbnail da comida"
       />
       <div className="container-btn">
         <div className="title-container">
           <div className="title">
-            <p data-testid="recipe-title">{meal.strMeal}</p>
+            <p data-testid="recipe-title">{Drink.strDrink}</p>
           </div>
           <div className="title-type">
-            <p data-testid="recipe-category">{meal.strCategory}</p>
+            <p data-testid="recipe-category">{Drink.strAlcoholic}</p>
           </div>
         </div>
         <div className="share-btn">
@@ -49,12 +48,12 @@ const HeaderMeal = ({ meal }) => (
   </Fragment>
 );
 
-export default HeaderMeal;
+export default HeaderDrink;
 
-HeaderMeal.propTypes = {
-  meal: PropTypes.shape({
-    idMeal: PropTypes.number.isRequired,
-    strMealThumb: PropTypes.string.isRequired,
-    strMeal: PropTypes.string.isRequired,
+HeaderDrink.propTypes = {
+  Drink: PropTypes.shape({
+    idDrink: PropTypes.number.isRequired,
+    strDrinkThumb: PropTypes.string.isRequired,
+    strDrink: PropTypes.string.isRequired,
   }).isRequired,
 };

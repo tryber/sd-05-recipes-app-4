@@ -11,8 +11,11 @@ function Provider({ children }) {
   const [dataDrinkCategories, setDataDrinkCategories] = useState([]);
   const [dataDrink, setDataDrink] = useState([]);
   const [recipeType, setRecipeType] = useState('Food');
+  const [shareBebidas, setShareBebidas] = useState('');
+  const [shareComidas, setShareComidas] = useState('');
   const [dataFoodAreas, setDataFoodAreas] = useState([]);
   const [foodArea, setFoodArea] = useState(false);
+
   const contextValue = {
     dataFood,
     setDataFood,
@@ -28,6 +31,10 @@ function Provider({ children }) {
     setDataFoodCategories,
     recipeType,
     setRecipeType,
+    shareBebidas,
+    setShareBebidas,
+    shareComidas,
+    setShareComidas,
     dataFoodAreas,
     setDataFoodAreas,
     foodArea,
