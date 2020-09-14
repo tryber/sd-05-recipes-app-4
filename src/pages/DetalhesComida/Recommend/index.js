@@ -5,15 +5,14 @@ import './index.css';
 
 const listDrink = (drinkFood) =>
   drinkFood.map((drink, index) => (
-    <div className="recipe-card" key={drink.strDrink} data-testid={`${index}-recomendation-card-ct`}>
+    <div className="recipe-card" key={drink.strDrink} data-testid={`${index}-recomendation-card`}>
       <Link to={`/bebidas/${drink.idDrink}`}>
         <img
           className="thumbnail"
-          data-testid={`${index}-recomendation-card`}
           src={drink.strDrinkThumb}
           alt="thumbnail da comida"
         />
-        <p data-testid={`${index}-recomendation-card`}>{drink.strDrink}</p>
+        <p data-testid={`${index}-recomendation-title`}>{drink.strDrink}</p>
       </Link>
     </div>
   ));
@@ -24,17 +23,8 @@ const Recommend = (props) => {
     return (
       <Fragment>
         <h2 className="recome-title">Recomendadas</h2>
-        <div className="recipes-container">
+        <div className="recommended-recipes-container">
           {listDrink(drink)}
-          <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-receip"
-            onClick={() => alert('Sumpimpa!')}
-            value="Entrar"
-          >
-            <span className="btn-text">Iniciar Receita</span>
-          </button>
         </div>
       </Fragment>
     );

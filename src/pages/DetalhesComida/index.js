@@ -27,6 +27,15 @@ export default function Detalhes(props) {
       <Ingredients meal={meal} />
       <Instruction meal={meal} />
       <Recommend drink={drink} />
+      <button
+        type="button"
+        data-testid="start-recipe-btn"
+        className="start-receip"
+        onClick={() => alert('Sumpimpa!')}
+        value="Entrar"
+      >
+        <span className="btn-text">Iniciar Receita</span>
+      </button>
     </div>
   );
 }
