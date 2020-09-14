@@ -12,9 +12,10 @@ body {
 
 .start-receip {
   background: #6ce34f;
+  bottom: 0;
   height: 76px;
   left: 13px;
-  top: 736px;
+  position: fixed;
   width: 339px;
 }
 

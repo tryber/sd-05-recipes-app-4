@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { getMealById } from '../../services/MealApi';
 import { getDrinks } from '../../services/DrinkApi';
@@ -22,24 +22,28 @@ export default function Detalhes(props) {
   }, [setdrink]);
 
   return (
-    <div className="container">
-      <Header meal={meal} />
-      <Ingredients meal={meal} />
-      <Instruction meal={meal} />
-      <Recommend drink={drink} />
-      <button
-        type="button"
-        data-testid="start-recipe-btn"
-        className="start-receip"
-        onClick={() => alert('Sumpimpa!')}
-        value="Entrar"
-      >
-        <span className="btn-text">Iniciar Receita</span>
-      </button>
-    </div>
+    <Fragment>
+      <div className="container">
+        <Header meal={meal} />
+        <Ingredients meal={meal} />
+        <Instruction meal={meal} />
+        <Recommend drink={drink} />
+        <div className="button-container">
+          <button
+            type="button"
+            data-testid="start-recipe-btn"
+            className="start-receip"
+            onClick={() => alert('Sumpimpa!')}
+          >
+            <span className="btn-text">Iniciar Receita</span>
+          </button>
+        </div>
+      </div>
+    </Fragment>
   );
 }
 
 Detalhes.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
+    .isRequired,
 };
