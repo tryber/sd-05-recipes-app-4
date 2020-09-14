@@ -18,8 +18,8 @@ function Instruction(props) {
             id="ytplayer"
             title="video-ins"
             type="text/html"
-            width="340"
-            height="150"
+            // width="340"
+            // height="150"
             src={Drink.strYoutube}
             frameborder="0"
           />

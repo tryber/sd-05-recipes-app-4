@@ -4,6 +4,7 @@ import './index.css';
 
 function Instruction(props) {
   const { meal } = props;
+  console.log(meal.strYoutube)
   return (
     <Fragment>
       <div className="instruc-container">
@@ -13,15 +14,7 @@ function Instruction(props) {
         </div>
         <div data-testid="video">
           <p className="instruc">Video</p>
-          <iframe
-            id="ytplayer"
-            title="video-ins"
-            type="text/html"
-            width="340"
-            height="150"
-            src={meal.strYoutube}
-            frameborder="0"
-          />
+          <iframe width="560" height="315" src={meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')} frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </Fragment>
