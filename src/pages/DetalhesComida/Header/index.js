@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
