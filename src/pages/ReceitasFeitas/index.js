@@ -8,7 +8,7 @@ import shareIcon from '../../images/shareIcon.svg';
 
 import './index.css';
 
-const recipes = JSON.parse(localStorage.getItem('doneRecipes'));
+const recipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
 
 const mapDoneRecipes = (filteredRecipes) =>
   filteredRecipes.map(
