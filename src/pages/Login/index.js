@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import './index.css';
+import logo from '../../images/logo.png';
 // import AppContext from '../../context/AppContext';
 
 const Login = () => {
@@ -23,7 +24,8 @@ const Login = () => {
   return (
     <div>
       {clickOk && <Redirect to="/comidas" />}
-      <h1 className="login">Login</h1>
+      <img className="img" src={logo} alt="tryoutLogo" /> 
+      {/* <h1 className="login">Login</h1> */}
       <form>
         <input
           data-testid="email-input"

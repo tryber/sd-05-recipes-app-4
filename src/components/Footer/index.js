@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import AppContext from '../../context/AppContext';
 
-import drinkIcon from '../../images/drinkIcon.svg';
-import exploreIcon from '../../images/exploreIcon.svg';
-import foodIcon from '../../images/mealIcon.svg';
+import drinkIcon from '../../images/drinkIcon.png';
+import exploreIcon from '../../images/exploreIcon.png';
+import foodIcon from '../../images/mealIcon.png';
 
 import './index.css';
 

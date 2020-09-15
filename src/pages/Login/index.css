@@ -4,49 +4,61 @@ body {
   width: 360px;
 }
 
+.img {
+  /* position: absolute; */
+  width: 100%;
+}
+
 .login {
-  align-items: flex-end;
   color: black;
-  display: flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 39px;
-  font-style: normal;
+  text-align: center;
+  /* font-size: 39px; */
+  /* font-style: normal;
   font-weight: 300;
   height: 46px;
   left: 128px;
-  line-height: 46px;
-  position: absolute;
-  top: 79px;
-  width: 97px;
+  line-height: 46px; */
+  /* position: absolute; */
+  /* top: 79px;
+  width: 97px; */
 }
 
 .email {
   background: white;
   border: 1px solid black;
+  border-radius: 5px;
   box-sizing: border-box;
   height: 58px;
-  left: 31px;
-  position: absolute;
-  top: 155px;
-  width: 293px;
+  margin-bottom: 17px;
+  margin-left: 10%;
+  /* left: 31px; */
+  /* position: absolute; */
+  /* top: 155px;*/
+  width: 80%;
 }
 
 .password {
   background: white;
   border: 1px solid black;
+  border-radius: 5px;
   box-sizing: border-box;
   height: 58px;
-  left: 30px;
-  position: absolute;
-  top: 243px;
-  width: 293px;
+  margin-bottom: 17px;
+  margin-left: 10%;
+  /* left: 30px; */
+  /* position: absolute; */
+  /* top: 243px; */
+  width: 80%;
 }
 
 .login-btn {
   background: #6ce34f;
   height: 76px;
-  left: 11px;
+  border-radius: 5px;
+  font-size: large;
+  margin-left: 7.5%;
+  /* left: 11px;
   position: absolute;
-  top: 389px;
-  width: 339px;
+  top: 389px; */
+  width: 85%;
 }
