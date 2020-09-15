@@ -52,8 +52,8 @@ export default HeaderDrink;
 
 HeaderDrink.propTypes = {
   Drink: PropTypes.shape({
-    idDrink: PropTypes.number.isRequired,
-    strDrinkThumb: PropTypes.string.isRequired,
-    strDrink: PropTypes.string.isRequired,
+    idDrink: PropTypes.string,
+    strDrinkThumb: PropTypes.string,
+    strDrink: PropTypes.string,
   }).isRequired,
 };

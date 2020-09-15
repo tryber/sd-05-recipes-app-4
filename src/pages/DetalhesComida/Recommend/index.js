@@ -29,9 +29,11 @@ const RecommendDrink = (props) => {
 export default RecommendDrink;
 
 RecommendDrink.propTypes = {
-  drink: PropTypes.shape({
-    strMealThumb: PropTypes.string,
-    strMeal: PropTypes.string,
-    idMeal: PropTypes.string,
-  }).isRequired,
+  drink: PropTypes.arrayOf(
+    PropTypes.shape({
+      strMealThumb: PropTypes.string,
+      strMeal: PropTypes.string,
+      idMeal: PropTypes.string,
+    }).isRequired,
+  ).isRequired,
 };

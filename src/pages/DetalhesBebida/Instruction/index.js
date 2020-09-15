@@ -4,7 +4,6 @@ import './index.css';
 
 function InstructionDrink(props) {
   const { Drink } = props;
-  console.log(Drink.strYoutube);
   return (
     <Fragment>
       <div className="instruc-container">
@@ -17,9 +16,7 @@ function InstructionDrink(props) {
           <iframe
             title="video"
             width="340"
-            src={
-              Drink.strYoutube && Drink.strYoutube.replace('watch?v=', 'embed/')
-            }
+            src={Drink.strYoutube && Drink.strYoutube.replace('watch?v=', 'embed/')}
             frameBorder="0"
             allowFullScreen
           />
@@ -33,8 +30,8 @@ export default InstructionDrink;
 
 InstructionDrink.propTypes = {
   Drink: PropTypes.shape({
-    strDrinkThumb: PropTypes.string.isRequired,
-    strDrink: PropTypes.string.isRequired,
-    idDrink: PropTypes.number.isRequired,
+    strDrinkThumb: PropTypes.string,
+    strDrink: PropTypes.string,
+    idDrink: PropTypes.string,
   }).isRequired,
 };

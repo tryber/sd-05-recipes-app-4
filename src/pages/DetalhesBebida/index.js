@@ -16,7 +16,7 @@ export default function DetalhesBebidas(props) {
     getDrinkById(id).then((data) => setDrink(data.drinks[0]));
   }, [setDrink, id]);
 
-  const [meal, setmeal] = useState({});
+  const [meal, setmeal] = useState([]);
   useEffect(() => {
     getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
   }, [setmeal]);

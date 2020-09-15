@@ -21,7 +21,7 @@ function IngredientsMeal(props) {
         <p className="ingredients-title">Ingredients</p>
         {ingredients &&
           ingredients.map((ingredient, index) => (
-            <p data-testid={`${index}-ingredient-name-and-measure`}>
+            <p key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-name-and-measure`}>
               - {ingredient[`strIngredient${index + 1}`]}{' '}
               {ingredient[`strMeasure${index + 1}`]
                 ? `- ${ingredient[`strMeasure${index + 1}`]}`
@@ -37,13 +37,13 @@ export default IngredientsMeal;
 
 IngredientsMeal.propTypes = {
   meal: PropTypes.shape({
-    strIngredient1: PropTypes.string.isRequired,
-    strIngredient2: PropTypes.string.isRequired,
-    strIngredient3: PropTypes.string.isRequired,
-    strIngredient4: PropTypes.string.isRequired,
-    strMeasure1: PropTypes.string.isRequired,
-    strMeasure2: PropTypes.string.isRequired,
-    strMeasure3: PropTypes.string.isRequired,
-    strMeasure4: PropTypes.string.isRequired,
+    strIngredient1: PropTypes.string,
+    strIngredient2: PropTypes.string,
+    strIngredient3: PropTypes.string,
+    strIngredient4: PropTypes.string,
+    strMeasure1: PropTypes.string,
+    strMeasure2: PropTypes.string,
+    strMeasure3: PropTypes.string,
+    strMeasure4: PropTypes.string,
   }).isRequired,
 };
