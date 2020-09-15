@@ -25,7 +25,7 @@ export default function DetalhesBebidas(props) {
   }, [setmeal]);
   const handleProgress = () => {
     const inProgressRecipes = { cocktails: { [drink.idDrink]: [] } };
-    localStorage.setItem('inProgressRecipes',JSON.stringify(inProgressRecipes));
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
   };
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
@@ -33,9 +33,7 @@ export default function DetalhesBebidas(props) {
     if (itemProgress !== null && itemProgress.cocktails !== undefined) {
       setReceipProgress(itemProgress.cocktails.hasOwnProperty(drink.idDrink));
     }
-    if (itemDone !== null) {
-      setReceipDone(itemDone.id === drink.idDrink);
-    }
+    if (itemDone !== null) setReceipDone(itemDone.id === drink.idDrink);
   });
   return (
     <Fragment>
