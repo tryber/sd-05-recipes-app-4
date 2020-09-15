@@ -9,14 +9,14 @@ import blackHeartIcon from '../../images/blackHeartIcon.png';
 
 const recipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
 
-const toggleFavorite = (id, setFilteredRecipes, filteredRecipes) => {
-  const aux = filteredRecipes.filter((recipe) => recipe.id !== id);
-  setFilteredRecipes(aux);
+const toggleFavorite = (id, setFavoritedRecipes, favoritedRecipes) => {
+  const aux = favoritedRecipes.filter((recipe) => recipe.id !== id);
+  setFavoritedRecipes(aux);
   return localStorage.setItem('favoriteRecipes', JSON.stringify(aux));
 };
 
-const mapFavoriteRecipes = (filteredRecipes, setFilteredRecipes) =>
-  filteredRecipes.map(({ id, type, area, category, alcoholicOrNot, name, image }, index) => (
+const mapFavoriteRecipes = (favoritedRecipes, setFavoritedRecipes) =>
+  favoritedRecipes.map(({ id, type, area, category, alcoholicOrNot, name, image }, index) => (
     <div>
       <Link to={`/${type}s/${id}`}>
         <img
@@ -38,8 +38,8 @@ const mapFavoriteRecipes = (filteredRecipes, setFilteredRecipes) =>
       <input
         className="done-recipes-btn"
         onClick={() => {
-          document.getElementById('share-btn').innerHTML = 'Link copiado!';
           copyToClipboard(`http://localhost:3000/${type}s/${id}`);
+          document.getElementById('share-btn').innerHTML = 'Link copiado!';
         }}
         id="share-btn"
         data-testid={`${index}-horizontal-share-btn`}
@@ -49,7 +49,7 @@ const mapFavoriteRecipes = (filteredRecipes, setFilteredRecipes) =>
       />
       <input
         className="done-recipes-btn"
-        onClick={() => toggleFavorite(id, setFilteredRecipes, filteredRecipes)}
+        onClick={() => toggleFavorite(id, setFavoritedRecipes, favoritedRecipes)}
         id="share-btn"
         data-testid={`${index}-horizontal-favorite-btn`}
         type="image"
@@ -60,28 +60,28 @@ const mapFavoriteRecipes = (filteredRecipes, setFilteredRecipes) =>
   ));
 
 const ReceitasFavoritas = () => {
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [favoritedRecipes, setFavoritedRecipes] = useState(recipes);
   return (
     <div>
       <Header hideSearch>Receitas Feitas</Header>
       <div>
-        <button onClick={() => setFilteredRecipes(recipes)} data-testid="filter-by-all-btn">
+        <button onClick={() => setFavoritedRecipes(recipes)} data-testid="filter-by-all-btn">
           All
         </button>
         <button
-          onClick={() => setFilteredRecipes(recipes.filter((recipe) => recipe.type === 'comida'))}
+          onClick={() => setFavoritedRecipes(recipes.filter((recipe) => recipe.type === 'comida'))}
           data-testid="filter-by-food-btn"
         >
           Food
         </button>
         <button
-          onClick={() => setFilteredRecipes(recipes.filter((recipe) => recipe.type === 'bebida'))}
+          onClick={() => setFavoritedRecipes(recipes.filter((recipe) => recipe.type === 'bebida'))}
           data-testid="filter-by-drink-btn"
         >
           Drinks
         </button>
       </div>
-      {mapFavoriteRecipes(filteredRecipes, setFilteredRecipes)}
+      {mapFavoriteRecipes(favoritedRecipes, setFavoritedRecipes)}
     </div>
   );
 };
