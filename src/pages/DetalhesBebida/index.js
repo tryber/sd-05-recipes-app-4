@@ -58,7 +58,6 @@ export default function DetalhesBebidas(props) {
 }
 
 DetalhesBebidas.propTypes = {
-  id: PropTypes.string.isRequired,
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
     .isRequired,
 };

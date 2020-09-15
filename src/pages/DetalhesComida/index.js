@@ -59,7 +59,6 @@ export default function DetalhesComida(props) {
 }
 
 DetalhesComida.propTypes = {
-  id: PropTypes.string.isRequired,
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
     .isRequired,
 };
