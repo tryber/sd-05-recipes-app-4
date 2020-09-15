@@ -4,49 +4,42 @@ body {
   width: 360px;
 }
 
+.img {
+  width: 100%;
+}
+
 .login {
-  align-items: flex-end;
   color: black;
-  display: flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 39px;
-  font-style: normal;
-  font-weight: 300;
-  height: 46px;
-  left: 128px;
-  line-height: 46px;
-  position: absolute;
-  top: 79px;
-  width: 97px;
+  text-align: center;
 }
 
 .email {
   background: white;
   border: 1px solid black;
+  border-radius: 5px;
   box-sizing: border-box;
   height: 58px;
-  left: 31px;
-  position: absolute;
-  top: 155px;
-  width: 293px;
+  margin-bottom: 17px;
+  margin-left: 10%;
+  width: 80%;
 }
 
 .password {
   background: white;
   border: 1px solid black;
+  border-radius: 5px;
   box-sizing: border-box;
   height: 58px;
-  left: 30px;
-  position: absolute;
-  top: 243px;
-  width: 293px;
+  margin-bottom: 17px;
+  margin-left: 10%;
+  width: 80%;
 }
 
 .login-btn {
   background: #6ce34f;
+  border-radius: 5px;
+  font-size: large;
   height: 76px;
-  left: 11px;
-  position: absolute;
-  top: 389px;
-  width: 339px;
+  margin-left: 7.5%;
+  width: 85%;
 }

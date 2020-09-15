@@ -1,7 +1,10 @@
 .header-top {
   align-items: center;
-  background: #c4c4c4;
+  background: orange;
+  color: white;
   display: flex;
+  font-family: Gochi Hand, cursive;
+  font-size: larger;
   justify-content: space-around;
   width: 360px;
 }

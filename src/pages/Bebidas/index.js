@@ -1,13 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-
 import AppContext from '../../context/AppContext';
-
-import { getDrinks, getDrinksCategories, getDrinksByCategory } from '../../services/DrinkApi';
-
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-
+import { getDrinks, getDrinksCategories, getDrinksByCategory } from '../../services/DrinkApi';
 import './index.css';
 
 const listDrinks = (drinkArray) =>
@@ -38,6 +34,7 @@ const listCategories = (setDataDrink, dataDrinkCategories, setDrinkCategory, dri
     </button>
     {dataDrinkCategories.map(({ strCategory }) => (
       <button
+        key={strCategory}
         onClick={() => {
           if (drinkCategory !== strCategory) setDrinkCategory(strCategory);
           else {

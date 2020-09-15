@@ -38,6 +38,7 @@ const listCategories = (setDataFood, foodCategory, dataFoodCategories, setFoodCa
     </button>
     {dataFoodCategories.map(({ strCategory }) => (
       <button
+        key={strCategory}
         onClick={() => {
           if (foodCategory !== strCategory) setFoodCategory(strCategory);
           else {

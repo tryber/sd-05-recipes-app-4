@@ -1,3 +1,33 @@
 body {
-  border: 1px red;
+  background: white;
+  height: 829px;
+  padding: 0;
+  width: 360px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.start-receip {
+  background: #6ce34f;
+  bottom: 0;
+  height: 76px;
+  left: 13px;
+  position: fixed;
+  width: 339px;
+}
+
+.btn-text {
+  color: black;
+  font-family: Roboto, sans-serif;
+  font-size: 29px;
+  font-style: normal;
+  height: 34px;
+  left: 82px;
+  line-height: 34px;
+  text-align: center;
+  top: 757px;
+  width: 183px;
 }
