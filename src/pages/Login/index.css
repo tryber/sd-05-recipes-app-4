@@ -5,22 +5,12 @@ body {
 }
 
 .img {
-  /* position: absolute; */
   width: 100%;
 }
 
 .login {
   color: black;
   text-align: center;
-  /* font-size: 39px; */
-  /* font-style: normal;
-  font-weight: 300;
-  height: 46px;
-  left: 128px;
-  line-height: 46px; */
-  /* position: absolute; */
-  /* top: 79px;
-  width: 97px; */
 }
 
 .email {
@@ -31,9 +21,6 @@ body {
   height: 58px;
   margin-bottom: 17px;
   margin-left: 10%;
-  /* left: 31px; */
-  /* position: absolute; */
-  /* top: 155px;*/
   width: 80%;
 }
 
@@ -45,20 +32,14 @@ body {
   height: 58px;
   margin-bottom: 17px;
   margin-left: 10%;
-  /* left: 30px; */
-  /* position: absolute; */
-  /* top: 243px; */
   width: 80%;
 }
 
 .login-btn {
   background: #6ce34f;
-  height: 76px;
   border-radius: 5px;
   font-size: large;
+  height: 76px;
   margin-left: 7.5%;
-  /* left: 11px;
-  position: absolute;
-  top: 389px; */
   width: 85%;
 }
