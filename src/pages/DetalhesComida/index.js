@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, Fragment } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getMealById } from '../../services/MealApi';
@@ -37,28 +37,24 @@ export default function DetalhesComida(props) {
     if (itemDone !== null) setReceipDone(itemDone.id === meal.idMeal);
   });
   return (
-    <Fragment>
-      <div className="container">
-        <Header meal={meal} />
-        <Ingredients meal={meal} />
-        <Instruction meal={meal} />
-        <Recommend drink={drink} />
-        { !receipDone &&
-        <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
-          <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-recipe"
-            onClick={() => handleProgress()}
-          >
-            <span className="btn-text">
-              {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-            </span>
-          </button>
-        </Link>
-        }
-      </div>
-    </Fragment>
+    <div className="container">
+      <Header meal={meal} />
+      <Ingredients meal={meal} />
+      <Instruction meal={meal} />
+      <Recommend drink={drink} />
+      { !receipDone &&
+      <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
+        <button
+          type="button" data-testid="start-recipe-btn"
+          className="start-recipe" onClick={() => handleProgress()}
+        >
+          <span className="btn-text">
+            {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
+          </span>
+        </button>
+      </Link>
+      }
+    </div>
   );
 }
 
