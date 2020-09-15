@@ -24,7 +24,7 @@ const Login = () => {
   return (
     <div>
       {clickOk && <Redirect to="/comidas" />}
-      <img className="img" src={logo} alt="tryoutLogo" /> 
+      <img className="img" src={logo} alt="tryoutLogo" />
       {/* <h1 className="login">Login</h1> */}
       <form>
         <input
