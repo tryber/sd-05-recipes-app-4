@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import profileIcon from '../../images/profileIcon.png';
+import profileIcon from '../../images/profile.png';
 import searchIcon from '../../images/searchIcon.png';
 
 import './index.css';
