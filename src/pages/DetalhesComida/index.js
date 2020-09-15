@@ -29,10 +29,11 @@ export default function DetalhesComida(props) {
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
   };
   useEffect(() => {
-    const item = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
-    if (item !== null && item.meals !== undefined) {
-      setReceipProgress(item.meals.hasOwnProperty(meal.idMeal));
+    if (itemProgress !== null && itemProgress.meals !== undefined) {
+      const progress = Object.keys(itemProgress.meals)
+      setReceipProgress(progress[0] === meal.idMeal);
     }
     if (itemDone !== null) setReceipDone(itemDone.id === meal.idMeal);
   });

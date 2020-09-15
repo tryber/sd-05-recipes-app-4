@@ -31,7 +31,8 @@ export default function DetalhesBebidas(props) {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
     if (itemProgress !== null && itemProgress.cocktails !== undefined) {
-      setReceipProgress(itemProgress.cocktails.hasOwnProperty(drink.idDrink));
+      const progress = Object.keys(itemProgress.cocktails);
+      setReceipProgress(progress[0] === drink.idDrink);
     }
     if (itemDone !== null) setReceipDone(itemDone.id === drink.idDrink);
   });
