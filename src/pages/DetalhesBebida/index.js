@@ -37,7 +37,7 @@ export default function DetalhesComida(props) {
     };
     localStorage.setItem(
       'inProgressRecipes',
-      JSON.stringify(inProgressRecipes)
+      JSON.stringify(inProgressRecipes),
     );
   };
 
@@ -45,12 +45,12 @@ export default function DetalhesComida(props) {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
 
-    if(itemProgress !== null && itemProgress.cocktails !== undefined) {
+    if (itemProgress !== null && itemProgress.cocktails !== undefined) {
       setReceipProgress(itemProgress.cocktails.hasOwnProperty(drink.idDrink));
     }
 
-    if(itemDone !== null) {
-       setReceipDone(itemDone.id === drink.idDrink);
+    if (itemDone !== null) {
+      setReceipDone(itemDone.id === drink.idDrink);
     }
   });
 
@@ -62,7 +62,7 @@ export default function DetalhesComida(props) {
         <Instruction Drink={drink} />
         <Recommend meal={meal} />
         { !receipDone &&
-        <Link className='start-recipe' to={`/bebidas/${drink.idDrink}/in-progress`}>
+        <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
           <button
             type="button"
             data-testid="start-recipe-btn"
@@ -80,7 +80,7 @@ export default function DetalhesComida(props) {
   );
 }
 
-DetalhesComida.propTypes = {
+DetalhesBebidas.propTypes = {
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
     .isRequired,
 };

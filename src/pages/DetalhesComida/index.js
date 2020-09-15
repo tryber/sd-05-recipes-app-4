@@ -13,10 +13,7 @@ import './index.css';
 export default function DetalhesComida(props) {
   const { id } = props.match.params;
   const [meal, setMeal] = useState({});
-  const {
-    receipProgress,
-    setReceipProgress,
-    receipDone,
+  const { receipProgress, setReceipProgress, receipDone,
     setReceipDone,
   } = useContext(AppContext);
 
@@ -37,7 +34,7 @@ export default function DetalhesComida(props) {
     };
     localStorage.setItem(
       'inProgressRecipes',
-      JSON.stringify(inProgressRecipes)
+      JSON.stringify(inProgressRecipes),
     );
   };
 
@@ -45,13 +42,13 @@ export default function DetalhesComida(props) {
     const item = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
 
-    if(item !== null && item.meals !== undefined) {
+    if (item !== null && item.meals !== undefined) {
       setReceipProgress(item.meals.hasOwnProperty(meal.idMeal));
     }
 
-    if(itemDone !== null) {
+    if (itemDone !== null) {
       setReceipDone(itemDone.id === meal.idMeal);
-   }
+    }
   });
 
   return (
@@ -62,7 +59,7 @@ export default function DetalhesComida(props) {
         <Instruction meal={meal} />
         <Recommend drink={drink} />
         { !receipDone &&
-        <Link className='start-recipe' to={`/comidas/${meal.idMeal}/in-progress`}>
+        <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
           <button
             type="button"
             data-testid="start-recipe-btn"
