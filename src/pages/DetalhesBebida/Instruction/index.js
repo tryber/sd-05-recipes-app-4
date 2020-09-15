@@ -4,22 +4,13 @@ import './index.css';
 
 function InstructionDrink(props) {
   const { Drink } = props;
+  console.log(Drink)
   return (
     <Fragment>
       <div className="instruc-container">
         <p className="instruc">Intructions</p>
         <div className="intruc-div">
           <p data-testid="instructions">{Drink.strInstructions}</p>
-        </div>
-        <div data-testid="video">
-          <p className="instruc">Video</p>
-          <iframe
-            title="video"
-            width="340"
-            src={Drink.strYoutube && Drink.strYoutube.replace('watch?v=', 'embed/')}
-            frameBorder="0"
-            allowFullScreen
-          />
         </div>
       </div>
     </Fragment>

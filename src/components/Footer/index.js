@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import AppContext from '../../context/AppContext';
 
-import drinkIcon from '../../images/drinkIcon.png';
+import drinkIcon from '../../images/drinkIcon.svg';
 import exploreIcon from '../../images/exploreIcon.png';
 import foodIcon from '../../images/mealIcon.png';
 

@@ -85,7 +85,7 @@ body {
 .intruc-div {
   background: #ececec;
   border-radius: 4px;
-  height: 62px;
+  /* height: 62px; */
   left: 11px;
   top: 441px;
   width: 341px;
