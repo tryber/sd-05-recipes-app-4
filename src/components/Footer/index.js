@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import AppContext from '../../context/AppContext';
 
-import drinkIcon from '../../images/drinkIcon.svg';
+import drinkIcon from '../../images/drinkIcon2.png';
 import exploreIcon from '../../images/exploreIcon.png';
 import foodIcon from '../../images/mealIcon.png';
 
@@ -15,6 +15,7 @@ const Footer = () => {
     <footer data-testid="footer">
       <Link to="/bebidas">
         <input
+          height="40"
           data-testid="drinks-bottom-btn"
           onClick={() => setRecipeType('Drink')}
           src={drinkIcon}

@@ -4,7 +4,6 @@ import './index.css';
 
 function InstructionDrink(props) {
   const { Drink } = props;
-  console.log(Drink)
   return (
     <Fragment>
       <div className="instruc-container">
