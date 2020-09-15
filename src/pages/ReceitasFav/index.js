@@ -63,7 +63,7 @@ const ReceitasFavoritas = () => {
   const [favoritedRecipes, setFavoritedRecipes] = useState(recipes);
   return (
     <div>
-      <Header hideSearch>Receitas Feitas</Header>
+      <Header hideSearch>Receitas Favoritas</Header>
       <div>
         <button onClick={() => setFavoritedRecipes(recipes)} data-testid="filter-by-all-btn">
           All
