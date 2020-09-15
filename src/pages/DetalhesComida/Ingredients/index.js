@@ -15,6 +15,8 @@ function IngredientsMeal(props) {
     }
     return array;
   }, []);
+  console.log(ingredients)
+  console.log(meal)
   return (
     <Fragment>
       <div className="container-ingredients">
