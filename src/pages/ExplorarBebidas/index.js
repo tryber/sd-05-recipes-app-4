@@ -6,6 +6,10 @@ import { getRandomDrinks as fetchDrink } from '../../services/DrinkApi';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
+import './index.css';
+import Surprise from '../../images/suprise.png';
+import Ingredients from '../../images/ingredients.png';
+
 const getRandomDrink = (setRedirect, setRedirectId) => {
   fetchDrink().then(({ drinks }) => {
     console.log(drinks[0]);
@@ -20,10 +24,11 @@ const ExplorarBebidas = () => {
   return redirect ? (
     <Redirect to={`/bebidas/${id}`} />
   ) : (
-    <div>
+    <div className="exDrinks">
       <Header hideSearch>Explorar Bebidas</Header>
       <Link to="/explorar/bebidas/ingredientes">
-        <button data-testid="explore-by-ingredient" type="button">
+        <button data-testid="explore-by-ingredient" type="button" className="btn">
+        <img src={Ingredients} alt="ingredients pic" className="pic" />
           Por Ingredientes
         </button>
       </Link>
@@ -31,7 +36,9 @@ const ExplorarBebidas = () => {
         onClick={() => getRandomDrink(setRedirect, setId)}
         data-testid="explore-surprise"
         type="button"
+        className="btn"
       >
+        <img src={Surprise} alt="question pic" className="pic" />
         Me Surpreenda!
       </button>
       <Footer />
