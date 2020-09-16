@@ -26,21 +26,23 @@ const ExplorarBebidas = () => {
   ) : (
     <div className="exDrinks">
       <Header hideSearch>Explorar Bebidas</Header>
-      <Link to="/explorar/bebidas/ingredientes" className="noDecor">
-        <button data-testid="explore-by-ingredient" type="button" className="btn">
-          <img src={Ingredients} alt="ingredients pic" className="pic" />
-          Por Ingredientes
+      <div className="middle">
+        <Link to="/explorar/bebidas/ingredientes" className="noDecor">
+          <button data-testid="explore-by-ingredient" type="button" className="btn">
+            <img src={Ingredients} alt="ingredients pic" className="pic" />
+            Por Ingredientes
+          </button>
+        </Link>
+        <button
+          onClick={() => getRandomDrink(setRedirect, setId)}
+          data-testid="explore-surprise"
+          type="button"
+          className="btn"
+        >
+          <img src={Surprise} alt="question pic" className="pic" />
+          Me Surpreenda!
         </button>
-      </Link>
-      <button
-        onClick={() => getRandomDrink(setRedirect, setId)}
-        data-testid="explore-surprise"
-        type="button"
-        className="btn"
-      >
-        <img src={Surprise} alt="question pic" className="pic" />
-        Me Surpreenda!
-      </button>
+      </div>
       <Footer />
     </div>
   );

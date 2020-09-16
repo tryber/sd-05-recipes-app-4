@@ -1,6 +1,9 @@
 .exDrinks {
   background-image: url('../../images/winesplash.jpeg');
-  padding-bottom: 5%;
+}
+
+.middle {
+  padding-bottom: 10%;
   padding-top: 5%;
 }
 
