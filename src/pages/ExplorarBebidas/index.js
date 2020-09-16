@@ -26,9 +26,9 @@ const ExplorarBebidas = () => {
   ) : (
     <div className="exDrinks">
       <Header hideSearch>Explorar Bebidas</Header>
-      <Link to="/explorar/bebidas/ingredientes">
+      <Link to="/explorar/bebidas/ingredientes" className="noDecor">
         <button data-testid="explore-by-ingredient" type="button" className="btn">
-        <img src={Ingredients} alt="ingredients pic" className="pic" />
+          <img src={Ingredients} alt="ingredients pic" className="pic" />
           Por Ingredientes
         </button>
       </Link>
