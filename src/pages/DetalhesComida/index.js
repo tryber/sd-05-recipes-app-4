@@ -13,9 +13,7 @@ import './index.css';
 export default function DetalhesComida(props) {
   const { id } = props.match.params;
   const [meal, setMeal] = useState({});
-  const { receipProgress, setReceipProgress, receipDone,
-    setReceipDone,
-  } = useContext(AppContext);
+  const { receipProgress, setReceipProgress, receipDone, setRecipeDone } = useContext(AppContext);
   useEffect(() => {
     getMealById(id).then((data) => setMeal(data.meals[0]));
   }, [setMeal, id]);
@@ -23,9 +21,9 @@ export default function DetalhesComida(props) {
   useEffect(() => {
     getDrinks().then((data) => setdrink(data.drinks.slice(0, 6)));
   }, [setdrink]);
-
   const handleProgress = () => {
-    const inProgressRecipes = { meals: { [meal.idMeal]: [] } };
+    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
+    const inProgressRecipes = { ...store, meals: { ...store.meals, [meal.idMeal]: [] } };
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
   };
   useEffect(() => {
@@ -35,7 +33,7 @@ export default function DetalhesComida(props) {
       const progress = Object.keys(itemProgress.meals);
       setReceipProgress(progress[0] === meal.idMeal);
     }
-    if (itemDone !== null) setReceipDone(itemDone.id === meal.idMeal);
+    if (itemDone !== null) setRecipeDone(itemDone.id === meal.idMeal);
   });
   return (
     <div className="container">

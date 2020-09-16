@@ -13,3 +13,5 @@ export { default as ExplorarOrigem } from './ExplorarOrigem';
 export { default as DetalhesComida } from './DetalhesComida';
 export { default as DetalhesBebida } from './DetalhesBebida';
 export { default as NotFound } from './NotFound';
+export { default as ProgressoComida } from './ProgressoComida';
+export { default as ProgressoBebida } from './ProgressoBebida';
