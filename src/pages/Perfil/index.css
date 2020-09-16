@@ -2,6 +2,11 @@ body {
   border: 1px red;
 }
 
+.mainProfile {
+  background-image: url('../../images/blueSplash.png');
+  padding-bottom: 5%;
+}
+
 .txt {
   color: black;
   font-size: 30px;
@@ -11,7 +16,7 @@ body {
 
 .btns {
   align-items: center;
-  background: white;
+  /* background: white; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +25,8 @@ body {
 
 .botao {
   align-items: center;
-  background: #c4c4c4;
+  background: white;
+  border-radius: 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: black;
   display: flex;
@@ -30,5 +36,5 @@ body {
   margin-top: 2%;
   padding: 2%;
   text-decoration: none;
-  width: 330px;
+  width: 80%;
 }
