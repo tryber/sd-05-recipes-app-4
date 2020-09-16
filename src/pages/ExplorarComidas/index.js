@@ -36,7 +36,7 @@ const ExplorarComidas = () => {
         </Link>
         <Link to="/explorar/comidas/area" className="noDecor">
           <button data-testid="explore-by-area" type="button" className="btn">
-          <img src={Passport} alt="ingredients pic" className="pic" />
+            <img src={Passport} alt="ingredients pic" className="pic" />
             Por Local de Origem
           </button>
         </Link>
