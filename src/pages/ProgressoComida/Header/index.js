@@ -12,7 +12,7 @@ const fclipboard = (id) => {
   return clipboard(`http://localhost:3000/comidas/${id}`);
 };
 
-const toggleHeart = (target, meal) => {
+export const toggleHeart = (target, meal) => {
   const favBtn = document.getElementById('favBtn');
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   if (target.src.includes('blackHeart')) {

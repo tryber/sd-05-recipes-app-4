@@ -34,9 +34,7 @@ export default function DetalhesBebidas(props) {
       const progress = Object.keys(itemProgress.cocktails);
       setReceipProgress(progress[0] === drink.idDrink);
     }
-  if (itemDone !== null) {
-    setRecipeDone(itemDone.some((el) => el.id === drink.idDrink))
-  };
+    if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
   });
   return (
     <div className="container">

@@ -7,7 +7,7 @@ import shareIcon from '../../../images/shareIcon.svg';
 
 import './index.css';
 
-const toggleHeart = (target, Drink) => {
+const toggleHeartDrink = (target, Drink) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   const favBtn = document.getElementById('favBtn');
   if (target.src.includes('whiteHeart')) {
@@ -69,7 +69,7 @@ const HeaderDrink = ({ Drink }) => {
               className="favicon"
               src={fav ? blackFavIcon : favIcon}
               alt="favicon icon"
-              onClick={(e) => toggleHeart(e.target, Drink)}
+              onClick={(e) => toggleHeartDrink(e.target, Drink)}
             />
           </div>
         </div>

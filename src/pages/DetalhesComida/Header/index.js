@@ -5,10 +5,9 @@ import fclipboard from './clipBoard';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
-
 import './index.css';
 
-const toggleHeart = (target, meal) => {
+const toggleHeartMeal = (target, meal) => {
   const favBtn = document.getElementById('favBtn');
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   if (target.src.includes('blackHeart')) {
@@ -17,12 +16,9 @@ const toggleHeart = (target, meal) => {
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   } else {
     const recipe = {
-      id: meal.idMeal,
-      type: 'comida',
-      area: meal.strArea,
-      category: meal.strCategory,
-      alcoholicOrNot: '',
-      name: meal.strMeal,
+      id: meal.idMeal, type: 'comida',
+      area: meal.strArea, category: meal.strCategory,
+      alcoholicOrNot: '', name: meal.strMeal,
       image: meal.strMealThumb,
     };
     favBtn.src = blackFavIcon;
@@ -30,7 +26,6 @@ const toggleHeart = (target, meal) => {
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   }
 };
-
 const HeaderMeal = ({ meal }) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   const fav = storage.some((recipe) => recipe.id === meal.idMeal);
@@ -70,7 +65,7 @@ const HeaderMeal = ({ meal }) => {
               className="favicon"
               src={fav ? blackFavIcon : favIcon}
               alt="favicon icon"
-              onClick={(e) => toggleHeart(e.target, meal)}
+              onClick={(e) => toggleHeartMeal(e.target, meal)}
             />
           </div>
         </div>
