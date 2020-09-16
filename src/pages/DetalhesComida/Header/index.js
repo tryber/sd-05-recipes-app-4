@@ -16,9 +16,12 @@ const toggleHeartMeal = (target, meal) => {
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   } else {
     const recipe = {
-      id: meal.idMeal, type: 'comida',
-      area: meal.strArea, category: meal.strCategory,
-      alcoholicOrNot: '', name: meal.strMeal,
+      id: meal.idMeal,
+      type: 'comida',
+      area: meal.strArea,
+      category: meal.strCategory,
+      alcoholicOrNot: '',
+      name: meal.strMeal,
       image: meal.strMealThumb,
     };
     favBtn.src = blackFavIcon;
