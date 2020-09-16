@@ -13,7 +13,8 @@ import './index.css';
 export default function DetalhesBebidas(props) {
   const { id } = props.match.params;
   const [drink, setDrink] = useState({});
-  const { receipProgress, setReceipProgress, receipDone, setRecipeDone } = useContext(AppContext);
+  const [receipDone, setRecipeDone] = useState(false);
+  const { receipProgress, setReceipProgress } = useContext(AppContext);
   useEffect(() => {
     getDrinkById(id).then((data) => setDrink(data.drinks[0]));
   }, [setDrink, id]);
@@ -33,7 +34,7 @@ export default function DetalhesBebidas(props) {
       const progress = Object.keys(itemProgress.cocktails);
       setReceipProgress(progress[0] === drink.idDrink);
     }
-    if (itemDone !== null) setRecipeDone(itemDone.id === drink.idDrink);
+    if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
   });
   return (
     <div className="container">
