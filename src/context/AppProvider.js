@@ -14,7 +14,7 @@ function Provider({ children }) {
   const [dataFoodAreas, setDataFoodAreas] = useState([]);
   const [foodArea, setFoodArea] = useState(false);
   const [receipProgress, setReceipProgress] = useState(false);
-  const [receipDone, setReceipDone] = useState(false);
+  const [recipeDone, setRecipeDone] = useState(false);
 
   const contextValue = {
     dataFood,
@@ -37,8 +37,8 @@ function Provider({ children }) {
     setFoodArea,
     receipProgress,
     setReceipProgress,
-    receipDone,
-    setReceipDone,
+    recipeDone,
+    setRecipeDone,
   };
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 }

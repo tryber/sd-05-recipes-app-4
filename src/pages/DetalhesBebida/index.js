@@ -13,9 +13,7 @@ import './index.css';
 export default function DetalhesBebidas(props) {
   const { id } = props.match.params;
   const [drink, setDrink] = useState({});
-  const { receipProgress, setReceipProgress, receipDone,
-    setReceipDone,
-  } = useContext(AppContext);
+  const { receipProgress, setReceipProgress, receipDone, setRecipeDone } = useContext(AppContext);
   useEffect(() => {
     getDrinkById(id).then((data) => setDrink(data.drinks[0]));
   }, [setDrink, id]);
@@ -24,8 +22,9 @@ export default function DetalhesBebidas(props) {
     getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
   }, [setmeal]);
   const handleProgress = () => {
-    const inProgressRecipes = { cocktails: { [drink.idDrink]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
+    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
+    const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [drink.idDrink]: [] } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
   };
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
@@ -34,7 +33,7 @@ export default function DetalhesBebidas(props) {
       const progress = Object.keys(itemProgress.cocktails);
       setReceipProgress(progress[0] === drink.idDrink);
     }
-    if (itemDone !== null) setReceipDone(itemDone.id === drink.idDrink);
+    if (itemDone !== null) setRecipeDone(itemDone.id === drink.idDrink);
   });
   return (
     <div className="container">
