@@ -13,7 +13,8 @@ import './index.css';
 export default function DetalhesComida(props) {
   const { id } = props.match.params;
   const [meal, setMeal] = useState({});
-  const { receipProgress, setReceipProgress, receipDone, setRecipeDone } = useContext(AppContext);
+  const [receipDone, setRecipeDone] = useState(false);
+  const { receipProgress, setReceipProgress } = useContext(AppContext);
   useEffect(() => {
     getMealById(id).then((data) => setMeal(data.meals[0]));
   }, [setMeal, id]);
@@ -33,7 +34,9 @@ export default function DetalhesComida(props) {
       const progress = Object.keys(itemProgress.meals);
       setReceipProgress(progress[0] === meal.idMeal);
     }
-    if (itemDone !== null) setRecipeDone(itemDone.id === meal.idMeal);
+    if (itemDone !== null) {
+      setRecipeDone(itemDone.some((el) => el.id === meal.idMeal))
+    };
   });
   return (
     <div className="container">

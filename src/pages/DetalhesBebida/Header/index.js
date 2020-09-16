@@ -2,51 +2,81 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import fclipboard from '../../DetalhesComida/Header/clipBoard';
 import favIcon from '../../../images/whiteHeartIcon.svg';
+import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 
 import './index.css';
 
-const HeaderDrink = ({ Drink }) => (
-  <Fragment>
-    <div className="header-container">
-      <img
-        className="img-header"
-        data-testid="recipe-photo"
-        src={Drink.strDrinkThumb}
-        alt="thumbnail da comida"
-      />
-      <div className="container-btn">
-        <div className="title-container">
-          <div className="title">
-            <p data-testid="recipe-title">{Drink.strDrink}</p>
-          </div>
-          <div className="title-type">
-            <p data-testid="recipe-category">{Drink.strAlcoholic}</p>
-          </div>
-        </div>
-        <div className="share-btn">
-          <input
-            type="image"
-            data-testid="share-btn"
-            className="shareicon"
-            id="btn-share-id"
-            src={shareIcon}
-            alt="share icon"
-            onClick={() => fclipboard()}
-          />
+const toggleHeart = (target, Drink) => {
+  const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+  const favBtn = document.getElementById('favBtn');
+  if (target.src.includes('whiteHeart')) {
+    favBtn.src = blackFavIcon;
+    const recipe = {
+      id: Drink.idDrink,
+      type: 'bebida',
+      area: '',
+      category: Drink.strCategory,
+      alcoholicOrNot: Drink.strAlcoholic,
+      name: Drink.strDrink,
+      image: Drink.strDrinkThumb,
+    };
+    const newStorage = [...storage, recipe];
+    localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
+  } else {
+    favBtn.src = favIcon;
+    const newStorage = storage.filter((recipe) => recipe.id !== Drink.idDrink);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
+  }
+};
 
-          <input
-            type="image"
-            data-testid="favorite-btn"
-            className="favicon"
-            src={favIcon}
-            alt="favicon icon"
-          />
+const HeaderDrink = ({ Drink }) => {
+  const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+  const fav = storage.some((recipe) => recipe.id === Drink.idDrink);
+  return (
+    <Fragment>
+      <div className="header-container">
+        <img
+          className="img-header"
+          data-testid="recipe-photo"
+          src={Drink.strDrinkThumb}
+          alt="thumbnail da comida"
+        />
+        <div className="container-btn">
+          <div className="title-container">
+            <div className="title">
+              <p data-testid="recipe-title">{Drink.strDrink}</p>
+            </div>
+            <div className="title-type">
+              <p data-testid="recipe-category">{Drink.strAlcoholic}</p>
+            </div>
+          </div>
+          <div className="share-btn">
+            <input
+              type="image"
+              data-testid="share-btn"
+              className="shareicon"
+              id="btn-share-id"
+              src={shareIcon}
+              alt="share icon"
+              onClick={() => fclipboard()}
+            />
+
+            <input
+              type="image"
+              data-testid="favorite-btn"
+              id="favBtn"
+              className="favicon"
+              src={fav ? blackFavIcon : favIcon}
+              alt="favicon icon"
+              onClick={(e) => toggleHeart(e.target, Drink)}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </Fragment>
-);
+    </Fragment>
+  );
+};
 
 export default HeaderDrink;
 
