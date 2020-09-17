@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { getMealById } from '../../services/MealApi';
-import { getDrinks } from '../../services/DrinkApi';
 import AppContext from '../../context/AppContext';
 import Header from './Header';
 import Instruction from '../DetalhesComida/Instruction';
