@@ -119,8 +119,8 @@ body {
 
 .thumbnail {
   border-radius: 6px 6px 0 0;
-  height: 109px;
-  width: 161px;
+  height: 83px;
+  width: auto;
 }
 
 .start-receip {
