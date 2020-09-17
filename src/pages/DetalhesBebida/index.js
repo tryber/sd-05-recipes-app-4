@@ -11,10 +11,14 @@ import Ingredients from './Ingredients';
 import './index.css';
 
 const handleProgress = (id) => {
-  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
-  if (!store.meals[id]) {
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+    cocktails: { [id]: [] },
+  };
+  if (!store.cocktails[id]) {
     const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [id]: [] } };
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
+  } else {
+    localStorage.setItem('inProgressRecipes', JSON.stringify(store));
   }
 };
 
@@ -38,7 +42,7 @@ export default function DetalhesBebidas(props) {
       setReceipProgress(progress[0] === drink.idDrink);
     }
     if (itemDone !== null) {
-      (setRecipeDone(itemDone.some((el) => el.id === drink.idDrink)));
+      setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
     }
   }, [setReceipProgress, drink]);
   return (
@@ -47,23 +51,24 @@ export default function DetalhesBebidas(props) {
       <Ingredients Drink={drink} />
       <Instruction Drink={drink} />
       <Recommend meal={meal} />
-      { !receipDone &&
-      <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
-        <button
-          type="button" data-testid="start-recipe-btn"
-          className="start-recipe" onClick={() => handleProgress(drink.idDrink)}
-        >
-          <span className="btn-text">
-            {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-          </span>
-        </button>
-      </Link>
-      }
+      {!receipDone && (
+        <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
+          <button
+            type="button"
+            data-testid="start-recipe-btn"
+            className="start-recipe"
+            onClick={() => handleProgress(drink.idDrink)}
+          >
+            <span className="btn-text">
+              {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
+            </span>
+          </button>
+        </Link>
+      )}
     </div>
   );
 }
 
 DetalhesBebidas.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
-    .isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

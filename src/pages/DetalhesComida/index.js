@@ -11,10 +11,12 @@ import Ingredients from './Ingredients';
 import './index.css';
 
 const handleProgress = (id) => {
-  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || { meals: { [id]: [] } };
   if (!store.meals[id]) {
     const inProgressRecipes = { ...store, meals: { ...store.meals, [id]: [] } };
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
+  } else {
+    localStorage.setItem('inProgressRecipes', JSON.stringify(store));
   }
 };
 
@@ -47,23 +49,24 @@ export default function DetalhesComida(props) {
       <Ingredients meal={meal} />
       <Instruction meal={meal} />
       <Recommend drink={drink} />
-      { !receipDone &&
-      <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
-        <button
-          type="button" data-testid="start-recipe-btn"
-          className="start-recipe" onClick={() => handleProgress(meal.idMeal)}
-        >
-          <span className="btn-text">
-            {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-          </span>
-        </button>
-      </Link>
-      }
+      {!receipDone && (
+        <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
+          <button
+            type="button"
+            data-testid="start-recipe-btn"
+            className="start-recipe"
+            onClick={() => handleProgress(meal.idMeal)}
+          >
+            <span className="btn-text">
+              {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
+            </span>
+          </button>
+        </Link>
+      )}
     </div>
   );
 }
 
 DetalhesComida.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
-    .isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };
