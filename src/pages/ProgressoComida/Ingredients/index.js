@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.css';
@@ -47,9 +47,20 @@ function IngredientsMeal({ meal }) {
   const { id } = useParams();
   const { setRecipeDone } = useContext(AppContext);
   const recipeDoneToggle = (value) => setRecipeDone(value);
-  const [recipesInProgress, setRecipesInProgress] = useState(
-    JSON.parse(localStorage.getItem('inProgressRecipes')) || { meals: { [id]: [] } },
-  );
+  const [recipesInProgress, setRecipesInProgress] = useState({});
+  useEffect(() => {
+    const localStore = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+      meals: { [id]: [] },
+      cocktails: {},
+    };
+    if (!localStore.meals[id]) {
+      const inProgressRecipe = { ...localStore, meals: { ...localStore.meals, [id]: [] } };
+      localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
+    } else {
+      localStorage.setItem('inProgressRecipes', JSON.stringify(localStore));
+    }
+    setRecipesInProgress(JSON.parse(localStorage.getItem('inProgressRecipes')));
+  }, [setRecipesInProgress, id]);
   let counter = 1;
   const ingredients = Object.keys(meal).reduce((array, key) => {
     if (key.includes('strIngredient') && meal[key] !== null && meal[key].length > 0) {

@@ -11,9 +11,12 @@ import Ingredients from './Ingredients';
 import './index.css';
 
 const handleProgress = (id) => {
-  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || { meals: { [id]: [] } };
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+    meals: { [id]: [] },
+    cocktails: {},
+  };
   if (!store.meals[id]) {
-    const inProgressRecipes = { ...store, meals: { ...store.meals, [id]: [] } };
+    const inProgressRecipes = { meals: { ...store.meals, [id]: [] } };
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
   } else {
     localStorage.setItem('inProgressRecipes', JSON.stringify(store));

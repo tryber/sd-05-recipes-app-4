@@ -13,6 +13,7 @@ import './index.css';
 const handleProgress = (id) => {
   const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
     cocktails: { [id]: [] },
+    meals: {},
   };
   if (!store.cocktails[id]) {
     const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [id]: [] } };
