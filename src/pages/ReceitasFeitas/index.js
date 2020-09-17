@@ -16,7 +16,7 @@ const mapDoneRecipes = (filteredRecipes) =>
       <div>
         <Link to={`/${type}s/${id}`}>
           <img
-            className="done-recipes-img"
+            className="thumbnail"
             data-testid={`${index}-horizontal-image`}
             src={image}
             alt={image}
