@@ -7,15 +7,15 @@ import Spoon from '../../images/spoon.png';
 import Drink from '../../images/martini.png';
 
 const Explorar = () => (
-  <div>
-    <Header hideSearch>Explorar</Header>
+  <div className="explore">
+    <Header hideSearch>explore</Header>
     <Link to="/explorar/comidas" data-testid="explore-food" className="btn">
       <img src={Spoon} alt="spoon pic" className="btnPic" />
-      Explorar Comidas
+      EXPLORE MEALS
     </Link>
     <Link to="/explorar/bebidas"data-testid="explore-drinks" className="btn">
       <img src={Drink} alt="spoon pic" className="btnPic2" />
-      Explorar Bebidas
+      EXPLORE COCKTAILS
     </Link>
     <Footer />
   </div>

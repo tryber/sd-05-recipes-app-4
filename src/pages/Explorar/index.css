@@ -1,19 +1,30 @@
+.explore {
+  background-image: url('..//../images/hotSplash.png');
+  padding-bottom: 5%;
+}
+
 .btn {
-  align-items: flex-end;
+  align-items: center;
   background: white;
   border-radius: 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: black;
   display: flex;
-  font-size: 32px;
-  font-style: normal;
-  height: 82px;
+  flex-direction: column;
+  font-size: larger;
   justify-content: center;
-  left: 14px;
-  line-height: 37px;
-  margin-top: 2%;
-  padding-bottom: 1%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  margin-top: 3%;
+  padding: 5%;
   text-decoration: none;
-  top: 196px;
-  width: 359px;
+  width: 80%;
+}
+
+.btnPic {
+  width: 20%;
+}
+
+.btnPic2 {
+  height: 51px;
 }
