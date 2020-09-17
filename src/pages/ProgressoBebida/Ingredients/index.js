@@ -69,18 +69,26 @@ function IngredientsDrink({ Drink }) {
               checked={recipesInProgress.cocktails[id].some(
                 (item) => item === `ingredient${index + 1}`,
               )}
-              id={`ingredient${index + 1}`} type="checkbox"
+              id={`ingredient${index + 1}`}
+              type="checkbox"
               onChange={(e) => toggleCheck(e.target, id, setRecipesInProgress, recipeDoneToggle)}
             />
             <label
               style={{
                 textDecoration: recipesInProgress.cocktails[id].some(
-                  (item) => item === `ingredient${index + 1}`) ? 'line-through' : 'inherit',
-              }} htmlFor={`ingredient${index + 1}`}
+                  (item) => item === `ingredient${index + 1}`,
+                )
+                  ? 'line-through'
+                  : 'inherit',
+              }}
+              htmlFor={`ingredient${index + 1}`}
             >
               {`${ingredient[`strIngredient${index + 1}`]}
-            ${ingredient[`strMeasure${index + 1}`]
-              ? `- ${ingredient[`strMeasure${index + 1}`]}` : ''}`}
+            ${
+              ingredient[`strMeasure${index + 1}`]
+                ? `- ${ingredient[`strMeasure${index + 1}`]}`
+                : ''
+            }`}
             </label>
           </div>
         ))}

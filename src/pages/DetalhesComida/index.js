@@ -10,6 +10,14 @@ import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
+const handleProgress = (id) => {
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
+  if (!store.meals[id]) {
+    const inProgressRecipes = { ...store, meals: { ...store.meals, [id]: [] } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
+  }
+};
+
 export default function DetalhesComida(props) {
   const { id } = props.match.params;
   const [meal, setMeal] = useState({});
@@ -22,11 +30,6 @@ export default function DetalhesComida(props) {
   useEffect(() => {
     getDrinks().then((data) => setdrink(data.drinks.slice(0, 6)));
   }, [setdrink]);
-  const handleProgress = () => {
-    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
-    const inProgressRecipes = { ...store, meals: { ...store.meals, [meal.idMeal]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
-  };
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -48,7 +51,7 @@ export default function DetalhesComida(props) {
       <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
         <button
           type="button" data-testid="start-recipe-btn"
-          className="start-recipe" onClick={() => handleProgress()}
+          className="start-recipe" onClick={() => handleProgress(meal.idMeal)}
         >
           <span className="btn-text">
             {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
