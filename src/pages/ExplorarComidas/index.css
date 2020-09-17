@@ -1,5 +1,9 @@
 .exMeals {
   background-image: url('../../images/spaghetti.jpg');
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 }
 
 .middle {
