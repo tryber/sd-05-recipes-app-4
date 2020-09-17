@@ -34,8 +34,10 @@ export default function DetalhesComida(props) {
       const progress = Object.keys(itemProgress.meals);
       setReceipProgress(progress[0] === meal.idMeal);
     }
-    if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === meal.idMeal));
-  });
+    if (itemDone !== null) {
+      setRecipeDone(itemDone.some((el) => el.id === meal.idMeal));
+    }
+  }, [setReceipProgress, meal]);
   return (
     <div className="container">
       <Header meal={meal} />
