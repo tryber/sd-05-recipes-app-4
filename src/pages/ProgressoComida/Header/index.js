@@ -1,13 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
-import fclipboard from './clipBoard';
+import clipboard from 'clipboard-copy';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
+
 import './index.css';
 
-const toggleHeartMeal = (target, meal) => {
+const fclipboard = (id) => {
+  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
+  return clipboard(`http://localhost:3000/comidas/${id}`);
+};
+
+export const toggleHeart = (target, meal) => {
   const favBtn = document.getElementById('favBtn');
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   if (target.src.includes('blackHeart')) {
@@ -29,6 +34,7 @@ const toggleHeartMeal = (target, meal) => {
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   }
 };
+
 const HeaderMeal = ({ meal }) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   const fav = storage.some((recipe) => recipe.id === meal.idMeal);
@@ -58,17 +64,17 @@ const HeaderMeal = ({ meal }) => {
               id="btn-share-id"
               src={shareIcon}
               alt="share icon"
-              onClick={() => fclipboard()}
+              onClick={() => fclipboard(meal.idMeal)}
             />
 
             <input
               type="image"
               data-testid="favorite-btn"
-              id="favBtn"
               className="favicon"
+              id="favBtn"
               src={fav ? blackFavIcon : favIcon}
               alt="favicon icon"
-              onClick={(e) => toggleHeartMeal(e.target, meal)}
+              onClick={(e) => toggleHeart(e.target, meal)}
             />
           </div>
         </div>

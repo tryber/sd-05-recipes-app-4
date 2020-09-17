@@ -1,53 +1,59 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
-import fclipboard from './clipBoard';
+import clipboard from 'clipboard-copy';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
+
 import './index.css';
 
-const toggleHeartMeal = (target, meal) => {
-  const favBtn = document.getElementById('favBtn');
+const toggleHeart = (target, Drink) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-  if (target.src.includes('blackHeart')) {
-    favBtn.src = favIcon;
-    const newStorage = storage.filter((recipe) => recipe.id !== meal.idMeal);
+  const favBtn = document.getElementById('favBtn');
+  if (target.src.includes('whiteHeart')) {
+    favBtn.src = blackFavIcon;
+    const recipe = {
+      id: Drink.idDrink,
+      type: 'bebida',
+      area: '',
+      category: Drink.strCategory,
+      alcoholicOrNot: Drink.strAlcoholic,
+      name: Drink.strDrink,
+      image: Drink.strDrinkThumb,
+    };
+    const newStorage = [...storage, recipe];
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   } else {
-    const recipe = {
-      id: meal.idMeal,
-      type: 'comida',
-      area: meal.strArea,
-      category: meal.strCategory,
-      alcoholicOrNot: '',
-      name: meal.strMeal,
-      image: meal.strMealThumb,
-    };
-    favBtn.src = blackFavIcon;
-    const newStorage = [...storage, recipe];
+    favBtn.src = favIcon;
+    const newStorage = storage.filter((recipe) => recipe.id !== Drink.idDrink);
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   }
 };
-const HeaderMeal = ({ meal }) => {
+
+const fclipboard = (id) => {
+  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
+  return clipboard(`http://localhost:3000/bebidas/${id}`);
+};
+
+const HeaderDrink = ({ Drink }) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-  const fav = storage.some((recipe) => recipe.id === meal.idMeal);
+  const fav = storage.some((recipe) => recipe.id === Drink.idDrink);
   return (
     <Fragment>
       <div className="header-container">
         <img
           className="img-header"
           data-testid="recipe-photo"
-          src={meal.strMealThumb}
+          src={Drink.strDrinkThumb}
           alt="thumbnail da comida"
         />
         <div className="container-btn">
           <div className="title-container">
             <div className="title">
-              <p data-testid="recipe-title">{meal.strMeal}</p>
+              <p data-testid="recipe-title">{Drink.strDrink}</p>
             </div>
             <div className="title-type">
-              <p data-testid="recipe-category">{meal.strCategory}</p>
+              <p data-testid="recipe-category">{Drink.strAlcoholic}</p>
             </div>
           </div>
           <div className="share-btn">
@@ -58,7 +64,7 @@ const HeaderMeal = ({ meal }) => {
               id="btn-share-id"
               src={shareIcon}
               alt="share icon"
-              onClick={() => fclipboard()}
+              onClick={() => fclipboard(Drink.idDrink)}
             />
 
             <input
@@ -68,7 +74,7 @@ const HeaderMeal = ({ meal }) => {
               className="favicon"
               src={fav ? blackFavIcon : favIcon}
               alt="favicon icon"
-              onClick={(e) => toggleHeartMeal(e.target, meal)}
+              onClick={(e) => toggleHeart(e.target, Drink)}
             />
           </div>
         </div>
@@ -77,12 +83,12 @@ const HeaderMeal = ({ meal }) => {
   );
 };
 
-export default HeaderMeal;
+export default HeaderDrink;
 
-HeaderMeal.propTypes = {
-  meal: PropTypes.shape({
-    idMeal: PropTypes.string,
-    strMealThumb: PropTypes.string,
-    strMeal: PropTypes.string,
+HeaderDrink.propTypes = {
+  Drink: PropTypes.shape({
+    idDrink: PropTypes.string,
+    strDrinkThumb: PropTypes.string,
+    strDrink: PropTypes.string,
   }).isRequired,
 };
