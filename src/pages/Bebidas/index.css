@@ -1,4 +1,4 @@
-#cocktailBG {
+.cocktailBG {
   background-image: url('../../images/winesplash.jpeg');
 }
 
@@ -8,13 +8,13 @@
 }
 
 .drkBtn {
- background-color: white;
- border: none;
- border-radius: 6px;
- box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
- font-size: large;
- margin: 1%;
- padding: 3%;
+  background-color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: large;
+  margin: 1%;
+  padding: 3%;
 }
 
 .btnsAll {
@@ -39,7 +39,7 @@
   height: 25%;
   margin: 1%;
   text-align: center;
-  width: 45%; 
+  width: 45%;
 }
 
 .recipes-container:last-child {

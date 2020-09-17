@@ -82,10 +82,12 @@ const Bebidas = () => {
   }
   if (drinkArray.length > 12) drinkArray = drinkArray.slice(0, 12);
   return (
-    <div className="recipes-container" id="cocktailBG">
+    <div className="recipes-container">
       <Header>cocktails</Header>
-      {listCategories(setDataDrink, dataDrinkCategories, setDrinkCategory, drinkCategory)}
-      {listDrinks(drinkArray)}
+      <div className="cocktailBG">
+        {listCategories(setDataDrink, dataDrinkCategories, setDrinkCategory, drinkCategory)}
+        {listDrinks(drinkArray)}
+      </div>
       <Footer />
     </div>
   );
