@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import copyToClipboard from 'clipboard-copy';
 
@@ -7,8 +7,6 @@ import Header from '../../components/Header';
 import shareIcon from '../../images/shareIcon.svg';
 
 import './index.css';
-
-const recipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
 
 const mapDoneRecipes = (filteredRecipes) =>
   filteredRecipes.map(
@@ -55,7 +53,13 @@ const mapDoneRecipes = (filteredRecipes) =>
   );
 
 const ReceitasFeitas = () => {
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    const storage = JSON.parse(localStorage.getItem('doneRecipes')) || [];
+    setRecipes(storage);
+    setFilteredRecipes(storage);
+  }, [setFilteredRecipes, setRecipes]);
   return (
     <div>
       <Header hideSearch>Receitas Feitas</Header>

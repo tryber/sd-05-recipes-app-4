@@ -19,6 +19,7 @@ const changeLocalStorage = (option, id, setRecipesInProgress) => {
 const removeFromLocalStorage = (option, id, setRecipesInProgress) => {
   const recipesInProgress = JSON.parse(localStorage.getItem('inProgressRecipes')) || [];
   const progressMeals = {
+    ...recipesInProgress,
     meals: { [id]: recipesInProgress.meals[id].filter((item) => item !== option) },
   };
   setRecipesInProgress(progressMeals);

@@ -6,7 +6,6 @@ import { getDrinkById } from '../../services/DrinkApi';
 import AppContext from '../../context/AppContext';
 import Header from './Header';
 import Instruction from '../DetalhesBebida/Instruction';
-import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
@@ -35,17 +34,12 @@ export default function DetalhesBebidas(props) {
   useEffect(() => {
     getDrinkById(id).then((data) => setDrink(data.drinks[0]));
   }, [setDrink, id]);
-  const [meal, setmeal] = useState([]);
-  useEffect(() => {
-    getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
-  }, [setmeal]);
   if (redirect) return <Redirect to="/receitas-feitas" />;
   return (
     <div className="container">
       <Header Drink={drink} />
       <Ingredients Drink={drink} />
       <Instruction Drink={drink} />
-      <Recommend meal={meal} />
       <button
         disabled={!recipeDone}
         type="button"
