@@ -25,10 +25,11 @@
   width: 100%;
 }
 
-.thumbnail {
+/* width: 80%; */
   /* border-radius: 6px 6px 0 0; */
+
+.thumbnail {
   height: 60%;
-  /* width: 80%; */
 }
 
 .recipes-container {
