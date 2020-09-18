@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, waitFor } from '@testing-library/react';
 import renderWithRouter from '../__render__/renderWithRouter';
-import Comidas from '../pages/Comidas';
+import Comidas from '../pages/Comidas/Comida';
 
 import mealsMock from '../../cypress/mocks/meals';
 import beefMock from '../../cypress/mocks/beefMeals';
