@@ -19,21 +19,32 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .search-input {
+  align-self: center;
+  border-radius: 3px;
   margin-top: 5px;
-  width: 100%;
+  width: 50%;
 }
 
 .search-box {
   align-content: center;
+  background-color: orange;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2%;
+  width: 100%;
 }
 
 .search-btn {
   margin: 5px auto;
   width: 40%;
+}
+
+.radios {
+  align-self: center;
 }

@@ -76,7 +76,7 @@ const ExplorarOrigem = () => {
 
   return (
     <div className="recipes-container">
-      <Header>Explorar Origem</Header>
+      <Header>explore by origin</Header>
       {dropDownArea(setDataFood, foodArea, dataFoodAreas, setFoodArea)}
       {listMeals(foodArray)}
       <Footer />

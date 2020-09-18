@@ -41,7 +41,7 @@ const fetchFoodApi = (target, input, save) => {
 const searchBtn = (recipeType, target, input, setDataDrink, setDataFood) => (
   <button
     data-testid="exec-search-btn"
-    className="search-btn"
+    className="btn"
     type="button"
     onClick={() => {
       if (target === 'letter' && input.length > 1) {
@@ -52,7 +52,7 @@ const searchBtn = (recipeType, target, input, setDataDrink, setDataFood) => (
         : fetchDrinkApi(target, input, setDataDrink);
     }}
   >
-    Buscar
+    Search
   </button>
 );
 
@@ -68,7 +68,7 @@ const SearchBar = ({ recipeType }) => {
         className="search-input"
         type="text"
       />
-      <div>
+      <div className="radios">
         <input
           data-testid="ingredient-search-radio"
           onChange={() => setTarget('ing')}
@@ -76,7 +76,7 @@ const SearchBar = ({ recipeType }) => {
           id="ing"
           name="target"
         />
-        <label htmlFor="ing">Ingredientes</label>
+        <label htmlFor="ing">Ingredients</label>
         <input
           data-testid="name-search-radio"
           onChange={() => setTarget('name')}
@@ -84,7 +84,7 @@ const SearchBar = ({ recipeType }) => {
           id="nome"
           name="target"
         />
-        <label htmlFor="nome">Nome</label>
+        <label htmlFor="nome">Name</label>
         <input
           data-testid="first-letter-search-radio"
           onChange={() => setTarget('letter')}
@@ -92,7 +92,7 @@ const SearchBar = ({ recipeType }) => {
           id="letra"
           name="target"
         />
-        <label htmlFor="letra">Primeira Letra</label>
+        <label htmlFor="letra">First Letter</label>
       </div>
       {searchBtn(recipeType, target, input, setDataDrink, setDataFood)}
     </div>

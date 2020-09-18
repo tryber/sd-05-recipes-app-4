@@ -2,11 +2,11 @@
   display: flex;
 }
 
-.thumbnail {
+/* .thumbnail {
   border-radius: 6px 6px 0 0;
   height: 109px;
   width: 161px;
-}
+} */
 
 .start-receip {
   background: #6ce34f;

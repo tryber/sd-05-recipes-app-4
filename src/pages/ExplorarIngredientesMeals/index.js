@@ -29,7 +29,6 @@ const ExplorarIngredientesMeals = () => {
         onClick={() => clickOn(ingrediente.strIngredient)}
       >
         <img
-          className="thumbnail"
           data-testid={`${index}-card-img`}
           src={`https://www.themealdb.com/images/ingredients/${ingrediente.strIngredient}-Small.png`}
           alt="thumbnail do ingrediente"
@@ -46,7 +45,7 @@ const ExplorarIngredientesMeals = () => {
 
   return (
     <div className="recipes-container">
-      <Header hideSearch>Explorar Ingredientes</Header>
+      <Header hideSearch>explore ingredients</Header>
       {listIngredients(ingArray)}
       <Footer />
     </div>

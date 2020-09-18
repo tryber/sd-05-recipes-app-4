@@ -35,7 +35,7 @@ export default function DetalhesBebidas(props) {
       setReceipProgress(progress[0] === drink.idDrink);
     }
     if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
-  });
+  }, [setReceipProgress, drink]);
   return (
     <div className="container">
       <Header Drink={drink} />

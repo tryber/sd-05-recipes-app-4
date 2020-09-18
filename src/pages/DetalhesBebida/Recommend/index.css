@@ -3,11 +3,11 @@
   flex-wrap: wrap;
 }
 
-.thumbnail {
+/* .thumbnail {
   border-radius: 6px 6px 0 0;
   height: 109px;
   width: 161px;
-}
+} */
 
 .recommended-recipes-container {
   display: flex;

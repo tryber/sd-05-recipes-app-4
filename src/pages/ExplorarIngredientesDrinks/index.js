@@ -31,7 +31,6 @@ const ExplorarIngredientesDrinks = () => {
       >
         <input
           type="image"
-          className="thumbnail"
           data-testid={`${index}-card-img`}
           src={`https://www.thecocktaildb.com/images/ingredients/${ingrediente.strIngredient1}-Small.png`}
           alt="thumbnail do ingrediente"
@@ -45,7 +44,7 @@ const ExplorarIngredientesDrinks = () => {
 
   return (
     <div className="recipes-container">
-      <Header hideSearch>Explorar Ingredientes</Header>
+      <Header hideSearch>explore ingredients</Header>
       {listIngredients(ingArray)}
       <Footer />
     </div>

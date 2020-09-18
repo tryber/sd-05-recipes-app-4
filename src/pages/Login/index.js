@@ -32,7 +32,7 @@ const Login = () => {
           className="email"
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder=" E-mail"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
@@ -40,7 +40,7 @@ const Login = () => {
           className="password"
           type="password"
           name="password"
-          placeholder="Senha"
+          placeholder=" Password"
           onChange={(e) => setSenha(e.target.value)}
         />
         <button
@@ -51,7 +51,7 @@ const Login = () => {
           onClick={() => clickSubmit()}
           value="Entrar"
         >
-          Entrar
+          Log In
         </button>
       </form>
     </div>
