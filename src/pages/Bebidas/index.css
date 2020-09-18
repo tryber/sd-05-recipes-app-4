@@ -1,8 +1,8 @@
 .cocktailBG {
   background-image: url('../../images/watersplash.png');
+  margin: auto;
   padding-bottom: 5%;
   width: 100%;
-  margin: auto;
 }
 
 .display {

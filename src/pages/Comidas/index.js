@@ -84,7 +84,7 @@ const Comidas = () => {
   return (
     <div className="recipes-container">
       <Header>meals</Header>
-        {listCategories(setDataFood, foodCategory, dataFoodCategories, setFoodCategory)}
+      {listCategories(setDataFood, foodCategory, dataFoodCategories, setFoodCategory)}
       <div className="mealBG display">
         {listMeals(foodArray)}
       </div>
