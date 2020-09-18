@@ -44,7 +44,7 @@ const ExplorarIngredientesMeals = () => {
   if (redirect) return <Redirect to="/comidas" />;
 
   return (
-    <div className="recipes-container">
+    <div className="recipes-container, mealBG">
       <Header hideSearch>explore ingredients</Header>
       {listIngredients(ingArray)}
       <Footer />

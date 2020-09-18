@@ -3,9 +3,10 @@ footer {
   background: orange;
   bottom: 0;
   display: flex;
-  height: 58px;
+  /* height: 13%; */
   justify-content: space-around;
-  left: 0;
+  /* left: 0; */
+  padding: 1%;
   position: fixed;
-  width: 360px;
+  width: 100%;
 }

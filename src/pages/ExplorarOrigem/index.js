@@ -75,7 +75,7 @@ const ExplorarOrigem = () => {
   if (foodArray.length > 12) foodArray = foodArray.slice(0, 12);
 
   return (
-    <div className="recipes-container">
+    <div className="recipes-container, mealBG">
       <Header>explore by origin</Header>
       {dropDownArea(setDataFood, foodArea, dataFoodAreas, setFoodArea)}
       {listMeals(foodArray)}

@@ -6,7 +6,6 @@ import { getRandomMeals as fetchMeal } from '../../services/MealApi';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
-import './index.css';
 import Surprise from '../../images/suprise.png';
 import Ingredients from '../../images/ingredients.png';
 import Passport from '../../images/passport.png';
@@ -25,7 +24,7 @@ const ExplorarComidas = () => {
   return redirect ? (
     <Redirect to={`/comidas/${id}`} />
   ) : (
-    <div className="exMeals">
+    <div className="exMeals mealBG">
       <Header hideSearch>explore meals</Header>
       <Link to="/explorar/comidas/ingredientes" className="noDecor">
         <button data-testid="explore-by-ingredient" type="button" className="btn">

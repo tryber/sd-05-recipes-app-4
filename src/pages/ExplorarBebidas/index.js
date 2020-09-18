@@ -6,7 +6,6 @@ import { getRandomDrinks as fetchDrink } from '../../services/DrinkApi';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
-import './index.css';
 import Surprise from '../../images/suprise.png';
 import Ingredients from '../../images/ingredients.png';
 
@@ -24,7 +23,7 @@ const ExplorarBebidas = () => {
   return redirect ? (
     <Redirect to={`/bebidas/${id}`} />
   ) : (
-    <div className="exDrinks">
+    <div className="exDrinks cocktailBG">
       <Header hideSearch>explore cocktails</Header>
       <div className="middle">
         <Link to="/explorar/bebidas/ingredientes" className="noDecor">

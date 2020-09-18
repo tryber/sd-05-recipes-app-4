@@ -1,1 +1,5 @@
-/* precisa colocar um fundo */
+.mealBG {
+  background-image: url('../../images/winesplash.jpeg');
+  padding-bottom: 53px;
+  width: 100%;
+  }

@@ -1,5 +1,14 @@
 .cocktailBG {
-  background-image: url('../../images/winesplash.jpeg');
+  background-image: url('../../images/watersplash.png');
+  padding-bottom: 5%;
+  width: 100%;
+  margin: auto;
+}
+
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .noDecor {

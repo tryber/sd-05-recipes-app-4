@@ -84,8 +84,8 @@ const Bebidas = () => {
   return (
     <div className="recipes-container">
       <Header>cocktails</Header>
-      <div className="cocktailBG">
         {listCategories(setDataDrink, dataDrinkCategories, setDrinkCategory, drinkCategory)}
+      <div className="cocktailBG display">
         {listDrinks(drinkArray)}
       </div>
       <Footer />
