@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  // fireEvent,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 import renderWithRouter from '../__render__/renderWithRouter';
 import Provider from '../context/AppProvider';
 import Comidas from '../pages/Comidas';
@@ -17,7 +14,6 @@ jest.mock('../services/MealApi');
 afterEach(() => {
   mealApi.getMeals.mockClear();
   mealApi.getMealsCategories.mockClear();
-  // getMealsByCategory.mockClear();
 });
 
 const apiMock = () => {
