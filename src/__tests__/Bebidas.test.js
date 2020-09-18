@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent, waitFor } from '@testing-library/react';
 import renderWithRouter from '../__render__/renderWithRouter';
-import Provider from '../context/AppProvider';
 import Bebidas from '../pages/Bebidas';
 
 import drinksMock from '../../cypress/mocks/drinks';
@@ -35,12 +34,7 @@ afterEach(() => {
 describe('Testes na tela de bebida', () => {
   it('Verificando se tem os 12 cards na tela de bebidas', async () => {
     apiDataMock(drinksMock);
-    const { getByTestId } = renderWithRouter(
-      <Provider>
-        <Bebidas />
-      </Provider>,
-      ['/bebidas'],
-    );
+    const { getByTestId } = renderWithRouter(<Bebidas />, ['/bebidas']);
     await waitFor(() => expect(drinkApi.getDrinks).toHaveBeenCalled());
     await waitFor(() => expect(drinkApi.getDrinksCategories).toHaveBeenCalled());
     [
@@ -66,12 +60,7 @@ describe('Testes na tela de bebida', () => {
     mockDrinkByCategory(milkMock);
     mockDrinkByCategory(otherMock);
     mockDrinkByCategory(cocoaMock);
-    const { getByTestId } = renderWithRouter(
-      <Provider>
-        <Bebidas />
-      </Provider>,
-      ['/bebidas'],
-    );
+    const { getByTestId } = renderWithRouter(<Bebidas />, ['/bebidas']);
     await waitFor(() => expect(drinkApi.getDrinks).toHaveBeenCalled());
     await waitFor(() => expect(drinkApi.getDrinksCategories).toHaveBeenCalled());
     const firstCardImg = getByTestId('0-card-img');
@@ -91,7 +80,9 @@ describe('Testes na tela de bebida', () => {
     fireEvent.click(cocktailBtn);
     await waitFor(() => expect(drinkApi.getDrinksByCategory).toHaveBeenCalledTimes(2));
     const firstcocktailCardImg = getByTestId('0-card-img');
-    expect(firstcocktailCardImg.src).toBe('https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg');
+    expect(firstcocktailCardImg.src).toBe(
+      'https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg',
+    );
 
     const milkBtn = getByTestId('Milk / Float / Shake-category-filter');
     fireEvent.click(milkBtn);
@@ -122,12 +113,7 @@ describe('Testes na tela de bebida', () => {
     apiDataMock(drinksMock);
     mockDrinkByCategory(ordinaryMock);
     apiDataMock(drinksMock);
-    const { getByTestId } = renderWithRouter(
-      <Provider>
-        <Bebidas />
-      </Provider>,
-      ['/bebidas'],
-    );
+    const { getByTestId } = renderWithRouter(<Bebidas />, ['/bebidas']);
     await waitFor(() => expect(drinkApi.getDrinks).toHaveBeenCalled());
     await waitFor(() => expect(drinkApi.getDrinksCategories).toHaveBeenCalled());
     const firstCardImg = getByTestId('0-card-img');

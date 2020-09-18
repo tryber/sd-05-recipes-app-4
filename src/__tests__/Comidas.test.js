@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent, waitFor } from '@testing-library/react';
 import renderWithRouter from '../__render__/renderWithRouter';
-import Provider from '../context/AppProvider';
 import Comidas from '../pages/Comidas';
 
 import mealsMock from '../../cypress/mocks/meals';
@@ -35,12 +34,7 @@ afterEach(() => {
 describe('Testes na tela de comida', () => {
   it('Verificando se tem os 12 cards na tela de comidas', async () => {
     apiDataMock(mealsMock);
-    const { getByTestId } = renderWithRouter(
-      <Provider>
-        <Comidas />
-      </Provider>,
-      ['/comidas'],
-    );
+    const { getByTestId } = renderWithRouter(<Comidas />, ['/comidas']);
     await waitFor(() => expect(mealApi.getMeals).toHaveBeenCalled());
     await waitFor(() => expect(mealApi.getMealsCategories).toHaveBeenCalled());
     [
@@ -66,12 +60,7 @@ describe('Testes na tela de comida', () => {
     mockMealByCategory(chickenMock);
     mockMealByCategory(dessertMock);
     mockMealByCategory(goatMock);
-    const { getByTestId } = renderWithRouter(
-      <Provider>
-        <Comidas />
-      </Provider>,
-      ['/comidas'],
-    );
+    const { getByTestId } = renderWithRouter(<Comidas />, ['/comidas']);
     await waitFor(() => expect(mealApi.getMeals).toHaveBeenCalled());
     await waitFor(() => expect(mealApi.getMealsCategories).toHaveBeenCalled());
     const firstCardImg = getByTestId('0-card-img');
@@ -122,12 +111,7 @@ describe('Testes na tela de comida', () => {
     apiDataMock(mealsMock);
     mockMealByCategory(beefMock);
     apiDataMock(mealsMock);
-    const { getByTestId } = renderWithRouter(
-      <Provider>
-        <Comidas />
-      </Provider>,
-      ['/comidas'],
-    );
+    const { getByTestId } = renderWithRouter(<Comidas />, ['/comidas']);
     await waitFor(() => expect(mealApi.getMeals).toHaveBeenCalled());
     await waitFor(() => expect(mealApi.getMealsCategories).toHaveBeenCalled());
     const firstCardImg = getByTestId('0-card-img');
