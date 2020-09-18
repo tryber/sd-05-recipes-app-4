@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import fclipboard from '../../DetalhesComida/Header/clipBoard';
+import clipBoard from 'clipboard-copy';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 
 import './index.css';
+
+const fclipboard = () => {
+  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
+  return clipBoard(window.location.href);
+};
 
 const toggleHeartDrink = (target, Drink) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];

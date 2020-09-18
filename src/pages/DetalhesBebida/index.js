@@ -10,6 +10,19 @@ import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
+const handleProgress = (id) => {
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+    cocktails: { [id]: [] },
+    meals: {},
+  };
+  if (!store.cocktails[id]) {
+    const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [id]: [] } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
+  } else {
+    localStorage.setItem('inProgressRecipes', JSON.stringify(store));
+  }
+};
+
 export default function DetalhesBebidas(props) {
   const { id } = props.match.params;
   const [drink, setDrink] = useState({});
@@ -22,11 +35,6 @@ export default function DetalhesBebidas(props) {
   useEffect(() => {
     getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
   }, [setmeal]);
-  const handleProgress = () => {
-    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
-    const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [drink.idDrink]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
-  };
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -34,31 +42,34 @@ export default function DetalhesBebidas(props) {
       const progress = Object.keys(itemProgress.cocktails);
       setReceipProgress(progress[0] === drink.idDrink);
     }
-    if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
-  });
+    if (itemDone !== null) {
+      setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
+    }
+  }, [setReceipProgress, drink]);
   return (
     <div className="container">
       <Header Drink={drink} />
       <Ingredients Drink={drink} />
       <Instruction Drink={drink} />
       <Recommend meal={meal} />
-      { !receipDone &&
-      <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
-        <button
-          type="button" data-testid="start-recipe-btn"
-          className="start-recipe" onClick={() => handleProgress()}
-        >
-          <span className="btn-text">
-            {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-          </span>
-        </button>
-      </Link>
-      }
+      {!receipDone && (
+        <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
+          <button
+            type="button"
+            data-testid="start-recipe-btn"
+            className="start-recipe"
+            onClick={() => handleProgress(drink.idDrink)}
+          >
+            <span className="btn-text">
+              {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
+            </span>
+          </button>
+        </Link>
+      )}
     </div>
   );
 }
 
 DetalhesBebidas.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
-    .isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

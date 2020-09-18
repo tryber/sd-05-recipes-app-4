@@ -2,11 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { getMealById } from '../../services/MealApi';
-import { getDrinks } from '../../services/DrinkApi';
 import AppContext from '../../context/AppContext';
 import Header from './Header';
 import Instruction from '../DetalhesComida/Instruction';
-import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
@@ -38,17 +36,12 @@ export default function DetalhesComida(props) {
   useEffect(() => {
     getMealById(id).then((data) => setMeal(data.meals[0]));
   }, [setMeal, id]);
-  const [drink, setdrink] = useState([]);
-  useEffect(() => {
-    getDrinks().then((data) => setdrink(data.drinks.slice(0, 6)));
-  }, [setdrink]);
   if (redirect) return <Redirect to="/receitas-feitas" />;
   return (
     <div className="container">
       <Header meal={meal} />
       <Ingredients meal={meal} />
       <Instruction meal={meal} />
-      <Recommend drink={drink} />
       <button
         disabled={!recipeDone}
         type="button"
