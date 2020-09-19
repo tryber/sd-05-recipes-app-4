@@ -49,21 +49,19 @@ export default function DetalhesBebidas(props) {
         <Ingredients Drink={drink} />
         <Instruction Drink={drink} />
         <Recommend meal={meal} />
-        {!receipDone && (
-          <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
-            <button
-              type="button"
-              data-testid="start-recipe-btn"
-              className="start-recipe"
-              onClick={() => handleProgress()}
-            >
-              <span className="btn-text">
-                {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-              </span>
-            </button>
-          </Link>
-        )}
       </div>
+      {!receipDone && (
+        <Link to={`/bebidas/${drink.idDrink}/in-progress`}>
+          <button
+            type="button"
+            data-testid="start-recipe-btn"
+            className="fixed"
+            onClick={() => handleProgress()}
+          >
+            {!receipProgress ? 'Start Recipe' : 'Continue Recipe'}
+          </button>
+        </Link>
+      )}
     </Fragment>
   );
 }

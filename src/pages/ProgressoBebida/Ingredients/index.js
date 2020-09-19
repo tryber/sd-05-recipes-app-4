@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import AppContext from '../../../context/AppContext';
@@ -59,32 +59,38 @@ function IngredientsDrink({ Drink }) {
     return array;
   }, []);
   return (
-    <div className="container-ingredients">
-      <p className="ingredients-title">Ingredients</p>
-      <div className="ingredients-box">
-        {ingredients.map((ingredient, index) => (
-          <div key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-step`}>
-            <input
-              checked={recipesInProgress.cocktails[id].some(
+    <Fragment>
+      <p className="details-subtitle">Ingredients</p>
+      {ingredients.map((ingredient, index) => (
+        <div key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-step`}>
+          <input
+            checked={recipesInProgress.cocktails[id].some(
+              (item) => item === `ingredient${index + 1}`,
+            )}
+            id={`ingredient${index + 1}`}
+            type="checkbox"
+            onChange={(e) => toggleCheck(e.target, id, setRecipesInProgress, recipeDoneToggle)}
+          />
+          <label
+            style={{
+              textDecoration: recipesInProgress.cocktails[id].some(
                 (item) => item === `ingredient${index + 1}`,
-              )}
-              id={`ingredient${index + 1}`} type="checkbox"
-              onChange={(e) => toggleCheck(e.target, id, setRecipesInProgress, recipeDoneToggle)}
-            />
-            <label
-              style={{
-                textDecoration: recipesInProgress.cocktails[id].some(
-                  (item) => item === `ingredient${index + 1}`) ? 'line-through' : 'inherit',
-              }} htmlFor={`ingredient${index + 1}`}
-            >
-              {`${ingredient[`strIngredient${index + 1}`]}
-            ${ingredient[`strMeasure${index + 1}`]
-              ? `- ${ingredient[`strMeasure${index + 1}`]}` : ''}`}
-            </label>
-          </div>
-        ))}
-      </div>
-    </div>
+              )
+                ? 'line-through'
+                : 'inherit',
+            }}
+            htmlFor={`ingredient${index + 1}`}
+          >
+            {`${ingredient[`strIngredient${index + 1}`]}
+            ${
+              ingredient[`strMeasure${index + 1}`]
+                ? `- ${ingredient[`strMeasure${index + 1}`]}`
+                : ''
+            }`}
+          </label>
+        </div>
+      ))}
+    </Fragment>
   );
 }
 

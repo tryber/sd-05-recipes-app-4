@@ -2,15 +2,6 @@
   width: 100%;
 }
 
-.details-container {
-  background-color: white;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  bottom: 80px;
-  padding: 5%;
-  position: relative;
-}
-
 .details-title-container {
   display: flex;
   align-items: baseline;

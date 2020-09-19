@@ -61,30 +61,28 @@ function IngredientsMeal({ meal }) {
   }, []);
   return (
     <Fragment>
-      <div className="container-ingredients-progress">
-        <p className="ingredients-title">Ingredients</p>
-        {ingredients &&
-          ingredients.map((ingredient, index) => (
-            <div data-testid={`${index}-ingredient-step`} key={`ingredient${index + 1}`}>
-              <input
-                checked={recipesInProgress.meals[id].some(
-                  (item) => item === `ingredient${index + 1}`,
-                )}
-                id={`ingredient${index + 1}`} type="checkbox"
-                onChange={(e) =>
-                  toggleCheck(e.target.id, id, setRecipesInProgress, recipeDoneToggle)
-                }
-              />
-              <label htmlFor={`ingredient${index + 1}`}>
-                {`${ingredient[`strIngredient${index + 1}`]}
+      <p className="details-subtitle">Ingredients</p>
+      {ingredients &&
+        ingredients.map((ingredient, index) => (
+          <div data-testid={`${index}-ingredient-step`} key={`ingredient${index + 1}`}>
+            <input
+              checked={recipesInProgress.meals[id].some(
+                (item) => item === `ingredient${index + 1}`,
+              )}
+              id={`ingredient${index + 1}`}
+              type="checkbox"
+              onChange={(e) => toggleCheck(e.target.id, id, setRecipesInProgress, recipeDoneToggle)}
+            />
+            <label htmlFor={`ingredient${index + 1}`}>
+              {`${ingredient[`strIngredient${index + 1}`]}
               ${
                 ingredient[`strMeasure${index + 1}`]
-                  ? `- ${ingredient[`strMeasure${index + 1}`]}` : ''
+                  ? `- ${ingredient[`strMeasure${index + 1}`]}`
+                  : ''
               }`}
-              </label>
-            </div>
-          ))}
-      </div>
+            </label>
+          </div>
+        ))}
     </Fragment>
   );
 }

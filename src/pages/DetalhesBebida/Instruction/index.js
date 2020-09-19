@@ -7,7 +7,9 @@ function InstructionDrink(props) {
   return (
     <Fragment>
       <p className="details-subtitle">Intructions</p>
-      <p className="instructions" data-testid="instructions">{Drink.strInstructions}</p>
+      <p className="instructions" data-testid="instructions">
+        {Drink.strInstructions}
+      </p>
     </Fragment>
   );
 }

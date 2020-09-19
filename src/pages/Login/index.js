@@ -1,40 +1,34 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import './index.css';
 import logo from '../../images/logo.png';
 import AppContext from '../../context/AppContext';
+
 import { getDrinksCategories } from '../../services/DrinkApi';
 import { getMealsCategories } from '../../services/MealApi';
+
+import './index.css';
 
 const Login = () => {
   const [Email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [clickOk, setClickOk] = useState(false);
-
   const { setDataDrinkCategories, setDataFoodCategories } = useContext(AppContext);
-
   useEffect(() => {}, [setDataFoodCategories]);
-
   useEffect(() => {
     getMealsCategories().then((data) => setDataFoodCategories(data.meals.slice(0, 5)));
     getDrinksCategories().then((data) => setDataDrinkCategories(data.drinks.slice(0, 5)));
   }, [setDataDrinkCategories, setDataFoodCategories]);
-
   const emailregex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
-
   const clickSubmit = () => {
-    // setUser(email)
     localStorage.setItem('user', JSON.stringify({ email: Email }));
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('cocktailsToken', 1);
     setClickOk(true);
   };
-
   return (
     <div>
       {clickOk && <Redirect to="/comidas" />}
       <img className="img" src={logo} alt="tryoutLogo" />
-      {/* <h1 className="login">Login</h1> */}
       <form>
         <input
           data-testid="email-input"

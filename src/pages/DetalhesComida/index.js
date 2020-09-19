@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getMealById } from '../../services/MealApi';
@@ -36,28 +36,35 @@ export default function DetalhesComida(props) {
     if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === meal.idMeal));
   }, [setReceipProgress, meal]);
   return (
-    <div className="container">
-      <Header meal={meal} />
-      <Ingredients meal={meal} />
-      <Instruction meal={meal} />
-      <Recommend drink={drink} />
-      { !receipDone &&
-      <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
-        <button
-          type="button" data-testid="start-recipe-btn"
-          className="start-recipe" onClick={() => handleProgress()}
-        >
-          <span className="btn-text">
-            {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-          </span>
-        </button>
-      </Link>
-      }
-    </div>
+    <Fragment>
+      <img
+        className="details-thumbnail"
+        data-testid="recipe-photo"
+        src={meal.strMealThumb}
+        alt="thumbnail da comida"
+      />
+      <div className="details-container">
+        <Header meal={meal} />
+        <Ingredients meal={meal} />
+        <Instruction meal={meal} />
+        <Recommend drink={drink} />
+      </div>
+      {!receipDone && (
+        <Link to={`/comidas/${meal.idMeal}/in-progress`}>
+          <button
+            type="button"
+            data-testid="start-recipe-btn"
+            className="fixed"
+            onClick={() => handleProgress()}
+          >
+            {!receipProgress ? 'Start Recipe' : 'Continue Recipe'}
+          </button>
+        </Link>
+      )}
+    </Fragment>
   );
 }
 
 DetalhesComida.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
-    .isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };
