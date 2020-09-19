@@ -9,6 +9,19 @@ import Instruction from './Instruction';
 import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 
+const handleProgress = (id) => {
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+    meals: { [id]: [] },
+    cocktails: {},
+  };
+  if (!store.meals[id]) {
+    const inProgressRecipes = { meals: { ...store.meals, [id]: [] } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
+  } else {
+    localStorage.setItem('inProgressRecipes', JSON.stringify(store));
+  }
+};
+
 export default function DetalhesComida(props) {
   const { id } = props.match.params;
   const [meal, setMeal] = useState({});
@@ -17,11 +30,6 @@ export default function DetalhesComida(props) {
   useEffect(() => { getMealById(id).then((data) => setMeal(data.meals[0])); }, [setMeal, id]);
   const [drink, setdrink] = useState([]);
   useEffect(() => { getDrinks().then((data) => setdrink(data.drinks.slice(0, 6))); }, [setdrink]);
-  const handleProgress = () => {
-    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
-    const inProgressRecipes = { ...store, meals: { ...store.meals, [meal.idMeal]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
-  };
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));

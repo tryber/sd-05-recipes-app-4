@@ -1,10 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
-import fclipboard from './clipBoard';
+import Clipboard from 'clipboard-copy';
 import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
+
+const fclipboard = () => {
+  document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
+  return Clipboard(window.location.href);
+};
 
 const toggleHeartMeal = (target, meal) => {
   const favBtn = document.getElementById('favBtn');

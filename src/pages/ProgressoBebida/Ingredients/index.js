@@ -1,4 +1,4 @@
-import React, { useState, useContext, Fragment } from 'react';
+import React, { useState, useContext, Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import AppContext from '../../../context/AppContext';
@@ -6,6 +6,7 @@ import AppContext from '../../../context/AppContext';
 const changeLocalStorage = (option, id, setRecipesInProgress) => {
   const recipesInProgress = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
     cocktails: { [id]: [] },
+    meals: {},
   };
   const progressMeals = {
     ...recipesInProgress,
@@ -16,7 +17,10 @@ const changeLocalStorage = (option, id, setRecipesInProgress) => {
 };
 
 const removeFromLocalStorage = (option, id, setRecipesInProgress) => {
-  const recipesInProgress = JSON.parse(localStorage.getItem('inProgressRecipes')) || [];
+  const recipesInProgress = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+    cocktails: { [id]: [] },
+    meals: {},
+  };
   const progressMeals = {
     ...recipesInProgress,
     cocktails: { [id]: recipesInProgress.cocktails[id].filter((item) => item !== option) },
@@ -44,9 +48,20 @@ function IngredientsDrink({ Drink }) {
   const { id } = useParams();
   const { setRecipeDone } = useContext(AppContext);
   const recipeDoneToggle = (value) => setRecipeDone(value);
-  const [recipesInProgress, setRecipesInProgress] = useState(
-    JSON.parse(localStorage.getItem('inProgressRecipes')) || { cocktails: { [id]: [] } },
-  );
+  const [recipesInProgress, setRecipesInProgress] = useState({});
+  useEffect(() => {
+    const localStore = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+      cocktails: { [id]: [] },
+      meals: {},
+    };
+    if (!localStore.cocktails[id]) {
+      const inProgressRecipe = { ...localStore, cocktails: { ...localStore.cocktails, [id]: [] } };
+      localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
+    } else {
+      localStorage.setItem('inProgressRecipes', JSON.stringify(localStore));
+    }
+    setRecipesInProgress(JSON.parse(localStorage.getItem('inProgressRecipes')));
+  }, [setRecipesInProgress, id]);
   let counter = 1;
   const ingredients = Object.keys(Drink).reduce((array, key) => {
     if (key.includes('strIngredient') && Drink[key] !== null && Drink[key].length > 0) {
@@ -75,22 +90,31 @@ function IngredientsDrink({ Drink }) {
             style={{
               textDecoration: recipesInProgress.cocktails[id].some(
                 (item) => item === `ingredient${index + 1}`,
-              )
-                ? 'line-through'
-                : 'inherit',
-            }}
-            htmlFor={`ingredient${index + 1}`}
-          >
-            {`${ingredient[`strIngredient${index + 1}`]}
+              )}}
+              id={`ingredient${index + 1}`}
+              type="checkbox"
+              onChange={(e) => toggleCheck(e.target, id, setRecipesInProgress, recipeDoneToggle)}
+            />
+            <label
+              style={{
+                textDecoration: recipesInProgress.cocktails[id].some(
+                  (item) => item === `ingredient${index + 1}`,
+                )
+                  ? 'line-through'
+                  : 'inherit',
+              }}
+              htmlFor={`ingredient${index + 1}`}
+            >
+              {`${ingredient[`strIngredient${index + 1}`]}
             ${
               ingredient[`strMeasure${index + 1}`]
                 ? `- ${ingredient[`strMeasure${index + 1}`]}`
                 : ''
             }`}
-          </label>
-        </div>
-      ))}
-    </Fragment>
+            </label>
+          </div>
+        ))}
+      </Fragment>
   );
 }
 

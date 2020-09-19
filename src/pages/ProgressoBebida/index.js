@@ -33,6 +33,13 @@ export default function DetalhesBebidas(props) {
   const [redirect, setRedirect] = useState(false);
   const { recipeDone } = useContext(AppContext);
   useEffect(() => {
+    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+      cocktails: { [id]: [] },
+    };
+    if (!store.cocktails[id]) {
+      const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [id]: [] } };
+      localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
+    }
     getDrinkById(id).then((data) => setDrink(data.drinks[0]));
   }, [setDrink, id]);
   if (redirect) return <Redirect to="/receitas-feitas" />;

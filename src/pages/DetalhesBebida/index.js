@@ -10,6 +10,19 @@ import Recommend from './Recommend';
 import Ingredients from './Ingredients';
 import './index.css';
 
+const handleProgress = (id) => {
+  const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
+    cocktails: { [id]: [] },
+    meals: {},
+  };
+  if (!store.cocktails[id]) {
+    const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [id]: [] } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
+  } else {
+    localStorage.setItem('inProgressRecipes', JSON.stringify(store));
+  }
+};
+
 export default function DetalhesBebidas(props) {
   const { id } = props.match.params;
   const [drink, setDrink] = useState({});
@@ -18,11 +31,6 @@ export default function DetalhesBebidas(props) {
   useEffect(() => { getDrinkById(id).then((data) => setDrink(data.drinks[0])); }, [setDrink, id]);
   const [meal, setmeal] = useState([]);
   useEffect(() => { getMeals().then((data) => setmeal(data.meals.slice(0, 6))); }, [setmeal]);
-  const handleProgress = () => {
-    const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
-    const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [drink.idDrink]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
-  };
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
