@@ -2,4 +2,5 @@
   background-image: url('../../images/winesplash.jpeg');
   padding-bottom: 53px;
   width: 100%;
+  min-height: 93vh;
 }

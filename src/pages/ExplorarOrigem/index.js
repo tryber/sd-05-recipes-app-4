@@ -41,7 +41,11 @@ const dropDownArea = (setDataFood, foodArea, dataFoodAreas, setFoodArea) => (
       All
     </option>
     {dataFoodAreas.map(({ strArea }) => (
-      <option key={strArea} value={strArea} data-testid={`${strArea}-option`}>
+      <option
+        key={strArea}
+        value={strArea}
+        data-testid={`${strArea}-option`}
+      >
         {strArea}
       </option>
     ))}
@@ -75,10 +79,10 @@ const ExplorarOrigem = () => {
   if (foodArray.length > 12) foodArray = foodArray.slice(0, 12);
 
   return (
-    <div className="recipes-container, mealBG">
+    <div className="recipes-container mealBG">
       <Header>explore by origin</Header>
       {dropDownArea(setDataFood, foodArea, dataFoodAreas, setFoodArea)}
-      {listMeals(foodArray)}
+      <div className="display">{listMeals(foodArray)}</div>
       <Footer />
     </div>
   );

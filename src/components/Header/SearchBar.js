@@ -41,7 +41,7 @@ const fetchFoodApi = (target, input, save) => {
 const searchBtn = (recipeType, target, input, setDataDrink, setDataFood) => (
   <button
     data-testid="exec-search-btn"
-    className="btn"
+    className="header-search-btn"
     type="button"
     onClick={() => {
       if (target === 'letter' && input.length > 1) {

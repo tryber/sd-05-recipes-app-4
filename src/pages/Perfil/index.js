@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -20,7 +20,7 @@ const Perfil = () => {
   };
 
   return (
-    <div>
+    <Fragment>
       <Header hideSearch>profile</Header>
       {clickOk && <Redirect to="/" />}
       {userEmail &&
@@ -43,7 +43,7 @@ const Perfil = () => {
       </div>
       }
       <Footer />
-    </div>
+    </Fragment>
   );
 };
 

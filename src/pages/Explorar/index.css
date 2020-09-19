@@ -2,6 +2,7 @@
   background-image: url('..//../images/hotSplash.png');
   padding-bottom: 5%;
   width: 100%;
+  min-height: 93vh;
 }
 
 .btn {
@@ -15,12 +16,10 @@
   flex-direction: column;
   font-size: larger;
   justify-content: center;
-  margin-bottom: 3%;
-  margin-left: 10%;
-  margin-top: 3%;
+  margin: 3% auto;
   padding: 5%;
   text-decoration: none;
-  width: 80%;
+  width: 70%;
 }
 
 .btnPic {
