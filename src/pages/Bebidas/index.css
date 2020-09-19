@@ -17,19 +17,21 @@
 }
 
 .drkBtn {
-  height: 44%;
   background-color: white;
   border: none;
   border-radius: 6px;
+  box-sizing: border-box;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  width: 31%;
+  font-size: 0.75em;
+  height: 45%;
   margin: 1%;
-  padding: 1%;
+  width: 31%;
 }
 
 .btnsAll {
   align-items: center;
   background-color: rgba(255, 196, 2, 0.349);
+  height: 80px;
   justify-content: space-between;
   padding-bottom: 3%;
   width: 100%;
@@ -46,7 +48,7 @@ border-radius: 6px 6px 0 0; */
 .recipes-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .recipe-card {
@@ -54,13 +56,17 @@ border-radius: 6px 6px 0 0; */
   border: none;
   border-radius: 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  height: 30%;
+  height: 172px;
   margin: 1%;
   padding: 1%;
   text-align: center;
-  width: 42%;
+  width: 161px;
 }
 
 .recipes-container:last-child {
   margin-bottom: 53px;
+}
+
+.recipe-title {
+  margin: 0;
 }

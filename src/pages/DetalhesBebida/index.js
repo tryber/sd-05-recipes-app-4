@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getMeals } from '../../services/MealApi';
@@ -37,28 +37,37 @@ export default function DetalhesBebidas(props) {
     if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
   }, [setReceipProgress, drink]);
   return (
-    <div className="container">
-      <Header Drink={drink} />
-      <Ingredients Drink={drink} />
-      <Instruction Drink={drink} />
-      <Recommend meal={meal} />
-      { !receipDone &&
-      <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
-        <button
-          type="button" data-testid="start-recipe-btn"
-          className="start-recipe" onClick={() => handleProgress()}
-        >
-          <span className="btn-text">
-            {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-          </span>
-        </button>
-      </Link>
-      }
-    </div>
+    <Fragment>
+      <img
+        className="details-thumbnail"
+        data-testid="recipe-photo"
+        src={drink.strDrinkThumb}
+        alt="thumbnail da comida"
+      />
+      <div className="details-container">
+        <Header Drink={drink} />
+        <Ingredients Drink={drink} />
+        <Instruction Drink={drink} />
+        <Recommend meal={meal} />
+        {!receipDone && (
+          <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
+            <button
+              type="button"
+              data-testid="start-recipe-btn"
+              className="start-recipe"
+              onClick={() => handleProgress()}
+            >
+              <span className="btn-text">
+                {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
+              </span>
+            </button>
+          </Link>
+        )}
+      </div>
+    </Fragment>
   );
 }
 
 DetalhesBebidas.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) })
-    .isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };

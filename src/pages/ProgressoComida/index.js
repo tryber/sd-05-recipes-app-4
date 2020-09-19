@@ -8,7 +8,6 @@ import Header from './Header';
 import Instruction from '../DetalhesComida/Instruction';
 import Recommend from './Recommend';
 import Ingredients from './Ingredients';
-import './index.css';
 
 const handleProgress = (meal, setRedirect) => {
   const recipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];

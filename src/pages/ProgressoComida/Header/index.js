@@ -5,8 +5,6 @@ import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 
-import './index.css';
-
 const fclipboard = (id) => {
   document.getElementById('btn-share-id').innerHTML = 'Link copiado!';
   return clipboard(`http://localhost:3000/comidas/${id}`);

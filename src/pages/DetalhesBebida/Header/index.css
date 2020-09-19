@@ -1,50 +1,41 @@
-.header-container {
+.details-thumbnail {
+  width: 100%;
+}
+
+.details-container {
+  background-color: white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  bottom: 80px;
+  padding: 5%;
+  position: relative;
+}
+
+.details-title-container {
   display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  padding: 0;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.details-title {
+  padding-top: 20px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.favNshare {
+  display: flex;
 }
 
 .shareicon {
-  height: 26px;
-  left: 284px;
-  position: absolute;
-  top: 167px;
-  width: 26px;
+  margin-right: 10px;
 }
 
 .favicon {
-  height: 26px;
-  left: 321px;
-  position: absolute;
-  top: 167px;
-  width: 26px;
+  width: 30px;
 }
 
-.container-btn {
-  display: flex;
-}
-
-.img-header {
-  height: 155px;
-  width: 360px;
-}
-
-.title {
-  font-family: Roboto, sans-serif;
-  font-size: 30px;
-  line-height: 35px;
-  width: 126px;
-}
-
-.title-type {
-  color: darkgray;
-  font-family: Roboto, sans-serif;
-  font-size: 21px;
-  font-style: normal;
-  height: 25px;
-  left: 9px;
-  line-height: 25px;
-  top: 200px;
-  width: 87px;
+.details-category {
+  margin: 0;
+  color: grey;
 }

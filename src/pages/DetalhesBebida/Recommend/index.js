@@ -5,7 +5,7 @@ import './index.css';
 
 const listmeal = (mealFood) =>
   mealFood.map((meal, index) => (
-    <div className="recipe-card" key={meal.strMeal} data-testid={`${index}-recomendation-card`}>
+    <div className="recommend-recipe-card" key={meal.strMeal} data-testid={`${index}-recomendation-card`}>
       <Link to={`/comidas/${meal.idMeal}`}>
         <img className="thumbnail" src={meal.strMealThumb} alt="thumbnail da comida" />
         <p data-testid={`${index}-recomendation-title`}>{meal.strMeal}</p>

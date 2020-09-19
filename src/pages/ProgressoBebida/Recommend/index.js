@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './index.css';
 
 const listmeal = (mealFood) =>
   mealFood.map((meal, index) => (

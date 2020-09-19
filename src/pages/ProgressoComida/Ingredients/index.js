@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './index.css';
 import AppContext from '../../../context/AppContext';
 
 const changeLocalStorage = (option, id, setRecipesInProgress) => {

@@ -12,18 +12,19 @@
 .recommended-recipes-container {
   display: flex;
   height: 210px;
-  margin-bottom: 63px;
   overflow: auto;
-  position: relative;
   transition: all 2s linear;
   width: 100%;
 }
 
-.recipe-card {
+.recommend-recipe-card {
+  background-color: white;
+  border: none;
   border-radius: 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   height: 172px;
-  margin: 9px;
+  margin: 1%;
+  padding: 1%;
   text-align: center;
-  width: 161px;
+  min-width: 161px;
 }

@@ -16,7 +16,7 @@ const listDrinks = (drinkArray) =>
           src={drink.strDrinkThumb}
           alt="thumbnail da comida"
         />
-        <p data-testid={`${index}-card-name`} >{drink.strDrink}</p>
+        <p className="recipe-title" data-testid={`${index}-card-name`} >{drink.strDrink}</p>
       </Link>
     </div>
   ));

@@ -8,7 +8,6 @@ import Header from './Header';
 import Instruction from './Instruction';
 import Recommend from './Recommend';
 import Ingredients from './Ingredients';
-import './index.css';
 
 export default function DetalhesComida(props) {
   const { id } = props.match.params;
