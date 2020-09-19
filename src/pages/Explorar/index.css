@@ -1,8 +1,8 @@
 .explore {
   background-image: url('..//../images/hotSplash.png');
+  min-height: 93vh;
   padding-bottom: 5%;
   width: 100%;
-  min-height: 93vh;
 }
 
 .btn {

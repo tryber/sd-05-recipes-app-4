@@ -1,15 +1,15 @@
 .txt {
   background-color: white;
   color: black;
-  font-weight: 700;
   font-size: larger;
+  font-weight: 700;
   text-align: center;
 }
 
 .mainProfile {
   background-image: url('../../images/blueSplash.png');
-  padding-bottom: 5%;
   min-height: 93vh;
+  padding-bottom: 5%;
 }
 
 .botao {

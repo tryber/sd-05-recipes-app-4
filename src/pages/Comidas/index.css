@@ -1,6 +1,6 @@
 .mealBG {
   background-image: url('../../images/winesplash.jpeg');
+  min-height: 93vh;
   padding-bottom: 53px;
   width: 100%;
-  min-height: 93vh;
 }
