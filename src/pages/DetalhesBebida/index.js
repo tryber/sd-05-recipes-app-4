@@ -15,13 +15,9 @@ export default function DetalhesBebidas(props) {
   const [drink, setDrink] = useState({});
   const [receipDone, setRecipeDone] = useState(false);
   const { receipProgress, setReceipProgress } = useContext(AppContext);
-  useEffect(() => {
-    getDrinkById(id).then((data) => setDrink(data.drinks[0]));
-  }, [setDrink, id]);
+  useEffect(() => { getDrinkById(id).then((data) => setDrink(data.drinks[0])); }, [setDrink, id]);
   const [meal, setmeal] = useState([]);
-  useEffect(() => {
-    getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
-  }, [setmeal]);
+  useEffect(() => { getMeals().then((data) => setmeal(data.meals.slice(0, 6))); }, [setmeal]);
   const handleProgress = () => {
     const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {};
     const inProgressRecipe = { ...store, cocktails: { ...store.cocktails, [drink.idDrink]: [] } };
@@ -53,13 +49,9 @@ export default function DetalhesBebidas(props) {
       {!receipDone && (
         <Link to={`/bebidas/${drink.idDrink}/in-progress`}>
           <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="fixed"
-            onClick={() => handleProgress()}
-          >
-            {!receipProgress ? 'Start Recipe' : 'Continue Recipe'}
-          </button>
+            type="button" data-testid="start-recipe-btn"
+            className="fixed" onClick={() => handleProgress()}
+          >{!receipProgress ? 'Start Recipe' : 'Continue Recipe'}</button>
         </Link>
       )}
     </Fragment>

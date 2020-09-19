@@ -10,7 +10,8 @@ function Instruction(props) {
         {meal.strInstructions}
       </p>
       <p className="details-subtitle">Video</p>
-      <iframe className="iframe"
+      <iframe
+        className="iframe"
         title="instructions"
         src={meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')}
         frameBorder="0"

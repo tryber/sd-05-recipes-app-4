@@ -15,10 +15,10 @@ const listMeals = (foodArray) =>
     <div className="recipe-card" key={food.strMeal} data-testid={`${index}-recipe-card`}>
       <Link to={`/comidas/${food.idMeal}`} className="noDecor">
         <img
-          className="thumbnail"
           data-testid={`${index}-card-img`}
-          src={food.strMealThumb}
+          className="thumbnail"
           alt="thumbnail da comida"
+          src={food.strMealThumb}
         />
         <p data-testid={`${index}-card-name`}>{food.strMeal}</p>
       </Link>
