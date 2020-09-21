@@ -25,15 +25,16 @@
   font-size: 0.75em;
   height: 45%;
   margin: 1%;
+  vertical-align: middle;
   width: 31%;
 }
 
 .btnsAll {
   align-items: center;
   background-color: rgba(255, 196, 2, 0.349);
-  height: 80px;
   justify-content: space-between;
   padding-bottom: 3%;
+  padding-top: 1.5%;
   width: 100%;
 }
 
@@ -69,4 +70,28 @@ border-radius: 6px 6px 0 0; */
 
 .recipe-title {
   margin: 0;
+}
+
+.recipe-card-2 {
+  background-color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  /* height: 172px; */
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+  text-decoration: none;
+  width: 161px;
+}
+
+.thumbnail2 {
+  height: 40%;
+  width: 100%;
+}
+
+.spaceA {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2%;
 }

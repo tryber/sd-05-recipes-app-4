@@ -17,7 +17,7 @@ const toggleFavorite = (id, setFavoritedRecipes, favoritedRecipes) => {
 
 const mapFavoriteRecipes = (favoritedRecipes, setFavoritedRecipes) =>
   favoritedRecipes.map(({ id, type, area, category, alcoholicOrNot, name, image }, index) => (
-    <div>
+    <div className="recipe-card-2">
       <Link to={`/${type}s/${id}`}>
         <img
           className="done-recipes-img"
@@ -33,29 +33,31 @@ const mapFavoriteRecipes = (favoritedRecipes, setFavoritedRecipes) =>
       )}
       {type === 'bebida' && <p data-testid={`${index}-horizontal-top-text`}>{alcoholicOrNot}</p>}
       <Link to={`/${type}s/${id}`}>
-        <p data-testid={`${index}-horizontal-name`}>{name}</p>
+        <p data-testid={`${index}-horizontal-name`} className="noDecor">{name}</p>
       </Link>
-      <input
-        className="done-recipes-btn"
-        onClick={() => {
-          copyToClipboard(`http://localhost:3000/${type}s/${id}`);
-          document.getElementById('share-btn').innerHTML = 'Link copiado!';
-        }}
-        id="share-btn"
-        data-testid={`${index}-horizontal-share-btn`}
-        type="image"
-        src={shareIcon}
-        alt="share icon"
-      />
-      <input
-        className="done-recipes-btn"
-        onClick={() => toggleFavorite(id, setFavoritedRecipes, favoritedRecipes)}
-        id="share-btn"
-        data-testid={`${index}-horizontal-favorite-btn`}
-        type="image"
-        src={blackHeartIcon}
-        alt="share icon"
-      />
+      <div className="spaceA">
+        <input
+          className="done-recipes-btn"
+          onClick={() => {
+            copyToClipboard(`http://localhost:3000/${type}s/${id}`);
+            document.getElementById('share-btn').innerHTML = 'Link copiado!';
+          }}
+          id="share-btn"
+          data-testid={`${index}-horizontal-share-btn`}
+          type="image"
+          src={shareIcon}
+          alt="share icon"
+        />
+        <input
+          className="done-recipes-btn"
+          onClick={() => toggleFavorite(id, setFavoritedRecipes, favoritedRecipes)}
+          id="share-btn"
+          data-testid={`${index}-horizontal-favorite-btn`}
+          type="image"
+          src={blackHeartIcon}
+          alt="share icon"
+        />
+      </div>
     </div>
   ));
 
@@ -63,25 +65,29 @@ const ReceitasFavoritas = () => {
   const [favoritedRecipes, setFavoritedRecipes] = useState(recipes);
   return (
     <div>
-      <Header hideSearch>Receitas Favoritas</Header>
-      <div>
-        <button onClick={() => setFavoritedRecipes(recipes)} data-testid="filter-by-all-btn">
+      <Header hideSearch>favorite recipes</Header>
+      <div className="btnsAll">
+        <button className="drkBtn" onClick={() => setFavoritedRecipes(recipes)} data-testid="filter-by-all-btn">
           All
         </button>
         <button
+          className="drkBtn"
           onClick={() => setFavoritedRecipes(recipes.filter((recipe) => recipe.type === 'comida'))}
           data-testid="filter-by-food-btn"
         >
           Food
         </button>
         <button
+          className="drkBtn"
           onClick={() => setFavoritedRecipes(recipes.filter((recipe) => recipe.type === 'bebida'))}
           data-testid="filter-by-drink-btn"
         >
           Drinks
         </button>
       </div>
-      {mapFavoriteRecipes(favoritedRecipes, setFavoritedRecipes)}
+      <div className="recipes-container explore">
+        {mapFavoriteRecipes(favoritedRecipes, setFavoritedRecipes)}
+      </div>
     </div>
   );
 };

@@ -11,25 +11,25 @@ import './index.css';
 const mapDoneRecipes = (filteredRecipes) =>
   filteredRecipes.map(
     ({ id, type, area, category, alcoholicOrNot, name, image, doneDate, tags }, index) => (
-      <div>
+      <div className="recipe-card-2">
         <Link to={`/${type}s/${id}`}>
           <img
-            className="thumbnail"
+            className="thumbnail2"
             data-testid={`${index}-horizontal-image`}
             src={image}
             alt={image}
           />
         </Link>
         {type === 'comida' && (
-          <p data-testid={`${index}-horizontal-top-text`}>
+          <p data-testid={`${index}-horizontal-top-text`} className="noDecor">
             {area} - {category}
           </p>
         )}
-        {type === 'bebida' && <p data-testid={`${index}-horizontal-top-text`}>{alcoholicOrNot}</p>}
-        <Link to={`/${type}s/${id}`}>
-          <p data-testid={`${index}-horizontal-name`}>{name}</p>
+        {type === 'bebida' && <p data-testid={`${index}-horizontal-top-text`} className="noDecor">{alcoholicOrNot}</p>}
+        <Link to={`/${type}s/${id}`} className="noDecor">
+          <p className="noDecor" data-testid={`${index}-horizontal-name`}>{name}</p>
         </Link>
-        <p data-testid={`${index}-horizontal-done-date`}>{doneDate}</p>
+        <p data-testid={`${index}-horizontal-done-date`} className="noDecor">{doneDate}</p>
         {type === 'comida' && (
           <p>
             <span data-testid={`${index}-${tags[0]}-horizontal-tag`}>{tags[0]}</span>
@@ -62,25 +62,29 @@ const ReceitasFeitas = () => {
   }, [setFilteredRecipes, setRecipes]);
   return (
     <div>
-      <Header hideSearch>Receitas Feitas</Header>
-      <div>
-        <button onClick={() => setFilteredRecipes(recipes)} data-testid="filter-by-all-btn">
+      <Header hideSearch>done recipes</Header>
+      <div className="btnsAll">
+        <button className="drkBtn" onClick={() => setFilteredRecipes(recipes)} data-testid="filter-by-all-btn">
           All
         </button>
         <button
+          className="drkBtn"
           onClick={() => setFilteredRecipes(recipes.filter((recipe) => recipe.type === 'comida'))}
           data-testid="filter-by-food-btn"
         >
           Food
         </button>
         <button
+          className="drkBtn"
           onClick={() => setFilteredRecipes(recipes.filter((recipe) => recipe.type === 'bebida'))}
           data-testid="filter-by-drink-btn"
         >
           Drinks
         </button>
       </div>
-      {mapDoneRecipes(filteredRecipes)}
+      <div className="recipes-container explore">
+        {mapDoneRecipes(filteredRecipes)}
+      </div>
     </div>
   );
 };

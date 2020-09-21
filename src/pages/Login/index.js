@@ -27,7 +27,7 @@ const Login = () => {
     setClickOk(true);
   };
   return (
-    <div>
+    <div className="loginDisplay">
       {clickOk && <Redirect to="/comidas" />}
       <img className="img" src={logo} alt="tryoutLogo" />
       <input

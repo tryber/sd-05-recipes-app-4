@@ -19,7 +19,7 @@ const handleProgress = (meal, setRedirect) => {
       alcoholicOrNot: '',
       name: meal.strMeal,
       image: meal.strMealThumb,
-      doneDate: new Date(),
+      doneDate: new Date().toLocaleDateString(),
       tags: '',
     },
   ];
