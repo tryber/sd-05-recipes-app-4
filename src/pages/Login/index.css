@@ -1,7 +1,6 @@
 .img {
-  display: flex;
-  margin: auto;
-  max-width: 1000px;
+  align-self: center;
+  max-width: 500px;
   width: 100%;
 }
 
@@ -11,35 +10,38 @@
 }
 
 .email {
+  align-self: center;
   background: white;
   border: 1px solid black;
   border-radius: 5px;
   box-sizing: border-box;
   height: 58px;
   margin-bottom: 17px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   max-width: 500px;
   width: 80%;
 }
 
 .password {
+  align-self: center;
   background: white;
   border: 1px solid black;
   border-radius: 5px;
   box-sizing: border-box;
   height: 58px;
   margin-bottom: 17px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   max-width: 500px;
   width: 80%;
 }
 
 .login-btn {
+  align-self: center;
   background: #6ce34f;
   border-radius: 5px;
   font-size: large;
   height: 76px;
-  margin-left: 7.5%;
+  /* margin-left: 7.5%; */
   max-width: 525px;
   width: 85%;
 }
