@@ -67,7 +67,10 @@ const ReceitasFavoritas = () => {
     <div>
       <Header hideSearch>favorite recipes</Header>
       <div className="btnsAll">
-        <button className="drkBtn" onClick={() => setFavoritedRecipes(recipes)} data-testid="filter-by-all-btn">
+        <button className="drkBtn"
+        onClick={() => setFavoritedRecipes(recipes)}
+        data-testid="filter-by-all-btn"
+        >
           All
         </button>
         <button
