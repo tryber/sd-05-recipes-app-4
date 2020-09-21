@@ -64,7 +64,11 @@ const ReceitasFeitas = () => {
     <div>
       <Header hideSearch>done recipes</Header>
       <div className="btnsAll">
-        <button className="drkBtn" onClick={() => setFilteredRecipes(recipes)} data-testid="filter-by-all-btn">
+        <button
+          className="drkBtn"
+          onClick={() => setFilteredRecipes(recipes)}
+          data-testid="filter-by-all-btn"
+        >
           All
         </button>
         <button
