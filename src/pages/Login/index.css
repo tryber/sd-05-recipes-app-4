@@ -30,7 +30,6 @@
   box-sizing: border-box;
   height: 58px;
   margin-bottom: 17px;
-  /* margin-left: 10%; */
   max-width: 500px;
   width: 80%;
 }
@@ -41,7 +40,6 @@
   border-radius: 5px;
   font-size: large;
   height: 76px;
-  /* margin-left: 7.5%; */
   max-width: 525px;
   width: 85%;
 }
