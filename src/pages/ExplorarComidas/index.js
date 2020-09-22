@@ -6,6 +6,10 @@ import { getRandomMeals as fetchMeal } from '../../services/MealApi';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
+import Surprise from '../../images/suprise.png';
+import Ingredients from '../../images/ingredients.png';
+import Passport from '../../images/passport.png';
+
 const getRandomMeal = (setRedirect, setRedirectId) => {
   fetchMeal().then(({ meals }) => {
     console.log(meals[0]);
@@ -20,24 +24,28 @@ const ExplorarComidas = () => {
   return redirect ? (
     <Redirect to={`/comidas/${id}`} />
   ) : (
-    <div>
-      <Header hideSearch>Explorar Comidas</Header>
-      <Link to="/explorar/comidas/ingredientes">
-        <button data-testid="explore-by-ingredient" type="button">
-          Por Ingredientes
+    <div className="exMeals mealBG">
+      <Header hideSearch>explore meals</Header>
+      <Link to="/explorar/comidas/ingredientes" className="noDecor">
+        <button data-testid="explore-by-ingredient" type="button" className="btn">
+          <img src={Ingredients} alt="ingredients pic" className="btnPic" />
+          BY INGREDIENT
         </button>
       </Link>
-      <Link to="/explorar/comidas/area">
-        <button data-testid="explore-by-area" type="button">
-          Por Local de Origem
+      <Link to="/explorar/comidas/area" className="noDecor">
+        <button data-testid="explore-by-area" type="button" className="btn">
+          <img src={Passport} alt="question pic" className="btnPic" />
+          BY PLACE OF ORIGIN
         </button>
       </Link>
       <button
         onClick={() => getRandomMeal(setRedirect, setId)}
         data-testid="explore-surprise"
         type="button"
+        className="btn"
       >
-        Me Surpreenda!
+        <img src={Surprise} alt="question pic" className="btnPic" />
+        SURPRISE ME
       </button>
       <Footer />
     </div>

@@ -5,12 +5,13 @@
   display: flex;
   font-family: Gochi Hand, cursive;
   font-size: larger;
+  height: 80px;
   justify-content: space-around;
-  width: 360px;
+  width: 100%;
 }
 
 .search-icon-hidden {
-  width: 20px;
+  width: 7%;
 }
 
 .header-bottom {
@@ -19,21 +20,36 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .search-input {
+  align-self: center;
+  border-radius: 3px;
   margin-top: 5px;
-  width: 100%;
+  width: 70%;
 }
 
 .search-box {
   align-content: center;
+  background-color: orange;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2%;
+  width: 100%;
 }
 
-.search-btn {
+.header-search-btn {
+  background-color: white;
+  border: 0;
+  border-radius: 3px;
   margin: 5px auto;
-  width: 40%;
+  padding: 5px;
+  width: 72%;
+}
+
+.radios {
+  align-self: center;
 }

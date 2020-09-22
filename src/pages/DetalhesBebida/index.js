@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getMeals } from '../../services/MealApi';
@@ -28,13 +28,9 @@ export default function DetalhesBebidas(props) {
   const [drink, setDrink] = useState({});
   const [receipDone, setRecipeDone] = useState(false);
   const { receipProgress, setReceipProgress } = useContext(AppContext);
-  useEffect(() => {
-    getDrinkById(id).then((data) => setDrink(data.drinks[0]));
-  }, [setDrink, id]);
+  useEffect(() => { getDrinkById(id).then((data) => setDrink(data.drinks[0])); }, [setDrink, id]);
   const [meal, setmeal] = useState([]);
-  useEffect(() => {
-    getMeals().then((data) => setmeal(data.meals.slice(0, 6)));
-  }, [setmeal]);
+  useEffect(() => { getMeals().then((data) => setmeal(data.meals.slice(0, 6))); }, [setmeal]);
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -42,31 +38,31 @@ export default function DetalhesBebidas(props) {
       const progress = Object.keys(itemProgress.cocktails);
       setReceipProgress(progress[0] === drink.idDrink);
     }
-    if (itemDone !== null) {
-      setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
-    }
+    if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === drink.idDrink));
   }, [setReceipProgress, drink]);
   return (
-    <div className="container">
-      <Header Drink={drink} />
-      <Ingredients Drink={drink} />
-      <Instruction Drink={drink} />
-      <Recommend meal={meal} />
+    <Fragment>
+      <img
+        className="details-thumbnail"
+        data-testid="recipe-photo"
+        src={drink.strDrinkThumb}
+        alt="thumbnail da comida"
+      />
+      <div className="details-container">
+        <Header Drink={drink} />
+        <Ingredients Drink={drink} />
+        <Instruction Drink={drink} />
+        <Recommend meal={meal} />
+      </div>
       {!receipDone && (
-        <Link className="start-recipe" to={`/bebidas/${drink.idDrink}/in-progress`}>
+        <Link to={`/bebidas/${drink.idDrink}/in-progress`}>
           <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-recipe"
-            onClick={() => handleProgress(drink.idDrink)}
-          >
-            <span className="btn-text">
-              {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-            </span>
-          </button>
+            type="button" data-testid="start-recipe-btn"
+            className="fixed" onClick={() => handleProgress()}
+          >{!receipProgress ? 'Start Recipe' : 'Continue Recipe'}</button>
         </Link>
       )}
-    </div>
+    </Fragment>
   );
 }
 

@@ -13,12 +13,12 @@ import './index.css';
 const listMeals = (foodArray) =>
   foodArray.map((food, index) => (
     <div className="recipe-card" key={food.strMeal} data-testid={`${index}-recipe-card`}>
-      <Link to={`/comidas/${food.idMeal}`}>
+      <Link to={`/comidas/${food.idMeal}`} className="noDecor">
         <img
-          className="thumbnail"
           data-testid={`${index}-card-img`}
-          src={food.strMealThumb}
+          className="thumbnail"
           alt="thumbnail da comida"
+          src={food.strMealThumb}
         />
         <p data-testid={`${index}-card-name`}>{food.strMeal}</p>
       </Link>
@@ -26,13 +26,14 @@ const listMeals = (foodArray) =>
   ));
 
 const listCategories = (setDataFood, foodCategory, dataFoodCategories, setFoodCategory) => (
-  <div>
+  <div className="btnsAll">
     <button
       onClick={async () => {
         await getMeals().then((data) => setDataFood(data.meals.slice(0, 12)));
         await setFoodCategory(false);
       }}
       data-testid={'All-category-filter'}
+      className="drkBtn"
     >
       All
     </button>
@@ -47,6 +48,7 @@ const listCategories = (setDataFood, foodCategory, dataFoodCategories, setFoodCa
           }
         }}
         data-testid={`${strCategory}-category-filter`}
+        className="drkBtn"
       >
         {strCategory}
       </button>
@@ -81,9 +83,11 @@ const Comidas = () => {
   if (foodArray.length > 12) foodArray = foodArray.slice(0, 12);
   return (
     <div className="recipes-container">
-      <Header>Comidas</Header>
+      <Header>meals</Header>
       {listCategories(setDataFood, foodCategory, dataFoodCategories, setFoodCategory)}
-      {listMeals(foodArray)}
+      <div className="mealBG display">
+        {listMeals(foodArray)}
+      </div>
       <Footer />
     </div>
   );

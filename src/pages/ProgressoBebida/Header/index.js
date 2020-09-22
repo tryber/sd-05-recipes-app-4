@@ -5,8 +5,6 @@ import favIcon from '../../../images/whiteHeartIcon.svg';
 import blackFavIcon from '../../../images/blackHeartIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 
-import './index.css';
-
 const toggleHeart = (target, Drink) => {
   const storage = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   const favBtn = document.getElementById('favBtn');
@@ -40,45 +38,34 @@ const HeaderDrink = ({ Drink }) => {
   const fav = storage.some((recipe) => recipe.id === Drink.idDrink);
   return (
     <Fragment>
-      <div className="header-container">
-        <img
-          className="img-header"
-          data-testid="recipe-photo"
-          src={Drink.strDrinkThumb}
-          alt="thumbnail da comida"
-        />
-        <div className="container-btn">
-          <div className="title-container">
-            <div className="title">
-              <p data-testid="recipe-title">{Drink.strDrink}</p>
-            </div>
-            <div className="title-type">
-              <p data-testid="recipe-category">{Drink.strAlcoholic}</p>
-            </div>
-          </div>
-          <div className="share-btn">
-            <input
-              type="image"
-              data-testid="share-btn"
-              className="shareicon"
-              id="btn-share-id"
-              src={shareIcon}
-              alt="share icon"
-              onClick={() => fclipboard(Drink.idDrink)}
-            />
-
-            <input
-              type="image"
-              data-testid="favorite-btn"
-              id="favBtn"
-              className="favicon"
-              src={fav ? blackFavIcon : favIcon}
-              alt="favicon icon"
-              onClick={(e) => toggleHeart(e.target, Drink)}
-            />
-          </div>
+      <div className="details-title-container">
+        <div className="details-title">
+          <p data-testid="recipe-title">{Drink.strDrink}</p>
+        </div>
+        <div className="favNshare">
+          <input
+            type="image"
+            data-testid="share-btn"
+            className="shareicon"
+            id="btn-share-id"
+            src={shareIcon}
+            alt="share icon"
+            onClick={() => fclipboard(Drink.idDrink)}
+          />
+          <input
+            type="image"
+            data-testid="favorite-btn"
+            id="favBtn"
+            className="favicon"
+            src={fav ? blackFavIcon : favIcon}
+            alt="favicon icon"
+            onClick={(e) => toggleHeart(e.target, Drink)}
+          />
         </div>
       </div>
+      <p className="details-category" data-testid="recipe-category">
+        {Drink.strAlcoholic}
+      </p>
     </Fragment>
   );
 };

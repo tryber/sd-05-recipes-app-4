@@ -9,26 +9,27 @@ import './index.css';
 const listDrinks = (drinkArray) =>
   drinkArray.map((drink, index) => (
     <div className="recipe-card" key={drink.strDrink} data-testid={`${index}-recipe-card`}>
-      <Link to={`/bebidas/${drink.idDrink}`}>
+      <Link to={`/bebidas/${drink.idDrink}`} className="noDecor">
         <img
           className="thumbnail"
           data-testid={`${index}-card-img`}
           src={drink.strDrinkThumb}
           alt="thumbnail da comida"
         />
-        <p data-testid={`${index}-card-name`}>{drink.strDrink}</p>
+        <p className="recipe-title" data-testid={`${index}-card-name`} >{drink.strDrink}</p>
       </Link>
     </div>
   ));
 
 const listCategories = (setDataDrink, dataDrinkCategories, setDrinkCategory, drinkCategory) => (
-  <div>
+  <div className="btnsAll">
     <button
       onClick={async () => {
         await getDrinks().then((data) => setDataDrink(data.drinks.slice(0, 12)));
         await setDrinkCategory(false);
       }}
       data-testid={'All-category-filter'}
+      className="drkBtn"
     >
       All
     </button>
@@ -43,6 +44,7 @@ const listCategories = (setDataDrink, dataDrinkCategories, setDrinkCategory, dri
           }
         }}
         data-testid={`${strCategory}-category-filter`}
+        className="drkBtn"
       >
         {strCategory}
       </button>
@@ -81,9 +83,11 @@ const Bebidas = () => {
   if (drinkArray.length > 12) drinkArray = drinkArray.slice(0, 12);
   return (
     <div className="recipes-container">
-      <Header>Bebidas</Header>
+      <Header>cocktails</Header>
       {listCategories(setDataDrink, dataDrinkCategories, setDrinkCategory, drinkCategory)}
-      {listDrinks(drinkArray)}
+      <div className="cocktailBG display">
+        {listDrinks(drinkArray)}
+      </div>
       <Footer />
     </div>
   );

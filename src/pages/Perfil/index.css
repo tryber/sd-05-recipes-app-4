@@ -1,34 +1,28 @@
-body {
-  border: 1px red;
-}
-
 .txt {
+  background-color: white;
   color: black;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: larger;
+  font-weight: 700;
   text-align: center;
 }
 
-.btns {
-  align-items: center;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-decoration: none;
+.mainProfile {
+  background-image: url('../../images/blueSplash.png');
+  min-height: 93vh;
+  padding-bottom: 5%;
 }
 
 .botao {
   align-items: center;
-  background: #c4c4c4;
+  background: white;
+  border-radius: 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: black;
   display: flex;
   flex-direction: column;
-  font-size: 25px;
-  line-height: 29px;
-  margin-top: 2%;
+  font-size: larger;
+  margin: 2% auto;
   padding: 2%;
   text-decoration: none;
-  width: 330px;
+  width: 80%;
 }

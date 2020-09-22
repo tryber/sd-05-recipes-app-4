@@ -29,7 +29,6 @@ const ExplorarIngredientesMeals = () => {
         onClick={() => clickOn(ingrediente.strIngredient)}
       >
         <img
-          className="thumbnail"
           data-testid={`${index}-card-img`}
           src={`https://www.themealdb.com/images/ingredients/${ingrediente.strIngredient}-Small.png`}
           alt="thumbnail do ingrediente"
@@ -45,8 +44,8 @@ const ExplorarIngredientesMeals = () => {
   if (redirect) return <Redirect to="/comidas" />;
 
   return (
-    <div className="recipes-container">
-      <Header hideSearch>Explorar Ingredientes</Header>
+    <div className="recipes-container mealBG">
+      <Header hideSearch>explore ingredients</Header>
       {listIngredients(ingArray)}
       <Footer />
     </div>

@@ -1,27 +1,22 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
 
 function Instruction(props) {
   const { meal } = props;
   return (
     <Fragment>
-      <div className="instruc-container">
-        <p className="instruc">Intructions</p>
-        <div className="intruc-div">
-          <p data-testid="instructions">{meal.strInstructions}</p>
-        </div>
-        <div data-testid="video">
-          <p className="instruc">Video</p>
-          <iframe
-            title="instructions"
-            width="340"
-            src={meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')}
-            frameBorder="0"
-            allowFullScreen
-          />
-        </div>
-      </div>
+      <p className="details-subtitle">Intructions</p>
+      <p className="instructions" data-testid="instructions">
+        {meal.strInstructions}
+      </p>
+      <p className="details-subtitle">Video</p>
+      <iframe
+        className="iframe"
+        title="instructions"
+        src={meal.strYoutube && meal.strYoutube.replace('watch?v=', 'embed/')}
+        frameBorder="0"
+        allowFullScreen
+      />
     </Fragment>
   );
 }

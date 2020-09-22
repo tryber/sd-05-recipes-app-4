@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
 
 function IngredientsMeal(props) {
   const { meal } = props;
@@ -17,18 +16,16 @@ function IngredientsMeal(props) {
   }, []);
   return (
     <Fragment>
-      <div className="container-ingredients">
-        <p className="ingredients-title">Ingredients</p>
-        {ingredients &&
-          ingredients.map((ingredient, index) => (
-            <p key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-name-and-measure`}>
-              - {ingredient[`strIngredient${index + 1}`]}{' '}
-              {ingredient[`strMeasure${index + 1}`]
-                ? `- ${ingredient[`strMeasure${index + 1}`]}`
-                : ''}
-            </p>
-          ))}
-      </div>
+      <p className="details-subtitle">Ingredients</p>
+      {ingredients &&
+        ingredients.map((ingredient, index) => (
+          <p key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-name-and-measure`}>
+            - {ingredient[`strIngredient${index + 1}`]}{' '}
+            {ingredient[`strMeasure${index + 1}`]
+              ? `- ${ingredient[`strMeasure${index + 1}`]}`
+              : ''}
+          </p>
+        ))}
     </Fragment>
   );
 }

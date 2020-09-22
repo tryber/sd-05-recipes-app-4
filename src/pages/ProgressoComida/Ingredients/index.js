@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './index.css';
 import AppContext from '../../../context/AppContext';
 
 const changeLocalStorage = (option, id, setRecipesInProgress) => {
@@ -73,8 +72,8 @@ function IngredientsMeal({ meal }) {
     return array;
   }, []);
   return (
-    <div className="container-ingredients-progress">
-      <p className="ingredients-title">Ingredients</p>
+    <Fragment>
+      <p className="details-subtitle">Ingredients</p>
       {ingredients &&
         ingredients.map((ingredient, index) => (
           <div data-testid={`${index}-ingredient-step`} key={`ingredient${index + 1}`}>
@@ -105,7 +104,7 @@ function IngredientsMeal({ meal }) {
             </label>
           </div>
         ))}
-    </div>
+    </Fragment>
   );
 }
 

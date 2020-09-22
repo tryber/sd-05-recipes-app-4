@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getMealById } from '../../services/MealApi';
@@ -8,7 +8,6 @@ import Header from './Header';
 import Instruction from './Instruction';
 import Recommend from './Recommend';
 import Ingredients from './Ingredients';
-import './index.css';
 
 const handleProgress = (id) => {
   const store = JSON.parse(localStorage.getItem('inProgressRecipes')) || {
@@ -28,13 +27,9 @@ export default function DetalhesComida(props) {
   const [meal, setMeal] = useState({});
   const [receipDone, setRecipeDone] = useState(false);
   const { receipProgress, setReceipProgress } = useContext(AppContext);
-  useEffect(() => {
-    getMealById(id).then((data) => setMeal(data.meals[0]));
-  }, [setMeal, id]);
+  useEffect(() => { getMealById(id).then((data) => setMeal(data.meals[0])); }, [setMeal, id]);
   const [drink, setdrink] = useState([]);
-  useEffect(() => {
-    getDrinks().then((data) => setdrink(data.drinks.slice(0, 6)));
-  }, [setdrink]);
+  useEffect(() => { getDrinks().then((data) => setdrink(data.drinks.slice(0, 6))); }, [setdrink]);
   useEffect(() => {
     const itemProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const itemDone = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -42,31 +37,31 @@ export default function DetalhesComida(props) {
       const progress = Object.keys(itemProgress.meals);
       setReceipProgress(progress[0] === meal.idMeal);
     }
-    if (itemDone !== null) {
-      setRecipeDone(itemDone.some((el) => el.id === meal.idMeal));
-    }
+    if (itemDone !== null) setRecipeDone(itemDone.some((el) => el.id === meal.idMeal));
   }, [setReceipProgress, meal]);
   return (
-    <div className="container">
-      <Header meal={meal} />
-      <Ingredients meal={meal} />
-      <Instruction meal={meal} />
-      <Recommend drink={drink} />
+    <Fragment>
+      <img
+        className="details-thumbnail"
+        data-testid="recipe-photo"
+        src={meal.strMealThumb}
+        alt="thumbnail da comida"
+      />
+      <div className="details-container">
+        <Header meal={meal} />
+        <Ingredients meal={meal} />
+        <Instruction meal={meal} />
+        <Recommend drink={drink} />
+      </div>
       {!receipDone && (
-        <Link className="start-recipe" to={`/comidas/${meal.idMeal}/in-progress`}>
+        <Link to={`/comidas/${meal.idMeal}/in-progress`}>
           <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-recipe"
-            onClick={() => handleProgress(meal.idMeal)}
-          >
-            <span className="btn-text">
-              {!receipProgress ? 'Iniciar Receita' : 'Continuar Receita'}
-            </span>
-          </button>
+            type="button" data-testid="start-recipe-btn"
+            className="fixed" onClick={() => handleProgress()}
+          >{!receipProgress ? 'Start Recipe' : 'Continue Recipe'}</button>
         </Link>
       )}
-    </div>
+    </Fragment>
   );
 }
 

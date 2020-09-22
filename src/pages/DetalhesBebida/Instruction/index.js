@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
 
 function InstructionDrink(props) {
   const { Drink } = props;
   return (
-    <div className="instruc-container">
-      <p className="instruc">Intructions</p>
-      <div className="intruc-div">
-        <p data-testid="instructions">{Drink.strInstructions}</p>
-      </div>
-    </div>
+    <Fragment>
+      <p className="details-subtitle">Intructions</p>
+      <p className="instructions" data-testid="instructions">
+        {Drink.strInstructions}
+      </p>
+    </Fragment>
   );
 }
 

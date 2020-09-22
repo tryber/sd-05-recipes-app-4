@@ -17,20 +17,16 @@ function IngredientsDrink(props) {
   }, []);
   return (
     <Fragment>
-      <div className="container-ingredients">
-        <p className="ingredients-title">Ingredients</p>
-        <div className="ingredients-box">
-          {ingredients &&
-            ingredients.map((ingredient, index) => (
-              <p key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-name-and-measure`}>
-                - {ingredient[`strIngredient${index + 1}`]}{' '}
-                {ingredient[`strMeasure${index + 1}`]
-                  ? `- ${ingredient[`strMeasure${index + 1}`]}`
-                  : ''}
-              </p>
-            ))}
-        </div>
-      </div>
+      <p className="details-subtitle">Ingredients</p>
+      {ingredients &&
+        ingredients.map((ingredient, index) => (
+          <p key={`ingredient${index + 1}`} data-testid={`${index}-ingredient-name-and-measure`}>
+            - {ingredient[`strIngredient${index + 1}`]}{' '}
+            {ingredient[`strMeasure${index + 1}`]
+              ? `- ${ingredient[`strMeasure${index + 1}`]}`
+              : ''}
+          </p>
+        ))}
     </Fragment>
   );
 }
